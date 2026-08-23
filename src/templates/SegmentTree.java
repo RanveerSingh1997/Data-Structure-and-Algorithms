@@ -6,8 +6,8 @@ package templates;
  * and updating of elements.
  */
 public class SegmentTree {
-    private int[] tree;
-    private int n;
+    private final int[] tree;
+    private final int n;
 
     public SegmentTree(int[] arr) {
         n = arr.length;

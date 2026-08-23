@@ -8,8 +8,8 @@ package templates;
  * Space Complexity: O(N)
  */
 public class DSU {
-    private int[] parent;
-    private int[] rank;
+    private final int[] parent;
+    private final int[] rank;
 
     public DSU(int n) {
         parent = new int[n];

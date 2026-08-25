@@ -1,37 +1,13 @@
 package utils;
 
-
-class SolutionTesting {
-    static void main() {
-        LinkedList linkedList = new LinkedList(3);
-        /// Append Function for adding new nodes
-        System.out.println("Adding new element");
-        linkedList.append(4);
-        linkedList.append(6);
-        linkedList.printList();
-        /// remove last node function calls
-        System.out.println("Remove all Elements from list");
-        System.out.println(linkedList.removeLast().value);
-        System.out.println(linkedList.removeLast().value);
-        System.out.println(linkedList.removeLast().value);
-        System.out.println(linkedList.removeLast());
-        linkedList.printList();
-        /// prepand fucntion call to add new node at first place
-        System.out.println("Adding new Elements Initial: ");
-        linkedList.prepand(81);
-        linkedList.prepand(43);
-        linkedList.printList();
-        System.out.println("Remove First Element: ");
-        linkedList.removeFirst();
-        linkedList.printList();
-    }
-}
-
-
 public class LinkedList {
     private Node head;
     private Node tail;
     private int length;
+
+    public LinkedList() {
+    }
+
 
     public LinkedList(int value) {
         Node newNode = new Node(value);
@@ -43,24 +19,25 @@ public class LinkedList {
     public void printList() {
         Node temp = head;
         while (temp != null) {
-            System.out.println(temp.value);
-            temp = temp.next;
+            System.out.println(temp.get_value());
+            temp = temp.get_next();
         }
     }
 
-    public void getHead() {
+    public Node getHead() {
         if (head == null) {
             System.out.println("Head: null");
         } else {
-            System.out.println("Head: " + head.value);
+            System.out.println("Head: " + head.get_value());
         }
+        return head;
     }
 
     public void getTail() {
         if (tail == null) {
             System.out.println("Tail: null");
         } else {
-            System.out.println("Tail: " + tail.value);
+            System.out.println("Tail: " + tail.get_value());
         }
     }
 
@@ -73,7 +50,7 @@ public class LinkedList {
         if (length == 0) {
             head = newNode;
         } else {
-            tail.next = newNode;
+            tail.set_next(newNode);
         }
         tail = newNode;
         length++;
@@ -83,12 +60,12 @@ public class LinkedList {
         if (length == 0) return null;
         Node temp = head;
         Node pre = head;
-        while (temp.next != null) {
+        while (temp.get_next() != null) {
             pre = temp;
-            temp = temp.next;
+            temp = temp.get_next();
         }
         tail = pre;
-        tail.next = null;
+        tail.set_next(null);
         length--;
         if (length == 0) {
             head = null;
@@ -103,7 +80,7 @@ public class LinkedList {
             head = newNode;
             tail = newNode;
         } else {
-            newNode.next = head;
+            newNode.set_next(head);
             head = newNode;
         }
         length++;
@@ -112,8 +89,8 @@ public class LinkedList {
     public Node removeFirst() {
         if (length == 0) return null;
         Node temp = head;
-        head = head.next;
-        temp.next = null;
+        head = head.get_next();
+        temp.set_next(null);
         length--;
         if (length == 0) {
             tail = null;
@@ -127,7 +104,7 @@ public class LinkedList {
         }
         Node temp = head;
         for (int i = 0; i < index; i++) {
-            temp = temp.next;
+            temp = temp.get_next();
         }
         return temp;
     }
@@ -135,7 +112,7 @@ public class LinkedList {
     public boolean set(int index, int value) {
         Node temp = get(index);
         if (temp != null) {
-            temp.value = value;
+            temp.set_value(value);
             return true;
         }
         return false;
@@ -153,22 +130,44 @@ public class LinkedList {
         }
         Node newNode = new Node(value);
         Node temp = get(index - 1);
-        newNode.next = temp.next;
-        temp.next = newNode;
+        newNode.set_next(temp.get_next());
+        temp.set_next(newNode);
         length++;
         return false;
     }
 
-    public Node remove(int index){
-        if(index<0 || index>length) return  null;
-        if(index==0) return removeFirst();
-        if(index == length-1) return removeLast();
-        Node prev =get(index-1);
-        Node temp = prev.next;
-        prev.next = temp.next;
-        temp.next =null;
+    public Node remove(int index) {
+        if (index < 0 || index > length) return null;
+        if (index == 0) return removeFirst();
+        if (index == length - 1) return removeLast();
+        Node prev = get(index - 1);
+        Node temp = prev.get_next();
+        prev.set_next(temp.get_next());
+        temp.set_next(null);
         length--;
         return temp;
     }
 
+    public void reverse() {
+        Node temp = head;
+        head = tail;
+        tail = temp;
+        Node after = temp.get_next();
+        Node before = null;
+        for (int i = 0; i < length; i++) {
+            after = temp.get_next();
+            temp.set_next(before);
+            before = temp;
+            temp = after;
+        }
+    }
+
+    public LinkedList addElements(int[] elements) {
+        LinkedList linkedList = new LinkedList(elements[0]);
+        for (int i = 1; i < elements.length; i++) {
+            linkedList.append(elements[i]);
+            length++;
+        }
+        return linkedList;
+    }
 }

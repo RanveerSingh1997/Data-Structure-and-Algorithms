@@ -33,16 +33,18 @@ public class LinkedList {
         return head;
     }
 
-    public void getTail() {
+    public Node getTail() {
         if (tail == null) {
             System.out.println("Tail: null");
         } else {
             System.out.println("Tail: " + tail.get_value());
         }
+        return tail;
     }
 
-    public void getLength() {
+    public int getLength() {
         System.out.println("Length: " + length);
+        return length;
     }
 
     public void append(int value) {
@@ -152,7 +154,7 @@ public class LinkedList {
         Node temp = head;
         head = tail;
         tail = temp;
-        Node after = temp.get_next();
+        Node after;
         Node before = null;
         for (int i = 0; i < length; i++) {
             after = temp.get_next();

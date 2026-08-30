@@ -60,6 +60,32 @@ public class DoublyLinkedList {
     }
 
     public void prepand(int value) {
-
+       Node newNode = new Node(value);
+       if(length==0){
+           head=newNode;
+           tail=newNode;
+       }else {
+           newNode.set_next(head);
+           head.set_prev(newNode);
+           head= newNode;
+       }
+       length++;
     }
+
+    public Node removeLast() {
+        if (length == 0) return null;
+        Node temp = tail;
+        if (length == 1) {
+            head = null;
+            tail = null;
+        } else {
+            tail = tail.get_prev();
+            tail.set_next(null);
+            temp.set_prev(null);
+        }
+        length--;
+        return temp;
+    }
+
+
 }

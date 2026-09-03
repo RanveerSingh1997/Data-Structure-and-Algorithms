@@ -35,4 +35,17 @@ public class ValidParentheses {
         return stack.isEmpty();
     }
 
+    public static void main(String[] args) {
+        ValidParentheses solver = new ValidParentheses();
+
+        String[] testCases = {"()", "()[]{}", "(]", "([)]", "{[]}", "[", "]", ""};
+        boolean[] expected = {true, true, false, false, true, false, false, true};
+
+        System.out.println("=== Testing ValidParentheses ===");
+        for (int i = 0; i < testCases.length; i++) {
+            boolean result = solver.isValid(testCases[i]);
+            System.out.printf("Input: %-8s | Expected: %-5b | Output: %-5b | %s%n",
+                    "\"" + testCases[i] + "\"", expected[i], result, (result == expected[i] ? "PASS" : "FAIL"));
+        }
+    }
 }

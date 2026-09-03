@@ -34,4 +34,21 @@ public class FindLoop {
         LinkedList linkedList = new LinkedList().addElements(new int[]{2, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15});
         return hasLoop(linkedList);
     }
+
+    public static void main(String[] args) {
+        FindLoop solver = new FindLoop();
+
+        // 1. Acyclic list
+        Node n1 = new Node(1);
+        Node n2 = new Node(2);
+        Node n3 = new Node(3);
+        n1.set_next(n2);
+        n2.set_next(n3);
+        System.out.println("=== Testing FindLoop ===");
+        System.out.println("Acyclic list 1->2->3 -> hasLoop: " + solver.hasLoop(n1) + " (Expected: false)");
+
+        // 2. Cyclic list
+        n3.set_next(n1); // create cycle: 3 points back to 1
+        System.out.println("Cyclic list 1->2->3->1 -> hasLoop: " + solver.hasLoop(n1) + " (Expected: true)");
+    }
 }

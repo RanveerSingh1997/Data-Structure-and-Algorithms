@@ -26,4 +26,17 @@ public class ContainsDuplicate {
         }
         return false;
     }
+
+    public static void main(String[] args) {
+        ContainsDuplicate solver = new ContainsDuplicate();
+
+        int[] test1 = {1, 2, 3, 1};
+        int[] test2 = {1, 2, 3, 4};
+        int[] test3 = {1, 1, 1, 3, 3, 4, 3, 2, 4, 2};
+
+        System.out.println("=== Testing ContainsDuplicate ===");
+        System.out.println("[1, 2, 3, 1] -> Expected: true  | Output: " + solver.containsDuplicate(test1));
+        System.out.println("[1, 2, 3, 4] -> Expected: false | Output: " + solver.containsDuplicate(test2));
+        System.out.println("[1, 1, 1...] -> Expected: true  | Output: " + solver.containsDuplicate(test3));
+    }
 }

@@ -51,8 +51,10 @@ public class Anagram {
          return  true;
      }
 
-    static void main() {
-         System.out.println(isAnagram("rat","cat"));
-         System.out.println(isAnagram("tea","eat"));
+    public static void main(String[] args) {
+        System.out.println("=== Testing Anagram ===");
+        System.out.println("isAnagram(\"rat\", \"cat\") -> Expected: false | Output: " + isAnagram("rat", "cat"));
+        System.out.println("isAnagram(\"tea\", \"eat\") -> Expected: true  | Output: " + isAnagram("tea", "eat"));
+        System.out.println("isAnagram(\"anagram\", \"nagaram\") -> Expected: true | Output: " + isAnagram("anagram", "nagaram"));
     }
 }

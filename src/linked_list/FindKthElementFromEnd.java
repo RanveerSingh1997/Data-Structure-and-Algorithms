@@ -37,4 +37,26 @@ public class FindKthElementFromEnd {
     public Node findKthElement(int k) {
         return findKthElement(new LinkedList().getHead(), k);
     }
+
+    public static void main(String[] args) {
+        FindKthElementFromEnd solver = new FindKthElementFromEnd();
+        LinkedList list = new LinkedList();
+        list.addElements(new int[]{10, 20, 30, 40, 50});
+
+        System.out.println("=== Testing FindKthElementFromEnd ===");
+        System.out.print("List: ");
+        list.printList();
+
+        Node k1 = solver.findKthElement(list, 1);
+        System.out.println("k=1 (1st from end) -> Value: " + (k1 != null ? k1.get_value() : "null") + " (Expected 50)");
+
+        Node k3 = solver.findKthElement(list, 3);
+        System.out.println("k=3 (3rd from end) -> Value: " + (k3 != null ? k3.get_value() : "null") + " (Expected 30)");
+
+        Node k5 = solver.findKthElement(list, 5);
+        System.out.println("k=5 (5th from end) -> Value: " + (k5 != null ? k5.get_value() : "null") + " (Expected 10)");
+
+        Node k10 = solver.findKthElement(list, 10);
+        System.out.println("k=10 (out of bounds)-> Value: " + (k10 != null ? k10.get_value() : "null") + " (Expected null)");
+    }
 }

@@ -3,7 +3,7 @@ package linked_list;
 import utils.LinkedList;
 
 public class LinkedListTesting {
-    static void main() {
+    public static void main(String[] args) {
         LinkedList linkedList = new LinkedList(5);
         linkedList.append(1);
         linkedList.append(2);

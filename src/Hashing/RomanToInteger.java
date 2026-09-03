@@ -40,4 +40,17 @@ public class RomanToInteger {
         }
         return sum;
     }
+
+    public static void main(String[] args) {
+        RomanToInteger solver = new RomanToInteger();
+        String[] testCases = {"III", "LVIII", "MCMXCIV", "IV", "IX", "I"};
+        int[] expected = {3, 58, 1994, 4, 9, 1};
+
+        System.out.println("=== Testing RomanToInteger ===");
+        for (int i = 0; i < testCases.length; i++) {
+            int result = solver.romanToInteger(testCases[i]);
+            System.out.printf("Input: %-8s | Expected: %-5d | Output: %-5d | %s%n",
+                    testCases[i], expected[i], result, (result == expected[i] ? "PASS" : "FAIL"));
+        }
+    }
 }

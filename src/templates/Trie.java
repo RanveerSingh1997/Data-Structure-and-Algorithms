@@ -63,4 +63,22 @@ public class Trie {
         }
         return true;
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing Trie (Prefix Tree) ===");
+        Trie trie = new Trie();
+
+        System.out.println("Inserting \"apple\"...");
+        trie.insert("apple");
+
+        System.out.println("search(\"apple\"):    " + trie.search("apple") + " (Expected: true)");
+        System.out.println("search(\"app\"):      " + trie.search("app") + " (Expected: false)");
+        System.out.println("startsWith(\"app\"):  " + trie.startsWith("app") + " (Expected: true)");
+
+        System.out.println("\nInserting \"app\"...");
+        trie.insert("app");
+        System.out.println("search(\"app\"):      " + trie.search("app") + " (Expected: true)");
+        System.out.println("search(\"appl\"):     " + trie.search("appl") + " (Expected: false)");
+        System.out.println("startsWith(\"ap\"):   " + trie.startsWith("ap") + " (Expected: true)");
+    }
 }

@@ -55,4 +55,37 @@ public class RemoveDuplicates {
             removeDuplicates(list.getHead());
         }
     }
+
+    public static void main(String[] args) {
+        RemoveDuplicates solver = new RemoveDuplicates();
+
+        // Helper to print linked nodes
+        java.util.function.Consumer<Node> printNodeList = (h) -> {
+            Node curr = h;
+            while (curr != null) {
+                System.out.print(curr.get_value() + (curr.get_next() != null ? " -> " : ""));
+                curr = curr.get_next();
+            }
+            System.out.println();
+        };
+
+        // Test 1: Using HashSet
+        Node n1 = new Node(1, new Node(2, new Node(2, new Node(3, new Node(1, null)))));
+        System.out.println("=== Testing RemoveDuplicates ===");
+        System.out.print("Original list: ");
+        printNodeList.accept(n1);
+
+        solver.removeDuplicates(n1);
+        System.out.print("After removeDuplicates (HashSet): ");
+        printNodeList.accept(n1);
+
+        // Test 2: Using Nested Loops (no extra buffer)
+        Node n2 = new Node(4, new Node(5, new Node(4, new Node(6, new Node(5, null)))));
+        System.out.print("\nOriginal list 2: ");
+        printNodeList.accept(n2);
+
+        solver.removeDuplicatesWithLoop(n2);
+        System.out.print("After removeDuplicatesWithLoop:   ");
+        printNodeList.accept(n2);
+    }
 }

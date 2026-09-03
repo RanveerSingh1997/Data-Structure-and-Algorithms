@@ -79,4 +79,18 @@ public class SegmentTree {
         
         return p1 + p2; // Change logic for Range Min/Max
     }
+
+    public static void main(String[] args) {
+        System.out.println("=== Testing SegmentTree (Range Sum) ===");
+        int[] arr = {1, 3, 5, 7, 9, 11};
+        SegmentTree st = new SegmentTree(arr);
+
+        System.out.println("Initial array: [1, 3, 5, 7, 9, 11]");
+        System.out.println("Query sum range [1, 3] (3 + 5 + 7) -> Output: " + st.query(1, 3) + " (Expected: 15)");
+        System.out.println("Query sum range [0, 5] (full array) -> Output: " + st.query(0, 5) + " (Expected: 36)");
+
+        System.out.println("\nUpdating index 1 to value 10 (arr[1] becomes 10)...");
+        st.update(1, 10);
+        System.out.println("Query sum range [1, 3] (10 + 5 + 7)-> Output: " + st.query(1, 3) + " (Expected: 22)");
+    }
 }

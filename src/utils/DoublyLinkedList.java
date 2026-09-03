@@ -148,22 +148,19 @@ public class DoublyLinkedList {
         before.set_next(newNode);
         after.set_prev(newNode);
         length++;
-        return false;
+        return true;
     }
 
-
     public Node remove(int index) {
-        if (index < 0 || index > length) return null;
+        if (index < 0 || index >= length) return null;
         if (index == 0) return removeFirst();
         if (index == length - 1) return removeLast();
 
-        /// temp.next.prev = temp.prev;
-        /// temp.prev.next = temp.next;
-        /// temp.next =null;
-        /// temp.prev =null;
         Node temp = get(index);
-        temp.get_prev().get_next().set_next(temp.get_next());
-        temp.get_next().get_prev().set_next(temp.get_prev());
+        temp.get_prev().set_next(temp.get_next());
+        temp.get_next().set_prev(temp.get_prev());
+        temp.set_next(null);
+        temp.set_prev(null);
         length--;
         return temp;
     }

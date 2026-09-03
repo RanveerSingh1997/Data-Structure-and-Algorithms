@@ -148,7 +148,7 @@ public class SortStack {
         StackTemplate<Integer> tempStack = new StackTemplate<>();
         while (!stack.isEmpty()) {
             Integer current = stack.pop();
-            while (!tempStack.isEmpty() && current > tempStack.peek()) {
+            while (!tempStack.isEmpty() && current < tempStack.peek()) {
                 stack.push(tempStack.pop());
             }
             tempStack.push(current);

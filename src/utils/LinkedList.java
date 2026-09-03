@@ -136,11 +136,11 @@ public class LinkedList {
         newNode.set_next(temp.get_next());
         temp.set_next(newNode);
         length++;
-        return false;
+        return true;
     }
 
     public Node remove(int index) {
-        if (index < 0 || index > length) return null;
+        if (index < 0 || index >= length) return null;
         if (index == 0) return removeFirst();
         if (index == length - 1) return removeLast();
         Node prev = get(index - 1);
@@ -165,12 +165,15 @@ public class LinkedList {
         }
     }
 
+    public void prepend(int value) {
+        prepand(value);
+    }
+
     public LinkedList addElements(int[] elements) {
-        LinkedList linkedList = new LinkedList(elements[0]);
-        for (int i = 1; i < elements.length; i++) {
-            linkedList.append(elements[i]);
-            length++;
+        if (elements == null || elements.length == 0) return this;
+        for (int element : elements) {
+            this.append(element);
         }
-        return linkedList;
+        return this;
     }
 }

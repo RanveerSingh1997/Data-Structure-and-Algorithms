@@ -5,9 +5,16 @@ public class Node {
     int _value;
     Node _prev;
 
-    Node(int value) {
+    public Node(int value) {
         this._value = value;
     }
+
+    public Node(int value, Node next) {
+        this._value = value;
+        this._next = next;
+    }
+
+    public Node() {}
 
     public int get_value() {
         return _value;

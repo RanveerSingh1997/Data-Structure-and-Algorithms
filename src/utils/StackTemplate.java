@@ -10,7 +10,7 @@ public class StackTemplate<T> {
     }
 
     public void printStack() {
-        for (int i = stackList.size() - 1; i >= 0; i++) {
+        for (int i = stackList.size() - 1; i >= 0; i--) {
             System.out.println(stackList.get(i));
         }
     }
@@ -33,10 +33,12 @@ public class StackTemplate<T> {
 
     public void push(T value) {
         stackList.add(value);
-
     }
 
     public T pop() {
+        if (isEmpty()) {
+            return null;
+        }
         return stackList.removeLast();
     }
 }

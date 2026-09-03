@@ -25,8 +25,8 @@ public class RomanToInteger {
     public int romanToInteger(String s) {
         int sum = 0;
         int i = 0;
-        while (i < s.length() - 1) {
-            if(i<s.length()-1){
+        while (i < s.length()) {
+            if (i < s.length() - 1) {
                 String twoSymbols = s.substring(i, i + 2);
                 if (values.containsKey(twoSymbols)) {
                     sum += values.get(twoSymbols);

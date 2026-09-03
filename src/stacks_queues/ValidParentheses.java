@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ValidParentheses {
     public boolean isValid(String s) {
-        List<Character> openParentheses = List.of('(', '{', ']');
+        List<Character> openParentheses = List.of('(', '{', '[');
         StackTemplate<Character> stack = new StackTemplate<>();
         for (int i = 0; i < s.length(); i++) {
             char current = s.charAt(i);

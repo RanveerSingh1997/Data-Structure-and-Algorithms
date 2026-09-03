@@ -7,16 +7,36 @@ import java.util.HashSet;
 import java.util.Set;
 
 
+/**
+ * Problem: Remove Duplicates from an Unsorted Linked List
+ * <p>
+ * Approach 1 (Hash Set): O(N) Time, O(N) Space
+ * Approach 2 (Nested Loops): O(N^2) Time, O(1) Space
+ */
 public class RemoveDuplicates {
 
-    public void removeDuplicatesWithLoop() {
-
+    // Approach 2: Without extra buffer (two loops)
+    public Node removeDuplicatesWithLoop(Node head) {
+        Node current = head;
+        while (current != null) {
+            Node runner = current;
+            while (runner.get_next() != null) {
+                if (runner.get_next().get_value() == current.get_value()) {
+                    runner.set_next(runner.get_next().get_next());
+                } else {
+                    runner = runner.get_next();
+                }
+            }
+            current = current.get_next();
+        }
+        return head;
     }
 
-
-    public void removeDuplicates() {
+    // Approach 1: Using HashSet
+    public Node removeDuplicates(Node head) {
+        if (head == null) return null;
         Set<Integer> visited = new HashSet<>();
-        Node current = new LinkedList().getHead();
+        Node current = head;
         Node previous = null;
         while (current != null) {
             if (visited.contains(current.get_value())) {
@@ -26,6 +46,13 @@ public class RemoveDuplicates {
                 previous = current;
             }
             current = current.get_next();
+        }
+        return head;
+    }
+
+    public void removeDuplicates(LinkedList list) {
+        if (list != null && list.getHead() != null) {
+            removeDuplicates(list.getHead());
         }
     }
 }

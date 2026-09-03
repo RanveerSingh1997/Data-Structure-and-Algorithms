@@ -5,6 +5,8 @@ public class Queue {
     private Node last;
     private int length;
 
+    public Queue() {}
+
     public Queue(int value) {
         Node newNode = new Node(value);
         first = newNode;
@@ -13,15 +15,31 @@ public class Queue {
     }
 
     public void printFirst() {
-        System.out.println("FIRST:" + first._value);
+        if (first == null) {
+            System.out.println("FIRST: null");
+        } else {
+            System.out.println("FIRST: " + first._value);
+        }
     }
 
     public void getLast() {
-        System.out.println("SECOND:" + last._value);
+        if (last == null) {
+            System.out.println("LAST: null");
+        } else {
+            System.out.println("LAST: " + last._value);
+        }
     }
 
     public void getLength() {
-        System.out.println("LENGTH:" + length);
+        System.out.println("LENGTH: " + length);
+    }
+
+    public int length() {
+        return length;
+    }
+
+    public boolean isEmpty() {
+        return length == 0;
     }
 
     public void enqueue(int value) {

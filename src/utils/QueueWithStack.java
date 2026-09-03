@@ -32,6 +32,13 @@ public class QueueWithStack {
         }
     }
 
+    public Integer dequeue() {
+        if (stack1.isEmpty()) {
+            return null;
+        }
+        return stack1.pop();
+    }
+
     public void printQueue() {
         stack1.printStack();
     }

@@ -1,11 +1,13 @@
 package stacks_queues;
 
-import utils.Stack;
+import utils.StackTemplate;
+
+import java.util.List;
 
 public class ValidParentheses {
     public boolean isValid(String s) {
         List<Character> openParentheses = List.of('(', '{', ']');
-        Stack<Character> stack = new Stack<>();
+        StackTemplate<Character> stack = new StackTemplate<>();
         for (int i = 0; i < s.length(); i++) {
             char current = s.charAt(i);
             if (openParentheses.contains(s.charAt(i))) {

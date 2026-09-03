@@ -16,7 +16,7 @@ public class StackTemplate<T> {
     }
 
     public int size() {
-        return stackList.size() - 1;
+        return stackList.size();
     }
 
     public boolean isEmpty() {

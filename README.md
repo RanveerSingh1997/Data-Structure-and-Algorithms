@@ -8,6 +8,7 @@ Every solution and practice template is written in clean, modern Java, fully doc
 
 ## 📊 Quick Links & Resources
 
+* ⚡ **[DSA Pattern Visualizer (visualizer/index.html)](./visualizer/index.html)**: Pattern-first visual learning platform featuring live step-by-step invariant animations, scrubber playback, synchronized Java code tracing, and problem trigger cues.
 * 🏆 **[Solved Problems Tracker & Practice Queue (SOLVED.md)](./SOLVED.md)**: Categorized table of all solved questions, complexities, and 16 curated Google Easy & Medium practice templates.
 * 🚀 **[Fast Learning & Deep Mastery Guide](./notes/Fast_Learning_and_Deep_Mastery_Guide.md)**: Accelerated learning blueprint, 20-minute rule, invariant proofs, constraint cheat codes, pattern triggers & 5-minute review routine.
 * 🎯 **[Google SWE Interview Prep Guide](./notes/Google_Interview_Guide.md)**: Complete 45-minute live coding blueprint, evaluation rubric, clarifying questions checklist, and high-frequency follow-ups.
@@ -78,6 +79,7 @@ Every solution and practice template is written in clean, modern Java, fully doc
 │   └── utils/                    # Data structure implementations, parsers & profilers
 │       ├── TreeNode.java         # LeetCode binary tree node (with fromLeetCode & print)
 │       ├── TreeVisualizer.java   # LeetCode string parser & 2D ASCII tree visualizer
+│       ├── ArrayVisualizer.java  # Two Pointers, Sliding Window, Stack & Binary Search visualizer
 │       ├── Benchmark.java        # Micro-benchmarking, ops/sec & memory profiler
 │       ├── ListNode.java         # Standard LeetCode singly linked list node
 │       ├── Node.java             # Generic bidirectional node
@@ -86,12 +88,41 @@ Every solution and practice template is written in clean, modern Java, fully doc
 │       ├── Stack.java            # Node-based integer stack
 │       ├── StackTemplate.java    # Generic ArrayList-backed stack
 │       └── Queue.java            # Node-based FIFO queue
+├── visualizer/                   # Standalone offline interactive algorithmic visualizer
+│   ├── index.html                # Interactive simulator, pattern cues & code tracer
+│   ├── styles.css                # Dark glassmorphism, responsive visualizer components
+│   ├── patterns-data.js          # Pattern triggers, mental models, Big-O & Java blueprints
+│   ├── visualizers.js            # Algorithmic state generators for all core patterns
+│   └── app.js                    # Playback engine, step scrubber & DOM canvas renderers
 ├── test/
 │   ├── AllTestsRunner.java       # Automated test runner (45 tests passing)
 │   └── SampleTest.java           # JUnit 5 test example
 ├── notes/                        # In-depth interview notes, playbooks & cheatsheets
 ├── SOLVED.md                     # Live tracking table & practice queue
 └── README.md
+```
+
+---
+
+## ⚡ Interactive DSA Pattern Visualizer Platform
+
+This repository includes a standalone, zero-dependency offline web application in [`visualizer/`](./visualizer/index.html) designed for visual pattern mastery:
+
+* 🧠 **Pattern-First Learning**: Rather than memorizing 500 isolated problems, master 85+ patterns (Two Pointers, Sliding Window, Monotonic Stack, Modified Binary Search, Tree Traversals, Grid Multi-Source BFS, Merge Intervals, Knapsack DP).
+* 🎯 **"When a problem mentions..." Cue Library**: Keyword triggers (*"window of size k"*, *"next warmer day"*, *"pair with target sum"*) mapping interview statements directly to patterns.
+* 🎬 **Interactive Step-by-Step State Simulator**: Live visual animations with Play/Pause, Step Forward/Back, scrubber slider, and speed presets (0.5x to 2.5x).
+* 🧪 **Custom Input Playground**: Type any custom array, string, tree, rotated sequence, or grid into the input box and step through the simulation!
+* 💡 **Algorithmic Invariant Inspector**: Real-time HUD showing pointer values ($L, R, mid$), active stack frames, sliding window bounds, and plain-English explanations of *why* each step preserves optimality.
+* 💻 **Synchronized Java Execution Highlighting**: Synchronized code viewer tracking the exact Java code file in this repository with live active line indicators.
+
+### How to Launch the Visualizer:
+```bash
+# Option 1: Open directly in your default browser (macOS)
+open visualizer/index.html
+
+# Option 2: Run via local lightweight HTTP server
+python3 -m http.server 3000 --directory visualizer
+# Then visit http://localhost:3000 in your browser
 ```
 
 ---
@@ -124,7 +155,26 @@ Run the visualizer demo:
 java -cp out utils.TreeVisualizer
 ```
 
-### 2. ⏱️ Micro-Benchmarking & Space Profiler (`utils.Benchmark`)
+### 2. 📊 Array, Two Pointers & Window Visualizer (`utils.ArrayVisualizer`)
+Print rich terminal ASCII snapshots for pointer convergence, sliding window bounding boxes, and monotonic stacks right in your console:
+
+```java
+// Two pointers snapshot with L and R markers
+ArrayVisualizer.printTwoPointers(heights, left, right, "Move R left");
+
+// Sliding window bracket representation
+ArrayVisualizer.printSlidingWindow(text, left, right, "Valid distinct window");
+
+// Monotonic stack inspection
+ArrayVisualizer.printStackState(temperatures, currentIndex, stack, "Popped previous colder day");
+```
+
+Run the array visualizer demo:
+```bash
+java -cp out utils.ArrayVisualizer
+```
+
+### 3. ⏱️ Micro-Benchmarking & Space Profiler (`utils.Benchmark`)
 Compare alternative data structures and algorithms with high-precision execution timing, throughput (`ops/sec`), and heap memory allocation tracking:
 
 ```java

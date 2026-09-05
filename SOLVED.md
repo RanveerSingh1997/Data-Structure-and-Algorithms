@@ -33,24 +33,26 @@ Keep track of all the problems you solve here. Review this list before interview
 ## 🎯 Google Interview Practice Queue (Templates Ready to Solve)
 Practice each question by implementing the `// TODO` in the template file. Run each file directly to test your solution!
 
-| # | Problem Name | Difficulty | Topic | Status | Link | Template File |
-| :--- | :--- | :---: | :--- | :---: | :--- | :--- |
-| 946 | **Validate Stack Sequences** | 🟡 Medium | Stack Simulation | ⏳ In Progress | [Link](https://leetcode.com/problems/validate-stack-sequences/) | [`ValidateStackSequences.java`](./src/stacks_queues/ValidateStackSequences.java) |
-| 226 | **Invert Binary Tree** | 🟢 Easy | Trees / DFS & BFS | ⏳ To Solve | [Link](https://leetcode.com/problems/invert-binary-tree/) | [`InvertBinaryTree.java`](./src/trees/InvertBinaryTree.java) |
-| 252 | **Meeting Rooms** | 🟢 Easy | Intervals / Sorting | ⏳ To Solve | [Link](https://leetcode.com/problems/meeting-rooms/) | [`MeetingRooms.java`](./src/arrays/MeetingRooms.java) |
-| 543 | **Diameter of Binary Tree** | 🟢 Easy | Trees / Bottom-Up DFS | ⏳ To Solve | [Link](https://leetcode.com/problems/diameter-of-binary-tree/) | [`DiameterOfBinaryTree.java`](./src/trees/DiameterOfBinaryTree.java) |
-| 3 | **Longest Substring Without Repeating** | 🟡 Medium | Sliding Window | ⏳ To Solve | [Link](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [`LongestSubstringWithoutRepeating.java`](./src/strings/LongestSubstringWithoutRepeating.java) |
-| 11 | **Container With Most Water** | 🟡 Medium | Two Pointers / Greedy | ⏳ To Solve | [Link](https://leetcode.com/problems/container-with-most-water/) | [`ContainerWithMostWater.java`](./src/arrays/ContainerWithMostWater.java) |
-| 15 | **3Sum** | 🟡 Medium | Two Pointers / Sorting | ⏳ To Solve | [Link](https://leetcode.com/problems/3sum/) | [`ThreeSum.java`](./src/arrays/ThreeSum.java) |
-| 33 | **Search in Rotated Sorted Array** | 🟡 Medium | Binary Search | ⏳ To Solve | [Link](https://leetcode.com/problems/search-in-rotated-sorted-array/) | [`SearchRotatedSortedArray.java`](./src/sorting_searching/SearchRotatedSortedArray.java) |
-| 56 | **Merge Intervals** | 🟡 Medium | Intervals / Greedy | ⏳ To Solve | [Link](https://leetcode.com/problems/merge-intervals/) | [`MergeIntervals.java`](./src/arrays/MergeIntervals.java) |
-| 98 | **Validate Binary Search Tree** | 🟡 Medium | Trees / BST Invariant | ⏳ To Solve | [Link](https://leetcode.com/problems/validate-binary-search-tree/) | [`ValidateBinarySearchTree.java`](./src/trees/ValidateBinarySearchTree.java) |
-| 200 | **Number of Islands** | 🟡 Medium | Graphs / Grid BFS/DFS | ⏳ To Solve | [Link](https://leetcode.com/problems/number-of-islands/) | [`NumberOfIslands.java`](./src/graphs/NumberOfIslands.java) |
-| 207 | **Course Schedule** | 🟡 Medium | Graphs / Topo Sort | ⏳ To Solve | [Link](https://leetcode.com/problems/course-schedule/) | [`CourseSchedule.java`](./src/graphs/CourseSchedule.java) |
-| 236 | **Lowest Common Ancestor** | 🟡 Medium | Trees / Post-Order DFS | ⏳ To Solve | [Link](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) | [`LowestCommonAncestor.java`](./src/trees/LowestCommonAncestor.java) |
-| 322 | **Coin Change** | 🟡 Medium | Dynamic Programming | ⏳ To Solve | [Link](https://leetcode.com/problems/coin-change/) | [`CoinChange.java`](./src/dp/CoinChange.java) |
-| 739 | **Daily Temperatures** | 🟡 Medium | Monotonic Stack | ⏳ To Solve | [Link](https://leetcode.com/problems/daily-temperatures/) | [`DailyTemperatures.java`](./src/stacks_queues/DailyTemperatures.java) |
-| 994 | **Rotting Oranges** | 🟡 Medium | Graphs / Multi-Source BFS | ⏳ To Solve | [Link](https://leetcode.com/problems/rotting-oranges/) | [`RottingOranges.java`](./src/graphs/RottingOranges.java) |
+> 💡 **Visual Pattern Simulator**: Want to see how these patterns work visually before implementing them? Open the **[DSA Pattern Visualizer](./visualizer/index.html)** in any browser (`open visualizer/index.html`) to step through live animations, custom inputs, and algorithmic invariant explanations!
+
+| # | Problem Name | Difficulty | Topic | Status | Visualizer | Link | Template File |
+| :--- | :--- | :---: | :--- | :---: | :---: | :--- | :--- |
+| 946 | **Validate Stack Sequences** | 🟡 Medium | Stack Simulation | ⏳ In Progress | - | [Link](https://leetcode.com/problems/validate-stack-sequences/) | [`ValidateStackSequences.java`](./src/stacks_queues/ValidateStackSequences.java) |
+| 226 | **Invert Binary Tree** | 🟢 Easy | Trees / DFS & BFS | ⏳ To Solve | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/invert-binary-tree/) | [`InvertBinaryTree.java`](./src/trees/InvertBinaryTree.java) |
+| 252 | **Meeting Rooms** | 🟢 Easy | Intervals / Sorting | ⏳ To Solve | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/meeting-rooms/) | [`MeetingRooms.java`](./src/arrays/MeetingRooms.java) |
+| 543 | **Diameter of Binary Tree** | 🟢 Easy | Trees / Bottom-Up DFS | ⏳ To Solve | - | [Link](https://leetcode.com/problems/diameter-of-binary-tree/) | [`DiameterOfBinaryTree.java`](./src/trees/DiameterOfBinaryTree.java) |
+| 3 | **Longest Substring Without Repeating** | 🟡 Medium | Sliding Window | ⏳ To Solve | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [`LongestSubstringWithoutRepeating.java`](./src/strings/LongestSubstringWithoutRepeating.java) |
+| 11 | **Container With Most Water** | 🟡 Medium | Two Pointers / Greedy | ⏳ To Solve | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/container-with-most-water/) | [`ContainerWithMostWater.java`](./src/arrays/ContainerWithMostWater.java) |
+| 15 | **3Sum** | 🟡 Medium | Two Pointers / Sorting | ⏳ To Solve | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/3sum/) | [`ThreeSum.java`](./src/arrays/ThreeSum.java) |
+| 33 | **Search in Rotated Sorted Array** | 🟡 Medium | Binary Search | ⏳ To Solve | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/search-in-rotated-sorted-array/) | [`SearchRotatedSortedArray.java`](./src/sorting_searching/SearchRotatedSortedArray.java) |
+| 56 | **Merge Intervals** | 🟡 Medium | Intervals / Greedy | ⏳ To Solve | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/merge-intervals/) | [`MergeIntervals.java`](./src/arrays/MergeIntervals.java) |
+| 98 | **Validate Binary Search Tree** | 🟡 Medium | Trees / BST Invariant | ⏳ To Solve | - | [Link](https://leetcode.com/problems/validate-binary-search-tree/) | [`ValidateBinarySearchTree.java`](./src/trees/ValidateBinarySearchTree.java) |
+| 200 | **Number of Islands** | 🟡 Medium | Graphs / Grid BFS/DFS | ⏳ To Solve | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/number-of-islands/) | [`NumberOfIslands.java`](./src/graphs/NumberOfIslands.java) |
+| 207 | **Course Schedule** | 🟡 Medium | Graphs / Topo Sort | ⏳ To Solve | - | [Link](https://leetcode.com/problems/course-schedule/) | [`CourseSchedule.java`](./src/graphs/CourseSchedule.java) |
+| 236 | **Lowest Common Ancestor** | 🟡 Medium | Trees / Post-Order DFS | ⏳ To Solve | - | [Link](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) | [`LowestCommonAncestor.java`](./src/trees/LowestCommonAncestor.java) |
+| 322 | **Coin Change** | 🟡 Medium | Dynamic Programming | ⏳ To Solve | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/coin-change/) | [`CoinChange.java`](./src/dp/CoinChange.java) |
+| 739 | **Daily Temperatures** | 🟡 Medium | Monotonic Stack | ⏳ To Solve | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/daily-temperatures/) | [`DailyTemperatures.java`](./src/stacks_queues/DailyTemperatures.java) |
+| 994 | **Rotting Oranges** | 🟡 Medium | Graphs / Multi-Source BFS | ⏳ To Solve | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/rotting-oranges/) | [`RottingOranges.java`](./src/graphs/RottingOranges.java) |
 
 ## 🧱 Data Structure Templates & Custom Implementations
 | Name | Type | Notes |

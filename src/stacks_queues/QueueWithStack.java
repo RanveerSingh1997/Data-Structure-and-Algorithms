@@ -1,5 +1,7 @@
-package utils;
+package stacks_queues;
 
+
+import utils.StackTemplate;
 
 public class QueueWithStack {
     private final StackTemplate<Integer> stack1;

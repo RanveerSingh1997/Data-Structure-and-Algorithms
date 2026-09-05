@@ -170,7 +170,7 @@ public class LinkedList {
     }
 
     public LinkedList addElements(int[] elements) {
-        if (elements == null || elements.length == 0) return this;
+        if (elements == null) return this;
         for (int element : elements) {
             this.append(element);
         }

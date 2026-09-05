@@ -1,4 +1,6 @@
-package utils;
+package stacks_queues;
+
+import utils.Queue;
 
 public class StackWithQueue {
     Queue queue1;

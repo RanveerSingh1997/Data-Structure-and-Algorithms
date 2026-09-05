@@ -14,7 +14,20 @@ public class Node {
         this._next = next;
     }
 
-    public Node() {}
+    public Node() {
+    }
+
+    // Helper: create a linked list from an array
+    public static Node fromArray(int[] arr) {
+        if (arr == null || arr.length == 0) return null;
+        Node dummy = new Node(0);
+        Node curr = dummy;
+        for (int val : arr) {
+            curr.set_next(new Node(val));
+            curr = curr.get_next();
+        }
+        return dummy.get_next();
+    }
 
     public int get_value() {
         return _value;
@@ -38,5 +51,18 @@ public class Node {
 
     public void set_prev(Node _prev) {
         this._prev = _prev;
+    }
+
+    // Helper: convert linked list to string representation
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node curr = this;
+        while (curr != null) {
+            sb.append(curr.get_value());
+            if (curr.get_next() != null) sb.append(" -> ");
+            curr = curr.get_next();
+        }
+        return sb.toString();
     }
 }

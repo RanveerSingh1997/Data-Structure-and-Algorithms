@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Studio — Algorithmic Invariant & State Workbench</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Ambient Amber Glow Background -->
+  <div class="ambient-halo"></div>
+
+  <div class="studio-container">
+
+    <!-- Top Studio Header -->
+    <header class="studio-header">
+      <div class="brand-section">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">DSA<span>Studio</span></span>
+          <span class="status-tag" style="margin-left: 0.5rem;">Invariant Workbench</span>
+        </div>
+      </div>
+
+      <div class="header-right-tools">
+        <div class="tool-chip">
+          <span class="live-indicator"></span>
+          <span>Java 21 · Standalone</span>
+        </div>
+        <button id="themeToggle" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Horizontal Pattern Selector Strip -->
+    <nav class="pattern-strip-wrapper">
+      <ul id="patternNavTrack" class="pattern-nav-track">
+        <!-- Rendered dynamically by app.js -->
+      </ul>
+      <button class="preset-chip-btn" onclick="document.getElementById('referenceSection').scrollIntoView({behavior: 'smooth'})" style="padding: 0.5rem 0.85rem;">
+        Invariant Library ↓
+      </button>
+    </nav>
+
+    <!-- Main Studio Cockpit Grid -->
+    <main class="studio-cockpit-grid">
+      
+      <!-- Left Panel: Execution & Canvas Stage -->
+      <section class="execution-stage-card">
+        
+        <div class="stage-top-meta">
+          <div class="problem-header-info">
+            <h2 id="stageProblemTitle" class="stage-title">Container With Most Water</h2>
+            <span id="stageComplexityPill" class="complexity-pill">Time: O(N) · Space: O(1)</span>
+          </div>
+          <div id="signalKeywordsRow" class="keywords-tag-row" style="margin-bottom: 0;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Input Workbench with Presets -->
+        <div class="input-workbench-row">
+          <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-dim); text-transform: uppercase;">Presets:</span>
+          <div id="presetPillsRow" class="preset-pills-row">
+            <!-- Preset buttons rendered dynamically -->
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.4rem;">
+            <input type="text" id="customInputBox" class="custom-input-box" placeholder="Custom input...">
+            <button id="applyInputBtn" class="apply-btn">Apply</button>
+          </div>
+        </div>
+
+        <!-- Primary Canvas Display Area -->
+        <div id="canvasDisplayStage" class="canvas-display-stage">
+          <!-- Rendered dynamically based on current pattern -->
+        </div>
+
+        <!-- Playback Console Bar -->
+        <div class="playback-console-bar">
+          <div class="playback-ctrl-group">
+            <button id="prevStepBtn" class="control-step-btn" title="Previous Step (Left Arrow)">⏮ Prev</button>
+            <button id="playPauseBtn" class="play-action-btn" title="Play/Pause (Spacebar)">
+              <span id="playIcon">▶</span> <span id="playText">Play</span>
+            </button>
+            <button id="nextStepBtn" class="control-step-btn" title="Next Step (Right Arrow)">Next ⏭</button>
+            <button id="resetBtn" class="control-step-btn" title="Reset (R)">↺ Reset</button>
+          </div>
+
+          <!-- Scrubbing Slider -->
+          <div class="scrubber-slider-wrapper">
+            <input type="range" id="scrubberSlider" class="scrubber-slider" min="0" max="10" value="0">
+            <span id="scrubberCounter" class="scrubber-counter">Step 1 / 10</span>
+          </div>
+
+          <!-- Speed Controls -->
+          <div>
+            <select id="speedDropdown" class="speed-dropdown">
+              <option value="0.5">0.5x (Slow)</option>
+              <option value="1" selected>1.0x (Normal)</option>
+              <option value="1.5">1.5x (Fast)</option>
+              <option value="2.5">2.5x (Sprint)</option>
+            </select>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Right Panel: Invariant Telemetry & Synchronized Java Code -->
+      <aside class="inspector-cockpit-column">
+        
+        <!-- Invariant & Decision Card -->
+        <div class="invariant-card">
+          <div class="card-label-small">Algorithmic Invariant & State</div>
+          <h3 id="stepHeadline" class="step-headline">Evaluating State</h3>
+          <p id="stepRationaleBody" class="step-rationale-body">
+            Algorithmic invariant explanation detailing why this step is provably optimal.
+          </p>
+          <div id="telemetryGrid" class="telemetry-grid">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Synchronized Java Code Viewer -->
+        <div class="code-viewer-panel">
+          <div class="code-titlebar">
+            <div class="file-tab-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              <span id="codeFilenameLabel">ContainerWithMostWater.java</span>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-light);">Synchronized Execution</span>
+          </div>
+          <div id="codeLinesScrollbox" class="code-lines-scrollbox">
+            <!-- Code with active-line beacon -->
+          </div>
+        </div>
+
+        <!-- Workspace Repo Practice Card -->
+        <div class="repo-practice-box">
+          <div class="repo-header-row">
+            <div class="repo-label-title">
+              <span style="color: var(--accent);">📁</span> Workspace Source
+            </div>
+            <span id="repoPathText" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">src/arrays/...</span>
+          </div>
+
+          <div class="cli-pill-box">
+            <span id="cliCmdLabel">java -cp out arrays.ContainerWithMostWater</span>
+            <button id="copyCliBtn" class="copy-icon-btn" title="Copy CLI Command">Copy</button>
+          </div>
+
+          <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-dim); margin-bottom: 0.4rem; text-transform: uppercase;">
+            Practice Queue Problems:
+          </div>
+          <ul id="practiceQueueList" class="problem-list-container">
+            <!-- Curated problem entries -->
+          </ul>
+        </div>
+
+      </aside>
+
+    </main>
+
+    <!-- Bottom Invariant Reference Section -->
+    <section id="referenceSection" class="reference-matrix-section">
+      <div class="matrix-header-box">
+        <h2 class="matrix-heading">Algorithmic Invariant <span>Encyclopedia</span></h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.35rem;">
+          Formal mathematical invariants, signal cues, and optimal execution bounds for tier-1 technical interviews.
+        </p>
+      </div>
+
+      <div id="referenceCardsGrid" class="matrix-cards-grid">
+        <!-- Rendered dynamically from PATTERNS_DATA -->
+      </div>
+    </section>
+
+    <!-- Studio Footer -->
+    <footer class="studio-footer">
+      <p>
+        DSA Studio · Local Offline Algorithmic Workbench · 
+        <a href="../README.md">README</a> · 
+        <a href="../SOLVED.md">SOLVED.md</a> · 
+        <a href="../notes/Google_Interview_Guide.md">Google 45-Min Guide</a> ·
+        <a href="../notes/Fast_Learning_and_Deep_Mastery_Guide.md">Fast Mastery Blueprint</a>
+      </p>
+      <p style="margin-top: 0.4rem; font-size: 0.75rem; color: var(--text-dim);">
+        Keyboard Shortcuts: <kbd style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">Space</kbd> Play/Pause · 
+        <kbd style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">→</kbd> / <kbd style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">←</kbd> Step · 
+        <kbd style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">R</kbd> Reset
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="patterns-data.js"></script>
+  <script src="visualizers.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

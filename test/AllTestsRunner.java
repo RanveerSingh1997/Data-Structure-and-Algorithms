@@ -171,9 +171,9 @@ public class AllTestsRunner {
     private static void testReverseLinkedList() {
         System.out.println("\nTesting Reverse LinkedList:");
         Reverse rev = new Reverse();
-        ListNode original = ListNode.fromArray(new int[]{1, 2, 3, 4, 5});
-        ListNode reversed = rev.reverseList(original);
-        assertEquals("5 -> 4 -> 3 -> 2 -> 1", reversed.toString(), "Reversed ListNode list");
+        Node original = Node.fromArray(new int[]{1, 2, 3, 4, 5});
+        Node reversed = rev.reverseList(original);
+        assertEquals("5 -> 4 -> 3 -> 2 -> 1", reversed.toString(), "Reversed Node list");
 
         Node n1 = new Node(1);
         Node n2 = new Node(2);

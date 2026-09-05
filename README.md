@@ -9,6 +9,7 @@ Every solution is written in clean, modern Java, fully documented with problem l
 ## 📊 Quick Links & Resources
 
 * 🏆 **[Solved Problems Tracker (SOLVED.md)](./SOLVED.md)**: Categorized table of all solved questions with time/space complexities and links.
+* 🎯 **[Google SWE Interview Guide](./notes/Google_Interview_Guide.md)**: Master preparation playbook for Google Easy & Medium coding rounds.
 * 📚 **[Revision Notes & Cheatsheets (notes/)](./notes/)**:
   * [Patterns Cheat Sheet](./notes/Patterns.md)
   * [Time & Space Complexity Guide](./notes/TimeComplexity.md)

@@ -23,6 +23,16 @@ public class Queue {
         }
     }
 
+    public int getFirst() {
+        if (first == null) {
+            System.out.println("FIRST: null");
+        } else {
+            System.out.println("FIRST: " + first._value);
+        }
+        assert first != null;
+        return first._value;
+    }
+
     public int getLast() {
         if (last == null) {
             System.out.println("LAST: null");

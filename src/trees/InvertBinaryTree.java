@@ -1,6 +1,7 @@
 package trees;
 
 import utils.TreeNode;
+import utils.TreeVisualizer;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -72,13 +73,10 @@ public class InvertBinaryTree {
         System.out.println("=== Testing: LeetCode 226 - Invert Binary Tree ===");
 
         // Test 1: [4, 2, 7, 1, 3, 6, 9]
-        TreeNode root1 = new TreeNode(4,
-                new TreeNode(2, new TreeNode(1), new TreeNode(3)),
-                new TreeNode(7, new TreeNode(6), new TreeNode(9))
-        );
-        System.out.println("Test 1 Input:    " + treeToString(root1));
+        TreeNode root1 = TreeNode.fromLeetCode("[4, 2, 7, 1, 3, 6, 9]");
+        System.out.println("Test 1 Input:\n" + TreeVisualizer.visualize(root1));
         TreeNode result1 = solver.invertTree(root1);
-        System.out.println("Test 1 Output:   " + treeToString(result1));
+        System.out.println("Test 1 Output:\n" + TreeVisualizer.visualize(result1));
         System.out.println("Test 1 Expected: [4, 7, 2, 9, 6, 3, 1]");
 
         if (result1 != null && result1.left != null && result1.left.val == 7 && result1.right != null && result1.right.val == 2) {
@@ -88,7 +86,7 @@ public class InvertBinaryTree {
         }
 
         // Test 2: [2, 1, 3]
-        TreeNode root2 = new TreeNode(2, new TreeNode(1), new TreeNode(3));
+        TreeNode root2 = TreeNode.fromLeetCode("[2, 1, 3]");
         TreeNode result2 = solver.invertTree(root2);
         if (result2 != null && result2.left != null && result2.left.val == 3 && result2.right != null && result2.right.val == 1) {
             System.out.println("  [PASS] Test 2");
@@ -103,25 +101,5 @@ public class InvertBinaryTree {
         } else {
             System.out.println("  [TODO] Test 3 not passing yet");
         }
-    }
-
-    private static String treeToString(TreeNode root) {
-        if (root == null) return "[]";
-        StringBuilder sb = new StringBuilder("[");
-        Queue<TreeNode> q = new LinkedList<>();
-        q.offer(root);
-
-        while (!q.isEmpty()) {
-            TreeNode curr = q.poll();
-            if (curr != null) {
-                sb.append(curr.val).append(", ");
-                q.offer(curr.left);
-                q.offer(curr.right);
-            } else {
-                sb.append("null, ");
-            }
-        }
-        String res = sb.toString().replaceAll("(, null)*, $", "");
-        return res + "]";
     }
 }

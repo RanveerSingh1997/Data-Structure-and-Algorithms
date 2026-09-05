@@ -9,6 +9,7 @@ Every solution is written in clean, modern Java, fully documented with problem l
 ## 📊 Quick Links & Resources
 
 * 🏆 **[Solved Problems Tracker (SOLVED.md)](./SOLVED.md)**: Categorized table of all solved questions with time/space complexities and links.
+* 🚀 **[Fast Learning & Deep Mastery Guide](./notes/Fast_Learning_and_Deep_Mastery_Guide.md)**: Accelerated learning blueprint, invariant proofs, pattern triggers & 5-minute review routine.
 * 🎯 **[Google SWE Interview Guide](./notes/Google_Interview_Guide.md)**: Master preparation playbook for Google Easy & Medium coding rounds.
 * 📚 **[Revision Notes & Cheatsheets (notes/)](./notes/)**:
   * [Patterns Cheat Sheet](./notes/Patterns.md)
@@ -45,7 +46,9 @@ Every solution is written in clean, modern Java, fully documented with problem l
 │   │   └── Trie.java         # Prefix Tree for string dictionary search
 │   └── utils/                # Data structure implementations & node models
 │       ├── ListNode.java     # Standard LeetCode singly linked list node
-│       ├── TreeNode.java     # Standard LeetCode binary tree node
+│       ├── TreeNode.java     # Standard LeetCode binary tree node (with ASCII 2D visualizer)
+│       ├── TreeVisualizer.java # LeetCode string parser fromLeetCode() & 2D printer
+│       ├── Benchmark.java    # Micro-benchmark timer, ops/sec & memory delta profiler
 │       ├── Node.java         # Generic bidirectional node
 │       ├── LinkedList.java   # Custom singly linked list with full API
 │       ├── DoublyLinkedList.java # Custom doubly linked list implementation

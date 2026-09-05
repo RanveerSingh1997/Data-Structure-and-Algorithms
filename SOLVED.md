@@ -62,4 +62,6 @@ Practice each question by implementing the `// TODO` in the template file. Run e
 | **Doubly LinkedList** | Custom Container | Bidirectional pointers, index-based access |
 | **Stack / StackTemplate** | Custom Container | Linked-node and generic ArrayList variants |
 | **Queue** | Custom Container | Linked-node FIFO queue |
+| **TreeVisualizer** | Utility | LeetCode tree string parser & 2D ASCII visualizer |
+| **Benchmark** | Utility | Execution timer, ops/sec & memory delta profiler |
 | **ListNode / TreeNode** | Utilities | Standard LeetCode interview node models |

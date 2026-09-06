@@ -1,10 +1,12 @@
 # Java Collections & Syntax Detailed Guide
 
-During an interview, forgetting standard Java syntax is a common pitfall. This guide provides detailed examples of the most commonly used Java Data Structures and methods for DSA.
+During an interview, forgetting standard Java syntax is a common pitfall. This guide provides detailed examples of the
+most commonly used Java Data Structures and methods for DSA.
 
 ---
 
 ## 1. Arrays (`java.util.Arrays`)
+
 Fixed-size collections.
 
 ```java
@@ -14,7 +16,7 @@ int[] arr = new int[10];
 Arrays.fill(arr, -1);                  
 
 // 2. Sorting (O(N log N))
-Arrays.sort(arr); // Sorts primitive arrays in ascending order
+Arrays.sort(arr); // Sorts primitive Arrays in ascending order
 
 // WARNING: To sort in descending order, you CANNOT use primitive int[].
 // You must use the Object wrapper Integer[].
@@ -28,7 +30,9 @@ int[] copy = Arrays.copyOf(arr, arr.length);
 ---
 
 ## 2. Strings & StringBuilder
-Strings in Java are **immutable**. Concatenating strings in a loop creates a new String object every time, leading to `O(N^2)` time complexity. Always use `StringBuilder`!
+
+Strings in Java are **immutable**. Concatenating Strings in a loop creates a new String object every time, leading to
+`O(N^2)` time complexity. Always use `StringBuilder`!
 
 ```java
 String s = "hello";
@@ -57,6 +61,7 @@ String result = sb.toString();
 ---
 
 ## 3. Map (`HashMap` & `TreeMap`)
+
 Extremely important for caching and counting frequencies.
 
 ```java
@@ -89,7 +94,9 @@ treeMap.lastKey();                     // Returns the largest key
 ---
 
 ## 4. PriorityQueue (Heaps)
-Used for finding the Top K elements, or constantly pulling the minimum/maximum element. By default, Java's `PriorityQueue` is a **Min-Heap**.
+
+Used for finding the Top K elements, or constantly pulling the minimum/maximum element. By default, Java's
+`PriorityQueue` is a **Min-Heap**.
 
 ```java
 // 1. Standard Min-Heap (Smallest element at the top)
@@ -112,7 +119,8 @@ int top = pq.peek();                   // View top element without removing - Ti
 ---
 
 ## 5. Queue & Deque
-For BFS, always use a `Queue`. 
+
+For BFS, always use a `Queue`.
 
 ```java
 // 1. Standard Queue (FIFO) using LinkedList

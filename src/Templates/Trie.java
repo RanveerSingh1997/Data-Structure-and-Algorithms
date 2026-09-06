@@ -1,0 +1,84 @@
+package Templates;
+
+/**
+ * Prefix Tree (Trie)
+ * Used for fast string prefix matching and dictionary word search.
+ */
+public class Trie {
+
+    private final TrieNode root;
+
+    public Trie() {
+        root = new TrieNode();
+    }
+
+    static void main(String[] args) {
+        System.out.println("=== Testing Trie (Prefix Tree) ===");
+        Trie trie = new Trie();
+
+        System.out.println("Inserting \"apple\"...");
+        trie.insert("apple");
+
+        System.out.println("search(\"apple\"):    " + trie.search("apple") + " (Expected: true)");
+        System.out.println("search(\"app\"):      " + trie.search("app") + " (Expected: false)");
+        System.out.println("startsWith(\"app\"):  " + trie.startsWith("app") + " (Expected: true)");
+
+        System.out.println("\nInserting \"app\"...");
+        trie.insert("app");
+        System.out.println("search(\"app\"):      " + trie.search("app") + " (Expected: true)");
+        System.out.println("search(\"appl\"):     " + trie.search("appl") + " (Expected: false)");
+        System.out.println("startsWith(\"ap\"):   " + trie.startsWith("ap") + " (Expected: true)");
+    }
+
+    // Inserts a word into the trie
+    // Time Complexity: O(L) where L is the length of the word
+    public void insert(String word) {
+        TrieNode curr = root;
+        for (int i = 0; i < word.length(); i++) {
+            int index = word.charAt(i) - 'a';
+            if (curr.children[index] == null) {
+                curr.children[index] = new TrieNode();
+            }
+            curr = curr.children[index];
+        }
+        curr.isEndOfWord = true;
+    }
+
+    // Returns true if the word is in the trie
+    // Time Complexity: O(L)
+    public boolean search(String word) {
+        TrieNode curr = root;
+        for (int i = 0; i < word.length(); i++) {
+            int index = word.charAt(i) - 'a';
+            if (curr.children[index] == null) {
+                return false;
+            }
+            curr = curr.children[index];
+        }
+        return curr.isEndOfWord;
+    }
+
+    // Returns true if there is any word in the trie that starts with the given prefix
+    // Time Complexity: O(L)
+    public boolean startsWith(String prefix) {
+        TrieNode curr = root;
+        for (int i = 0; i < prefix.length(); i++) {
+            int index = prefix.charAt(i) - 'a';
+            if (curr.children[index] == null) {
+                return false;
+            }
+            curr = curr.children[index];
+        }
+        return true;
+    }
+
+    static class TrieNode {
+        TrieNode[] children;
+        boolean isEndOfWord;
+
+        public TrieNode() {
+            children = new TrieNode[26]; // Assuming lowercase English letters
+            isEndOfWord = false;
+        }
+    }
+}

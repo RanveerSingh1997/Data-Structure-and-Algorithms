@@ -36,6 +36,14 @@
                 <span class="live-indicator"></span>
                 <span>Java 21 · Standalone</span>
             </div>
+            <button aria-label="Toggle Sound Effects" class="theme-toggle-btn" id="soundToggleBtn" title="Toggle Synthesizer Sound FX (Muted)">
+                <span id="soundIcon">🔇</span>
+            </button>
+            <button aria-label="Toggle Fullscreen" class="theme-toggle-btn" id="fullscreenToggleBtn" title="Toggle Fullscreen">
+                <svg fill="none" height="17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="17">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                </svg>
+            </button>
             <button aria-label="Toggle Theme" class="theme-toggle-btn" id="themeToggle" title="Toggle Light/Dark Theme">
                 <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                      viewBox="0 0 24 24" width="18">
@@ -94,8 +102,33 @@
             </div>
 
             <!-- Primary Canvas Display Area -->
+            <!-- Primary Canvas Display Area with Challenge Card Overlay -->
             <div class="canvas-display-stage" id="canvasDisplayStage">
                 <!-- Rendered dynamically based on current pattern -->
+
+                <!-- Interactive Challenge Card Modal Overlay -->
+                <div class="challenge-card-overlay hidden" id="challengeCardOverlay">
+                    <div class="challenge-card-box" id="challengeCardBox">
+                        <div class="challenge-badge-row">
+                            <span class="challenge-badge">⚡ Active Intuition Checkpoint</span>
+                            <span class="challenge-step-badge" id="challengeStepBadge">Step 1</span>
+                        </div>
+                        <h3 class="challenge-question-title" id="challengeQuestionTitle">
+                            Which pointer should advance next and why?
+                        </h3>
+                        <p class="challenge-context-hint" id="challengeContextHint">
+                            Evaluate the bottleneck height vs container width invariant.
+                        </p>
+                        <div class="challenge-options-list" id="challengeOptionsList">
+                            <!-- Options rendered dynamically -->
+                        </div>
+                        <div class="challenge-feedback-box hidden" id="challengeFeedbackBox">
+                            <div class="feedback-status" id="feedbackStatus">✓ Correct Intuition!</div>
+                            <p class="feedback-explanation" id="feedbackExplanation"></p>
+                            <button class="challenge-continue-btn" id="challengeContinueBtn">Continue Execution ➔</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Playback Console Bar -->
@@ -115,8 +148,14 @@
                     <span class="scrubber-counter" id="scrubberCounter">Step 1 / 10</span>
                 </div>
 
-                <!-- Speed Controls -->
-                <div>
+                <!-- Speed & Interactive Intuition Challenge Controls -->
+                <div class="playback-tools-group">
+                    <button class="challenge-mode-toggle-btn" id="challengeModeBtn" title="Toggle Interactive Prediction Mode (Pauses at decision branches to test invariant intuition)">
+                        <span id="challengeIcon">🎯</span> <span id="challengeBtnText">Challenge: OFF</span>
+                    </button>
+                    <div class="intuition-score-pill" id="intuitionScorePill" title="Intuition Accuracy">
+                        <span>Intuition: </span><b id="intuitionScoreVal">0/0</b>
+                    </div>
                     <select class="speed-dropdown" id="speedDropdown">
                         <option value="0.5">0.5x (Slow)</option>
                         <option selected value="1">1.0x (Normal)</option>
@@ -128,10 +167,10 @@
 
         </section>
 
-        <!-- Right Panel: Invariant Telemetry & Synchronized Java Code -->
+        <!-- Right Panel: Invariant Telemetry & Tabbed Inspector Cockpit -->
         <aside class="inspector-cockpit-column">
 
-            <!-- Invariant & Decision Card -->
+            <!-- Invariant & Decision Card (Live Step Feedback) -->
             <div class="invariant-card">
                 <div class="card-label-small">Algorithmic Invariant & State</div>
                 <h3 class="step-headline" id="stepHeadline">Evaluating State</h3>
@@ -143,50 +182,177 @@
                 </div>
             </div>
 
-            <!-- Synchronized Java Code Viewer -->
-            <div class="code-viewer-panel">
-                <div class="code-titlebar">
-                    <div class="file-tab-label">
-                        <svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                             stroke-width="2" viewBox="0 0 24 24" width="14">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                        <span id="codeFilenameLabel">ContainerWithMostWater.java</span>
+            <!-- Inspector Tabs Navigation -->
+            <div class="inspector-tabs-container">
+                <div class="inspector-tabs-nav" id="inspectorTabsNav" role="tablist">
+                    <button class="inspector-tab-btn active" data-tab="code" id="tabBtnCode" role="tab">
+                        💻 Code & Trace
+                    </button>
+                    <button class="inspector-tab-btn" data-tab="dryrun" id="tabBtnDryrun" role="tab">
+                        📊 Dry-Run Table
+                    </button>
+                    <button class="inspector-tab-btn" data-tab="playbook" id="tabBtnPlaybook" role="tab">
+                        🎯 Interview Playbook
+                    </button>
+                    <button class="inspector-tab-btn" data-tab="complexity" id="tabBtnComplexity" role="tab">
+                        ⚡ Complexity & Proof
+                    </button>
+                </div>
+
+                <!-- Tab 1: Code & Practice Queue -->
+                <div class="inspector-tab-content active" id="tabPaneCode">
+                    <div class="code-viewer-panel">
+                        <div class="code-titlebar">
+                            <div class="file-tab-label">
+                                <svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                     stroke-width="2" viewBox="0 0 24 24" width="14">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                                <span id="codeFilenameLabel">ContainerWithMostWater.java</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <button class="action-chip-btn" id="copyTemplateBtn" title="Copy clean Java starter template without spoilers">
+                                    📋 Copy Starter Template
+                                </button>
+                                <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-light);">Synchronized</span>
+                            </div>
+                        </div>
+                        <div class="code-lines-scrollbox" id="codeLinesScrollbox">
+                            <!-- Code with active-line beacon -->
+                        </div>
                     </div>
-                    <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-light);">Synchronized Execution</span>
-                </div>
-                <div class="code-lines-scrollbox" id="codeLinesScrollbox">
-                    <!-- Code with active-line beacon -->
-                </div>
-            </div>
 
-            <!-- Workspace Repo Practice Card -->
-            <div class="repo-practice-box">
-                <div class="repo-header-row">
-                    <div class="repo-label-title">
-                        <span style="color: var(--accent);">📁</span> Workspace Source
+                    <!-- Workspace Repo Practice Card -->
+                    <div class="repo-practice-box" style="margin-top: 1rem;">
+                        <div class="repo-header-row">
+                            <div class="repo-label-title">
+                                <span style="color: var(--accent);">📁</span> Workspace Source
+                            </div>
+                            <span id="repoPathText"
+                                  style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">src/Arrays/...</span>
+                        </div>
+
+                        <div class="cli-pill-box">
+                            <span id="cliCmdLabel">java -cp out Arrays.ContainerWithMostWater</span>
+                            <button class="copy-icon-btn" id="copyCliBtn" title="Copy CLI Command">Copy</button>
+                        </div>
+
+                        <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-dim); margin-bottom: 0.4rem; text-transform: uppercase;">
+                            Curated Practice Queue:
+                        </div>
+                        <ul class="problem-list-container" id="practiceQueueList">
+                            <!-- Curated problem entries -->
+                        </ul>
                     </div>
-                    <span id="repoPathText"
-                          style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">src/Arrays/...</span>
                 </div>
 
-                <div class="cli-pill-box">
-                    <span id="cliCmdLabel">java -cp out Arrays.ContainerWithMostWater</span>
-                    <button class="copy-icon-btn" id="copyCliBtn" title="Copy CLI Command">Copy</button>
+                <!-- Tab 2: Whiteboard Dry-Run Trace Table -->
+                <div class="inspector-tab-content" id="tabPaneDryrun">
+                    <div class="dryrun-panel-box">
+                        <div class="dryrun-toolbar">
+                            <div class="dryrun-stats">
+                                <span class="tool-chip" id="dryrunStepCountChip">0 Transitions</span>
+                                <span style="font-size: 0.72rem; color: var(--text-muted);">Click any row to scrub state</span>
+                            </div>
+                            <button class="action-chip-btn" id="copyMarkdownTableBtn" title="Copy full trace table as GitHub Markdown">
+                                📋 Copy Markdown Table
+                            </button>
+                        </div>
+                        <div class="dryrun-table-wrapper" id="dryrunTableWrapper">
+                            <!-- Rendered dynamically -->
+                        </div>
+                    </div>
                 </div>
 
-                <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-dim); margin-bottom: 0.4rem; text-transform: uppercase;">
-                    Practice Queue Problems:
+                <!-- Tab 3: Interview Playbook & Traps -->
+                <div class="inspector-tab-content" id="tabPanePlaybook">
+                    <div class="playbook-panel-box">
+                        <!-- Constraint Rule of Thumb / Cheat Code -->
+                        <div class="playbook-cheat-box">
+                            <div class="playbook-box-header">
+                                <span style="color: var(--accent);">⚡</span>
+                                <span class="playbook-label">Input Size & Constraint Rule of Thumb</span>
+                            </div>
+                            <div class="playbook-cheat-code" id="playbookCheatCode">
+                                N ≤ 10^5 demands O(N) single pass
+                            </div>
+                        </div>
+
+                        <!-- Clarifying Questions -->
+                        <div class="playbook-section">
+                            <div class="playbook-section-title">
+                                <span>💬</span> 3 Essential Clarifying Questions
+                            </div>
+                            <ul class="playbook-list" id="playbookClarifyingList">
+                                <!-- Rendered dynamically -->
+                            </ul>
+                        </div>
+
+                        <!-- Interview Traps & Pitfalls -->
+                        <div class="playbook-section">
+                            <div class="playbook-section-title">
+                                <span>⚠️</span> Common Interview Traps & Edge Cases
+                            </div>
+                            <ul class="playbook-traps-list" id="playbookTrapsList">
+                                <!-- Rendered dynamically -->
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <ul class="problem-list-container" id="practiceQueueList">
-                    <!-- Curated problem entries -->
-                </ul>
+
+                <!-- Tab 4: Complexity & Invariant Proof -->
+                <div class="inspector-tab-content" id="tabPaneComplexity">
+                    <div class="complexity-panel-box">
+                        <div class="proof-section">
+                            <div class="proof-header">
+                                <span class="proof-icon">📐</span>
+                                <span class="proof-title">Mathematical Invariant Proof</span>
+                            </div>
+                            <p class="proof-body" id="proofBodyText">
+                                Formal invariant proof...
+                            </p>
+                        </div>
+
+                        <div class="complexity-deep-dive-grid">
+                            <div class="complexity-card">
+                                <div class="complexity-card-title">Time Complexity Bounds</div>
+                                <div class="complexity-badge-tag" id="deepDiveTimeBadge">O(N)</div>
+                                <p class="complexity-card-desc" id="deepDiveTimeDesc">Explanation</p>
+                            </div>
+                            <div class="complexity-card">
+                                <div class="complexity-card-title">Space Complexity Bounds</div>
+                                <div class="complexity-badge-tag" id="deepDiveSpaceBadge">O(1)</div>
+                                <p class="complexity-card-desc" id="deepDiveSpaceDesc">Explanation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </aside>
 
     </main>
+
+    <!-- Algorithmic Pattern Diagnostic Wizard Section -->
+    <section class="wizard-section" id="diagnosticWizardSection">
+        <div class="wizard-container">
+            <div class="wizard-header">
+                <div class="wizard-icon">🧭</div>
+                <div>
+                    <h2 class="wizard-heading">Algorithmic Pattern <span>Diagnostic Wizard</span></h2>
+                    <p class="wizard-subheading">
+                        Unsure which pattern applies to your problem? Answer 2 quick questions about your input & objective to determine the provably optimal invariant.
+                    </p>
+                </div>
+            </div>
+
+            <div class="wizard-card-stage" id="wizardCardStage">
+                <!-- Interactive step question 1 or 2 or Result rendered by app.js -->
+            </div>
+        </div>
+    </section>
 
     <!-- Bottom Invariant Reference Section -->
     <section class="reference-matrix-section" id="referenceSection">
@@ -196,6 +362,10 @@
                 Formal mathematical invariants, signal cues, and optimal execution bounds for tier-1 technical
                 interviews.
             </p>
+            <div class="reference-filter-bar">
+                <input type="text" id="referenceSearchInput" class="custom-input-box" placeholder="Filter patterns by keyword, company, or category (e.g. 'Google', 'O(1)', 'Tree', 'BFS', 'Dynamic')..." style="max-width: 520px; width: 100%;">
+                <span id="referenceCountLabel" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-light);">Showing 11 / 11 patterns</span>
+            </div>
         </div>
 
         <div class="matrix-cards-grid" id="referenceCardsGrid">
@@ -213,19 +383,16 @@
             <a href="../notes/Fast_Learning_and_Deep_Mastery_Guide.md">Fast Mastery Blueprint</a>
         </p>
         <p style="margin-top: 0.4rem; font-size: 0.75rem; color: var(--text-dim);">
-            Keyboard Shortcuts: <kbd
-                style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">Space</kbd>
-            Play/Pause ·
-            <kbd style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">→</kbd>
-            / <kbd
-                style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">←</kbd>
-            Step ·
-            <kbd style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">R</kbd>
-            Reset
+            Keyboard Shortcuts: <kbd style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">Space</kbd> Play/Pause ·
+            <kbd style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">→</kbd> / <kbd style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">←</kbd> Step ·
+            <kbd style="background:var(--bg-surface); padding:2px 5px; border-radius:3px; border:1px solid var(--border);">R</kbd> Reset
         </p>
     </footer>
 
 </div>
+
+<!-- Toast notification container -->
+<div id="toastContainer" class="toast-container"></div>
 
 <!-- Scripts -->
 <script src="patterns-data.js"></script>

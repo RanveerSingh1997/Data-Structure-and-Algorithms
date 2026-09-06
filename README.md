@@ -117,19 +117,15 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
 This repository includes a standalone, zero-dependency offline web application in [
 `visualizer/`](./visualizer/index.html) designed for visual pattern mastery:
 
-* 🧠 **Pattern-First Learning**: Rather than memorizing 500 isolated problems, master 85+ patterns (Two Pointers, Sliding
-  Window, Monotonic Stack, Modified Binary Search, Tree Traversals, Grid Multi-Source BFS, Merge Intervals, Knapsack
-  DP).
-* 🎯 **"When a problem mentions..." Cue Library**: Keyword triggers (*"window of size k"*, *"next warmer day"*, *"pair
-  with target sum"*) mapping interview statements directly to patterns.
-* 🎬 **Interactive Step-by-Step State Simulator**: Live visual animations with Play/Pause, Step Forward/Back, scrubber
-  slider, and speed presets (0.5x to 2.5x).
-* 🧪 **Custom Input Playground**: Type any custom array, string, tree, rotated sequence, or grid into the input box and
-  step through the simulation!
-* 💡 **Algorithmic Invariant Inspector**: Real-time HUD showing pointer values ($L, R, mid$), active stack frames,
-  sliding window bounds, and plain-English explanations of *why* each step preserves optimality.
-* 💻 **Synchronized Java Execution Highlighting**: Synchronized code viewer tracking the exact Java code file in this
-  repository with live active line indicators.
+* 🎯 **Active Prediction Challenge Mode**: Pauses automatically at critical decision branches to test your intuition (*"Which pointer advances next and why?"*), with real-time scoring and sound feedback to build deep algorithmic muscle memory.
+* 📊 **Whiteboard Dry-Run Variable Trace Table**: Auto-generates real-time variable trace tables (L, R, Area, Window, Stack, etc.) with click-to-scrub time travel and a 1-click **Copy as Markdown** button for whiteboard interview prep.
+* 🧭 **Algorithmic Pattern Diagnostic Wizard**: Interactive 2-step decision tree that diagnoses any interview problem's input structure & constraints and recommends the optimal pattern with direct workbench launch.
+* 🎯 **Interview Playbook & Common Traps**: 3 clarifying questions to ask interviewers, constraint rule-of-thumb cheat codes ($N \le 10^5 \implies O(N)$), and common pitfalls / off-by-one bugs.
+* 📋 **Clean Starter Templates**: One-click copy for clean Java boilerplate without spoilers, ready to paste directly into LeetCode or your IDE.
+* 🎬 **Interactive Step-by-Step State Simulator**: Live visual animations with Play/Pause, Step Forward/Back, scrubber slider, speed presets (0.5x to 2.5x), and Web Audio synthesizer cues.
+* 🧪 **Custom Input Playground**: Type any custom array, string, tree, rotated sequence, or grid into the input box and step through the simulation!
+* 💡 **Algorithmic Invariant Inspector**: Real-time HUD showing pointer values ($L, R, mid$), active stack frames, sliding window bounds, and formal mathematical invariant proofs.
+* 💻 **Synchronized Java Execution Tracing**: Synchronized code viewer tracking the exact Java solution file in this repository with live active line beacons.
 
 ### How to Launch the Visualizer:
 

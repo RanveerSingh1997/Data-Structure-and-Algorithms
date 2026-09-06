@@ -57,6 +57,7 @@ const Simulations = {
         // Evaluation step
         steps.push({
           type: "evaluate",
+          heights: [...heights],
           left,
           right,
           width,
@@ -76,6 +77,7 @@ const Simulations = {
         if (heights[left] < heights[right]) {
           steps.push({
             type: "advance",
+            heights: [...heights],
             left,
             right,
             width,
@@ -93,6 +95,7 @@ const Simulations = {
         } else {
           steps.push({
             type: "advance",
+            heights: [...heights],
             left,
             right,
             width,
@@ -113,6 +116,7 @@ const Simulations = {
       // Final step
       steps.push({
         type: "done",
+        heights: [...heights],
         left,
         right,
         width: 0,
@@ -741,6 +745,506 @@ const Simulations = {
         activeLine: 12,
         title: "All Intervals Merged Successfully!",
         explanation: `Final merged list contains ${merged.length} interval(s): ${merged.map(i => `[${i[0]},${i[1]}]`).join(", ")}. Time complexity O(N log N) dominated by sorting.`
+      });
+
+      return steps;
+    }
+  },
+
+  // 8. Fast & Slow Pointers Simulation (Floyd's Tortoise & Hare Cycle Detection)
+  fastSlowPointers: {
+    defaultInput: { values: [1, 2, 3, 4, 5, 6], pos: 2 },
+    parseInput: (str) => {
+      try {
+        if (!str || typeof str !== "string") {
+          return { values: [1, 2, 3, 4, 5, 6], pos: 2 };
+        }
+        // Handle "1->2->3->4->5->6->3" arrow format
+        if (str.includes("->")) {
+          const parts = str.split("->").map(s => s.trim()).filter(Boolean);
+          if (parts[parts.length - 1].toLowerCase() === "null") {
+            const vals = parts.slice(0, -1).map(x => parseInt(x, 10)).filter(x => !isNaN(x));
+            return { values: vals.length ? vals : [1, 2, 3, 4], pos: -1 };
+          }
+          const lastVal = parseInt(parts[parts.length - 1], 10);
+          const vals = parts.slice(0, -1).map(x => parseInt(x, 10)).filter(x => !isNaN(x));
+          const cycleIdx = vals.indexOf(lastVal);
+          return { values: vals.length ? vals : [1, 2, 3, 4, 5, 6], pos: cycleIdx >= 0 ? cycleIdx : -1 };
+        }
+        // Handle array + pos syntax: "[1, 2, 3, 4]; pos=1" or "1,2,3; 1"
+        if (str.includes(";")) {
+          const [valPart, posPart] = str.split(";");
+          const cleaned = valPart.replace(/[\[\]]/g, "").trim();
+          const vals = cleaned.split(",").map(x => parseInt(x.trim(), 10)).filter(x => !isNaN(x));
+          let pos = parseInt(posPart.replace(/[^0-9\-]/g, "").trim(), 10);
+          if (isNaN(pos) || pos < -1 || pos >= vals.length) pos = -1;
+          return { values: vals.length ? vals : [1, 2, 3, 4, 5, 6], pos };
+        }
+        // Fallback default
+        return { values: [1, 2, 3, 4, 5, 6], pos: 2 };
+      } catch (e) {
+        return { values: [1, 2, 3, 4, 5, 6], pos: 2 };
+      }
+    },
+    generateSteps: (data) => {
+      if (typeof data === "string") {
+        data = Simulations.fastSlowPointers.parseInput(data);
+      }
+      const values = (data && data.values && data.values.length) ? data.values : [1, 2, 3, 4, 5, 6];
+      const pos = (typeof data.pos === "number") ? data.pos : 2;
+
+      const getNext = (idx) => {
+        if (idx === null || idx === undefined || idx < 0) return null;
+        if (idx < values.length - 1) return idx + 1;
+        return (pos >= 0 && pos < values.length) ? pos : null;
+      };
+
+      const steps = [];
+      let slow = 0;
+      let fast = 0;
+      let stepCount = 0;
+
+      // Initial state
+      steps.push({
+        type: "init",
+        values: [...values],
+        pos,
+        slow,
+        fast,
+        stepCount: 0,
+        cycleMet: false,
+        activeLine: 3,
+        title: "Initialize Slow (1x) & Fast (2x) at Head",
+        explanation: `Both slow (moves 1 hop/iter) and fast (moves 2 hops/iter) begin at node 0 (value ${values[0]}). Floyd's invariant: in a closed cycle of length C, fast closes the gap by 1 node per iteration.`
+      });
+
+      const maxIter = 40;
+      let iter = 0;
+
+      while (fast !== null && getNext(fast) !== null && iter < maxIter) {
+        iter++;
+        stepCount++;
+        slow = getNext(slow);
+        const fastNext = getNext(fast);
+        fast = fastNext !== null ? getNext(fastNext) : null;
+
+        const isCollision = (slow !== null && fast !== null && slow === fast);
+
+        steps.push({
+          type: isCollision ? "collision" : "advance",
+          values: [...values],
+          pos,
+          slow,
+          fast,
+          stepCount,
+          cycleMet: isCollision,
+          activeLine: isCollision ? 9 : 6,
+          title: isCollision
+            ? `Collision Detected! Slow and Fast Met at Node ${slow} (${values[slow]})`
+            : `Step ${stepCount}: Slow -> Node ${slow} (${values[slow]}), Fast -> Node ${fast !== null ? `${fast} (${values[fast]})` : 'null'}`,
+          explanation: isCollision
+            ? `Slow and Fast pointers converged on node index ${slow}. Since Fast caught up with Slow, a cycle is mathematically guaranteed to exist. Return true.`
+            : `Slow moved 1 hop to index ${slow}. Fast moved 2 hops to ${fast !== null ? `index ${fast}` : 'null'}. Relative distance between runners decreased by 1 hop.`
+        });
+
+        if (isCollision) {
+          steps.push({
+            type: "done",
+            values: [...values],
+            pos,
+            slow,
+            fast,
+            stepCount,
+            cycleMet: true,
+            hasCycle: true,
+            activeLine: 9,
+            title: "Cycle Verification Complete: Return TRUE",
+            explanation: `Floyd's algorithm concluded in ${stepCount} steps with confirmed loop closure returning back to node index ${pos} (value ${values[pos]}). Time complexity: O(N), auxiliary space: O(1).`
+          });
+          return steps;
+        }
+      }
+
+      // Reached null (acyclic)
+      steps.push({
+        type: "done",
+        values: [...values],
+        pos,
+        slow,
+        fast,
+        stepCount,
+        cycleMet: false,
+        hasCycle: false,
+        activeLine: 12,
+        title: "Fast Runner Reached Null: Return FALSE",
+        explanation: `Fast reached the terminal null pointer without colliding with Slow. The list is completely acyclic. Time complexity: O(N), auxiliary space: O(1).`
+      });
+
+      return steps;
+    }
+  },
+
+  // 9. Topological Sort (Kahn's BFS Dependency Resolution)
+  topologicalSort: {
+    defaultInput: {
+      numCourses: 4,
+      prerequisites: [[1, 0], [2, 0], [3, 1], [3, 2]]
+    },
+    parseInput: (str) => {
+      try {
+        if (!str || typeof str !== "string") {
+          return { numCourses: 4, prerequisites: [[1, 0], [2, 0], [3, 1], [3, 2]] };
+        }
+        const [nPart, edgesPart] = str.split(";");
+        const numCourses = parseInt(nPart.trim(), 10) || 4;
+        const matches = (edgesPart || "").match(/\[\s*\d+\s*,\s*\d+\s*\]/g);
+        let prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]];
+        if (matches) {
+          prerequisites = matches.map(m => {
+            const nums = m.replace(/[\[\]]/g, "").split(",").map(x => parseInt(x.trim(), 10));
+            return [nums[0], nums[1]];
+          });
+        }
+        return { numCourses, prerequisites };
+      } catch (e) {
+        return { numCourses: 4, prerequisites: [[1, 0], [2, 0], [3, 1], [3, 2]] };
+      }
+    },
+    generateSteps: (data) => {
+      if (typeof data === "string") {
+        data = Simulations.topologicalSort.parseInput(data);
+      }
+      const numCourses = data.numCourses || 4;
+      const prerequisites = data.prerequisites || [];
+
+      const inDegree = new Array(numCourses).fill(0);
+      const adj = Array.from({ length: numCourses }, () => []);
+
+      for (const [course, prereq] of prerequisites) {
+        if (course < numCourses && prereq < numCourses) {
+          adj[prereq].push(course);
+          inDegree[course]++;
+        }
+      }
+
+      const steps = [];
+      const queue = [];
+      const topoOrder = [];
+
+      // Init graph step
+      steps.push({
+        type: "init",
+        numCourses,
+        prerequisites,
+        inDegree: [...inDegree],
+        queue: [],
+        topoOrder: [],
+        activeNode: null,
+        activeEdge: null,
+        activeLine: 7,
+        title: `Initialize In-Degree Array & Graph for ${numCourses} Courses`,
+        explanation: `Calculated incoming prerequisite counts: ${inDegree.map((d, i) => `Course ${i}: ${d}`).join(", ")}. Nodes with in-degree 0 have all prerequisites met and can start immediately.`
+      });
+
+      // Find zero-in-degree roots
+      for (let i = 0; i < numCourses; i++) {
+        if (inDegree[i] === 0) queue.push(i);
+      }
+
+      steps.push({
+        type: "seed_queue",
+        numCourses,
+        prerequisites,
+        inDegree: [...inDegree],
+        queue: [...queue],
+        topoOrder: [],
+        activeNode: null,
+        activeEdge: null,
+        activeLine: 11,
+        title: `Enqueue Zero-In-Degree Roots: [${queue.join(", ")}]`,
+        explanation: `Courses [${queue.join(", ")}] have no prerequisites. Enqueued as wave-0 candidates in BFS worklist.`
+      });
+
+      let visitedCount = 0;
+      const maxIter = 50;
+      let iter = 0;
+
+      while (queue.length > 0 && iter < maxIter) {
+        iter++;
+        const curr = queue.shift();
+        visitedCount++;
+        topoOrder.push(curr);
+
+        steps.push({
+          type: "process_node",
+          numCourses,
+          prerequisites,
+          inDegree: [...inDegree],
+          queue: [...queue],
+          topoOrder: [...topoOrder],
+          activeNode: curr,
+          activeEdge: null,
+          activeLine: 15,
+          title: `Take Course ${curr} (Prerequisites Fully Satisfied)`,
+          explanation: `Popped course ${curr} from queue. Added to verified order: [${topoOrder.join(" → ")}]. Next, resolve dependent courses requiring course ${curr}.`
+        });
+
+        for (const next of adj[curr]) {
+          inDegree[next]--;
+          const unlocked = (inDegree[next] === 0);
+          if (unlocked) {
+            queue.push(next);
+          }
+
+          steps.push({
+            type: "decrement_indegree",
+            numCourses,
+            prerequisites,
+            inDegree: [...inDegree],
+            queue: [...queue],
+            topoOrder: [...topoOrder],
+            activeNode: curr,
+            activeEdge: [curr, next],
+            activeLine: 18,
+            title: `Decrement In-Degree of Dependent Course ${next} (${inDegree[next] + 1} -> ${inDegree[next]})`,
+            explanation: `Prerequisite Course ${curr} completed. Remaining prerequisites for Course ${next}: ${inDegree[next]}.${unlocked ? ` In-degree reached 0! Course ${next} is unlocked and enqueued.` : ''}`
+          });
+        }
+      }
+
+      const isSuccess = (visitedCount === numCourses);
+      steps.push({
+        type: "done",
+        numCourses,
+        prerequisites,
+        inDegree: [...inDegree],
+        queue: [...queue],
+        topoOrder: [...topoOrder],
+        activeNode: null,
+        activeEdge: null,
+        isSuccess,
+        activeLine: 21,
+        title: isSuccess
+          ? `Topological Sort Success! Valid Course Schedule Found.`
+          : `Cycle Detected! Schedule Cannot Be Completed.`,
+        explanation: isSuccess
+          ? `Successfully resolved all ${numCourses} courses in valid topological order: [${topoOrder.join(" → ")}]. All prerequisite constraints satisfied in O(V + E) time.`
+          : `Queue became empty with only ${visitedCount}/${numCourses} courses resolved. Remaining courses possess unresolved mutual dependencies (cycle detected). Return false.`
+      });
+
+      return steps;
+    }
+  },
+
+  // 10. Top 'K' Elements (Min-Heap / Priority Queue)
+  topKHeap: {
+    defaultInput: { nums: [1, 1, 1, 2, 2, 3], k: 2 },
+    parseInput: (str) => {
+      try {
+        if (!str || typeof str !== "string") {
+          return { nums: [1, 1, 1, 2, 2, 3], k: 2 };
+        }
+        if (str.includes(";")) {
+          const [numsPart, kPart] = str.split(";");
+          const cleaned = numsPart.replace(/[\[\]]/g, "").trim();
+          const nums = cleaned.split(",").map(x => parseInt(x.trim(), 10)).filter(x => !isNaN(x));
+          let k = parseInt(kPart.replace(/[^0-9]/g, "").trim(), 10);
+          if (isNaN(k) || k <= 0) k = 2;
+          return { nums: nums.length ? nums : [1, 1, 1, 2, 2, 3], k };
+        }
+        const cleaned = str.replace(/[\[\]]/g, "").trim();
+        const nums = cleaned.split(",").map(x => parseInt(x.trim(), 10)).filter(x => !isNaN(x));
+        return { nums: nums.length ? nums : [1, 1, 1, 2, 2, 3], k: 2 };
+      } catch (e) {
+        return { nums: [1, 1, 1, 2, 2, 3], k: 2 };
+      }
+    },
+    generateSteps: (data) => {
+      if (typeof data === "string") {
+        data = Simulations.topKHeap.parseInput(data);
+      }
+      const nums = (data && data.nums && data.nums.length) ? data.nums : [1, 1, 1, 2, 2, 3];
+      const k = (data && data.k) ? Math.min(data.k, new Set(nums).size) : 2;
+
+      // Frequency map
+      const count = {};
+      for (const n of nums) count[n] = (count[n] || 0) + 1;
+
+      const steps = [];
+      const uniqueKeys = Object.keys(count).map(Number);
+
+      steps.push({
+        type: "init",
+        nums: [...nums],
+        k,
+        count: { ...count },
+        heap: [],
+        evicted: null,
+        activeKey: null,
+        activeLine: 3,
+        title: "Compute Frequency Map Across Input Array",
+        explanation: `Frequency distribution: ${uniqueKeys.map(k => `Item ${k} (${count[k]}x)`).join(", ")}. We will maintain a Min-Heap of capacity K=${k} ordered by frequency.`
+      });
+
+      // Min-heap simulation
+      const heap = []; // stores keys, sorted by count[key] ascending
+
+      for (const key of uniqueKeys) {
+        heap.push(key);
+        heap.sort((a, b) => count[a] - count[b]);
+
+        steps.push({
+          type: "push_heap",
+          nums: [...nums],
+          k,
+          count: { ...count },
+          heap: [...heap],
+          evicted: null,
+          activeKey: key,
+          activeLine: 9,
+          title: `Push Value ${key} (Frequency: ${count[key]}) into Min-Heap`,
+          explanation: `Inserted ${key} into heap. Heap size is now ${heap.length} / ${k}. Root element has lowest frequency: Value ${heap[0]} (${count[heap[0]]}x).`
+        });
+
+        if (heap.length > k) {
+          const evicted = heap.shift(); // Remove minimum frequency element
+          steps.push({
+            type: "evict_heap",
+            nums: [...nums],
+            k,
+            count: { ...count },
+            heap: [...heap],
+            evicted,
+            activeKey: key,
+            activeLine: 10,
+            title: `Evict Lowest Frequency Root: Value ${evicted} (Frequency: ${count[evicted]})`,
+            explanation: `Heap capacity exceeded K=${k}. Evicted minimum frequency candidate ${evicted}. The remaining ${k} elements are guaranteed to have higher frequencies.`
+          });
+        }
+      }
+
+      // Done
+      const finalResult = [...heap].sort((a, b) => count[b] - count[a]);
+      steps.push({
+        type: "done",
+        nums: [...nums],
+        k,
+        count: { ...count },
+        heap: [...heap],
+        result: finalResult,
+        evicted: null,
+        activeKey: null,
+        activeLine: 14,
+        title: `Top ${k} Frequent Elements: [${finalResult.join(", ")}]`,
+        explanation: `Min-Heap successfully filtered top ${k} highest frequency elements: ${finalResult.map(v => `${v} (${count[v]}x)`).join(", ")}. Time complexity: O(N log K), Space: O(K).`
+      });
+
+      return steps;
+    }
+  },
+
+  // 11. Dynamic Programming (Coin Change Tabulation)
+  dynamicProgramming: {
+    defaultInput: { coins: [1, 2, 5], amount: 7 },
+    parseInput: (str) => {
+      try {
+        if (!str || typeof str !== "string") {
+          return { coins: [1, 2, 5], amount: 7 };
+        }
+        if (str.includes(";")) {
+          const [coinsPart, amountPart] = str.split(";");
+          const cleaned = coinsPart.replace(/[\[\]]/g, "").trim();
+          const coins = cleaned.split(",").map(x => parseInt(x.trim(), 10)).filter(x => !isNaN(x) && x > 0);
+          let amount = parseInt(amountPart.replace(/[^0-9]/g, "").trim(), 10);
+          if (isNaN(amount) || amount < 0) amount = 7;
+          return { coins: coins.length ? coins : [1, 2, 5], amount: Math.min(amount, 20) };
+        }
+        const cleaned = str.replace(/[\[\]]/g, "").trim();
+        const coins = cleaned.split(",").map(x => parseInt(x.trim(), 10)).filter(x => !isNaN(x) && x > 0);
+        return { coins: coins.length ? coins : [1, 2, 5], amount: 7 };
+      } catch (e) {
+        return { coins: [1, 2, 5], amount: 7 };
+      }
+    },
+    generateSteps: (data) => {
+      if (typeof data === "string") {
+        data = Simulations.dynamicProgramming.parseInput(data);
+      }
+      const coins = (data && data.coins && data.coins.length) ? data.coins.sort((a, b) => a - b) : [1, 2, 5];
+      const amount = (data && typeof data.amount === "number") ? Math.min(data.amount, 20) : 7;
+      const INF = amount + 1;
+
+      const dp = new Array(amount + 1).fill(INF);
+      dp[0] = 0;
+
+      const steps = [];
+
+      steps.push({
+        type: "init",
+        coins: [...coins],
+        amount,
+        dp: [...dp],
+        currentAmount: 0,
+        currentCoin: null,
+        lookupIdx: null,
+        candidateVal: null,
+        isImproved: false,
+        activeLine: 4,
+        title: `Initialize 1D DP Array [0..${amount}] (Base Case: dp[0] = 0)`,
+        explanation: `dp[0] = 0 coins required to form amount 0. All other amounts [1..${amount}] initialized to sentinel ∞ (${INF}).`
+      });
+
+      for (let i = 1; i <= amount; i++) {
+        for (const coin of coins) {
+          if (i - coin >= 0) {
+            const lookupVal = dp[i - coin];
+            const oldVal = dp[i];
+            let candidateVal = null;
+            let isImproved = false;
+
+            if (lookupVal !== INF) {
+              candidateVal = 1 + lookupVal;
+              if (candidateVal < oldVal) {
+                dp[i] = candidateVal;
+                isImproved = true;
+              }
+            }
+
+            steps.push({
+              type: "eval_cell",
+              coins: [...coins],
+              amount,
+              dp: [...dp],
+              currentAmount: i,
+              currentCoin: coin,
+              lookupIdx: i - coin,
+              lookupVal: lookupVal === INF ? "∞" : lookupVal,
+              oldVal: oldVal === INF ? "∞" : oldVal,
+              candidateVal: candidateVal === null ? "∞" : candidateVal,
+              isImproved,
+              activeLine: 8,
+              title: `Amount ${i}: Test Coin ${coin} (Lookup dp[${i - coin}] = ${lookupVal === INF ? '∞' : lookupVal})`,
+              explanation: `Testing coin ${coin} for amount ${i}: lookup subproblem dp[${i} - ${coin}] = dp[${i - coin}] (${lookupVal === INF ? 'unreachable' : lookupVal + ' coins'}). Candidate = 1 + dp[${i - coin}] = ${candidateVal !== null ? candidateVal : '∞'}.${isImproved ? ` 🌟 Improved dp[${i}] from ${oldVal === INF ? '∞' : oldVal} to ${dp[i]}!` : ` (No improvement over ${oldVal === INF ? '∞' : oldVal})`}`
+            });
+          }
+        }
+      }
+
+      const res = dp[amount] > amount ? -1 : dp[amount];
+      steps.push({
+        type: "done",
+        coins: [...coins],
+        amount,
+        dp: [...dp],
+        currentAmount: amount,
+        currentCoin: null,
+        lookupIdx: null,
+        result: res,
+        activeLine: 12,
+        title: res !== -1 ? `Optimal Minimum: ${res} Coin(s) for Amount ${amount}!` : `Impossible to Form Amount ${amount}!`,
+        explanation: res !== -1
+          ? `Optimal substructure complete: dp[${amount}] = ${res} coins. Solved in O(amount · coins) time using tabular bottom-up DP.`
+          : `dp[${amount}] remained ∞. Amount ${amount} cannot be formed using coins [${coins.join(", ")}]. Return -1.`
       });
 
       return steps;

@@ -36,9 +36,12 @@ Keep track of all the problems you solve here. Review this list before interview
 
 Practice each question by implementing the `// TODO` in the template file. Run each file directly to test your solution!
 
-> 💡 **Visual Pattern Simulator**: Want to see how these patterns work visually before implementing them? Open the
-> **[DSA Pattern Visualizer](./visualizer/index.html)** in any browser (`open visualizer/index.html`) to step through live
-> animations, custom inputs, and algorithmic invariant explanations!
+> 💡 **Visual Pattern Simulator & Interview Workbench**: Want to master these patterns before coding? Open the
+> **[DSA Pattern Visualizer](./visualizer/index.html)** in any browser (`open visualizer/index.html`) to access:
+> - 🎯 **Interactive Prediction Challenge Mode** (pauses at invariant decision branches to test intuition with live accuracy scoring)
+> - 📊 **Whiteboard Dry-Run Variable Trace Table** (auto-populating variable state table with 1-click Markdown export)
+> - 🎯 **Interview Playbook & Common Traps** (clarifying questions to ask, constraint cheat-codes, off-by-one pitfalls)
+> - 🧭 **Algorithmic Pattern Diagnostic Wizard** (interactive 2-step decision tree to identify the optimal pattern for any problem)
 
 | #   | Problem Name                            | Difficulty | Topic                     |     Status     |             Visualizer             | Link                                                                                  | Template File                                                                                  |
 |:----|:----------------------------------------|:----------:|:--------------------------|:--------------:|:----------------------------------:|:--------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------|
@@ -53,7 +56,7 @@ Practice each question by implementing the `// TODO` in the template file. Run e
 | 56  | **Merge Intervals**                     | 🟡 Medium  | Intervals / Greedy        |  ⏳ To Solve   | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/merge-intervals/)                                | [`MergeIntervals.java`](./src/Arrays/MergeIntervals.java)                                      |
 | 98  | **Validate Binary Search Tree**         | 🟡 Medium  | Trees / BST Invariant     |  ⏳ To Solve   |                 -                  | [Link](https://leetcode.com/problems/validate-binary-search-tree/)                    | [`ValidateBinarySearchTree.java`](./src/Trees/ValidateBinarySearchTree.java)                   |
 | 200 | **Number of Islands**                   | 🟡 Medium  | Graphs / Grid BFS/DFS     |  ⏳ To Solve   | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/number-of-islands/)                              | [`NumberOfIslands.java`](./src/Graphs/NumberOfIslands.java)                                    |
-| 207 | **Course Schedule**                     | 🟡 Medium  | Graphs / Topo Sort        |  ⏳ To Solve   |                 -                  | [Link](https://leetcode.com/problems/course-schedule/)                                | [`CourseSchedule.java`](./src/Graphs/CourseSchedule.java)                                      |
+| 207 | **Course Schedule**                     | 🟡 Medium  | Graphs / Topo Sort        |  ⏳ To Solve   | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/course-schedule/)                                | [`CourseSchedule.java`](./src/Graphs/CourseSchedule.java)                                      |
 | 236 | **Lowest Common Ancestor**              | 🟡 Medium  | Trees / Post-Order DFS    |  ⏳ To Solve   |                 -                  | [Link](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)        | [`LowestCommonAncestor.java`](./src/Trees/LowestCommonAncestor.java)                           |
 | 322 | **Coin Change**                         | 🟡 Medium  | Dynamic Programming       |  ⏳ To Solve   | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/coin-change/)                                    | [`CoinChange.java`](./src/DP/CoinChange.java)                                                  |
 | 739 | **Daily Temperatures**                  | 🟡 Medium  | Monotonic Stack           |  ⏳ To Solve   | [⚡ View](./visualizer/index.html) | [Link](https://leetcode.com/problems/daily-temperatures/)                             | [`DailyTemperatures.java`](./src/Stacks_Queues/DailyTemperatures.java)                         |

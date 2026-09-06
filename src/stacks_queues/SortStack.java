@@ -1,9 +1,7 @@
 package stacks_queues;
 
-import utils.StackTemplate;
-
 public class SortStack {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         StackTemplate<Integer> stack;
 
         System.out.println("These tests confirm sortStack sorts");

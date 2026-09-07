@@ -1,18 +1,18 @@
 package test;
 
 import Hashing.RomanToInteger;
-import arrays.Anagram;
-import arrays.ContainsDuplicate;
-import arrays.TopKFrequentElements;
-import arrays.TwoSum;
-import linked_list.*;
-import stacks_queues.ReverseString;
-import stacks_queues.SortStack;
-import stacks_queues.ValidParentheses;
-import utils.DoublyLinkedList;
-import utils.LinkedList;
-import utils.Node;
-import utils.StackTemplate;
+import Arrays.Anagram;
+import Arrays.ContainsDuplicate;
+import Arrays.TopKFrequentElements;
+import Arrays.TwoSum;
+import LinkedList.*;
+import Stacks_Queues.ReverseString;
+import Stacks_Queues.SortStack;
+import Stacks_Queues.ValidParentheses;
+import Utils.DoublyLinkedList;
+import Utils.LinkedList;
+import Utils.Node;
+import Utils.StackTemplate;
 
 import java.util.Arrays;
 

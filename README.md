@@ -11,9 +11,7 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
 
 ## 📊 Quick Links & Resources
 
-* ⚡ **[DSA Pattern Visualizer (visualizer/index.html)](./visualizer/index.html)**: Pattern-first visual learning
-  platform featuring live step-by-step invariant animations, scrubber playback, synchronized Java code tracing, and
-  problem trigger cues.
+* ⚡ **[DSA Studio Live Visualizer](https://ranveer.is-a.dev/Data-Structure-and-Algorithms/)** (or local [visualizer/index.html](./visualizer/index.html)): Interactive algorithmic invariant workbench with step-by-step simulations, prediction challenge mode, whiteboard dry-run trace table, and diagnostic wizard.
 * 🏆 **[Solved Problems Tracker & Practice Queue (SOLVED.md)](./SOLVED.md)**: Categorized table of all solved questions,
   complexities, and 16 curated Google Easy & Medium practice Templates.
 * 🚀 **[Fast Learning & Deep Mastery Guide](./notes/Fast_Learning_and_Deep_Mastery_Guide.md)**: Accelerated learning
@@ -128,15 +126,20 @@ This repository includes a standalone, zero-dependency offline web application i
 * 💻 **Synchronized Java Execution Tracing**: Synchronized code viewer tracking the exact Java solution file in this repository with live active line beacons.
 
 ### How to Launch the Visualizer:
+ 
+* 🌐 **Option 1: Live GitHub Pages Web App (No Install Required)**:
+  [https://ranveer.is-a.dev/Data-Structure-and-Algorithms/](https://ranveer.is-a.dev/Data-Structure-and-Algorithms/)
 
-```bash
-# Option 1: Open directly in your default browser (macOS)
-open visualizer/index.html
+* 💻 **Option 2: Open locally in your browser**:
+  ```bash
+  open visualizer/index.html
+  ```
 
-# Option 2: Run via local lightweight HTTP server
-python3 -m http.server 3000 --directory visualizer
-# Then visit http://localhost:3000 in your browser
-```
+* 🚀 **Option 3: Run via local lightweight HTTP server**:
+  ```bash
+  python3 -m http.server 3000 --directory visualizer
+  # Then visit http://localhost:3000 in your browser
+  ```
 
 ---
 

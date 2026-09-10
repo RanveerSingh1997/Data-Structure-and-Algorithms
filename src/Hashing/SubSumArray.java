@@ -7,18 +7,15 @@ public class SubSumArray {
 
     public static int[] subarraySum(int[] array, int target) {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
-        //hashMap.put(0, -1);
-        int i = 0;
+        hashMap.put(0, -1);
         int currentSum = 0;
-        while (i < array.length) {
+        for (int i = 0; i < array.length; i++) {
             currentSum += array[i];
             int key = currentSum - target;
-            if (hashMap.get(key) == null) {
-                hashMap.put(currentSum, i);
-            } else {
+            if (hashMap.containsKey(key)) {
                 return new int[]{hashMap.get(key) + 1, i};
             }
-            i++;
+            hashMap.putIfAbsent(currentSum, i);
         }
         return new int[]{};
     }

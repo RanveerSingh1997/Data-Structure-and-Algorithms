@@ -10,12 +10,9 @@ public class GroupAnagram {
     public static ArrayList<ArrayList<String>> groupAnagrams(String[] array) {
         HashMap<String, ArrayList<String>> hashMap = new HashMap<>();
         for (String str : array) {
-            if (str.isEmpty()) {
-                continue;
-            }
-            char[] charcter = str.toCharArray();
-            Arrays.sort(charcter);
-            String key = Arrays.toString(charcter);
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            String key = new String(chars);
             ArrayList<String> values = hashMap.getOrDefault(key, new ArrayList<>());
             values.add(str);
             hashMap.put(key, values);

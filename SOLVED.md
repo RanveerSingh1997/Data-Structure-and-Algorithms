@@ -20,17 +20,24 @@ Keep track of all the problems you solve here. Review this list before interview
 | 953  | Verifying an Alien Dictionary | Arrays / HashMap          | `O(N * L)`              | `O(1)` | [Link](https://leetcode.com/problems/verifying-an-alien-dictionary/) |
 | 1544 | Make The String Great         | Stack / String            | `O(N)`                  | `O(N)` | [Link](https://leetcode.com/problems/make-the-string-great/)         |
 | 1598 | Crawler Log Folder            | Stack / Counter           | `O(N)`                  | `O(N)` | [Link](https://leetcode.com/problems/crawler-log-folder/)            |
+| -    | First Non-Repeating Character | Strings / HashMap         | `O(N)`                  | `O(1)` | -                                                                    |
+| -    | Has Unique Characters         | Strings / HashSet         | `O(N)`                  | `O(N)` | -                                                                    |
+| -    | Find Pairs                    | Arrays / HashSet          | `O(N + M)`              | `O(N)` | -                                                                    |
+| -    | Remove Duplicates             | Arrays / HashSet          | `O(N)`                  | `O(N)` | -                                                                    |
 
 ## 🟡 Medium (Solved)
 
-| #    | Problem Name                     | Topic              | Time         | Space  | Link                                                                    |
-|:-----|:---------------------------------|:-------------------|:-------------|:-------|:------------------------------------------------------------------------|
-| 150  | Evaluate Reverse Polish Notation | Stack / Math       | `O(N)`       | `O(N)` | [Link](https://leetcode.com/problems/evaluate-reverse-polish-notation/) |
-| 347  | Top K Frequent Elements          | Min-Heap / Buckets | `O(N log K)` | `O(N)` | [Link](https://leetcode.com/problems/top-k-frequent-elements/)          |
-| 2390 | Removing Stars From a String     | Stack / String     | `O(N)`       | `O(N)` | [Link](https://leetcode.com/problems/removing-stars-from-a-string/)     |
-| -    | Find Kth Node From End           | Two Pointers       | `O(N)`       | `O(1)` | -                                                                       |
-| -    | Sort Stack                       | Stack              | `O(N^2)`     | `O(N)` | -                                                                       |
-| -    | Remove Duplicates from List      | Linked List / Set  | `O(N)`       | `O(N)` | -                                                                       |
+| #    | Problem Name                     | Topic                         | Time             | Space      | Link                                                                    |
+|:-----|:---------------------------------|:------------------------------|:-----------------|:-----------|:------------------------------------------------------------------------|
+| 49   | Group Anagrams                   | Strings / HashMap             | `O(N * K log K)` | `O(N * K)` | [Link](https://leetcode.com/problems/group-anagrams/)                   |
+| 128  | Longest Consecutive Sequence     | Arrays / HashSet              | `O(N)`           | `O(N)`     | [Link](https://leetcode.com/problems/longest-consecutive-sequence/)    |
+| 150  | Evaluate Reverse Polish Notation | Stack / Math                  | `O(N)`           | `O(N)`     | [Link](https://leetcode.com/problems/evaluate-reverse-polish-notation/) |
+| 347  | Top K Frequent Elements          | Min-Heap / Buckets            | `O(N log K)`     | `O(N)`     | [Link](https://leetcode.com/problems/top-k-frequent-elements/)          |
+| 2390 | Removing Stars From a String     | Stack / String                | `O(N)`           | `O(N)`     | [Link](https://leetcode.com/problems/removing-stars-from-a-string/)     |
+| -    | Find Kth Node From End           | Two Pointers                  | `O(N)`           | `O(1)`     | -                                                                       |
+| -    | Sort Stack                       | Stack                         | `O(N^2)`         | `O(N)`     | -                                                                       |
+| -    | Remove Duplicates from List      | Linked List / Set             | `O(N)`           | `O(N)`     | -                                                                       |
+| -    | Subarray Sum (Target Indices)    | Arrays / HashMap / Prefix Sum | `O(N)`           | `O(N)`     | -                                                                       |
 
 ## 🎯 Google Interview Practice Queue (Templates Ready to Solve)
 

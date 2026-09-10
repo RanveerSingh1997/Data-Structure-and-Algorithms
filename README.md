@@ -20,6 +20,10 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
   evaluation rubric, clarifying questions checklist, and high-frequency follow-ups.
 * 📚 **[Revision Notes & Cheatsheets (notes/)](./notes/)**:
     * [Patterns Cheat Sheet](./notes/Patterns.md)
+    * [Hashing & Prefix Sum Mastery Guide](./notes/Hashing_and_Prefix_Sum_Patterns.md)
+    * [Binary Trees & BST Patterns Guide](./notes/Binary_Trees_and_BST_Patterns.md)
+    * [Advanced Graph Traversals & Topological Sort](./notes/Graph_Traversals_and_Topological_Sort.md)
+    * [Dynamic Programming Mastery Guide](./notes/Dynamic_Programming_Mastery_Guide.md)
     * [Time & Space Complexity Guide](./notes/TimeComplexity.md)
     * [Algorithm Quick Refresh](./notes/Algorithm_Quick_Refresh.md)
     * [Java Syntax & Collections Cheatsheet](./notes/Java_Syntax_Cheatsheet.md)

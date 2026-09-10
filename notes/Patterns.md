@@ -46,3 +46,29 @@ When you look at a problem, you should be able to guess the pattern based on the
   - The problem can be broken down into overlapping subproblems.
   - **Keywords**: "Max ways", "Min cost", "Can we do it?".
 - **Example**: "Climbing Stairs", "Coin Change", "Longest Common Subsequence"
+- 📖 **Deep Dive**: [Dynamic Programming Mastery Guide](./Dynamic_Programming_Mastery_Guide.md)
+
+## 11. Hashing & Prefix Sum
+- **When to use**:
+  - $O(1)$ complement lookups ($Y = \text{target} - X$).
+  - Subarray sum problems ($\text{prefix}[j] - \text{prefix}[i-1] = K$).
+  - Frequency counting and canonical grouping (Anagrams).
+  - Sequence starting head checks ($O(N)$ streak finding).
+- **Example**: "Two Sum", "Subarray Sum Equals K", "Group Anagrams", "Longest Consecutive Sequence"
+- 📖 **Deep Dive**: [Hashing & Prefix Sum Mastery Guide](./Hashing_and_Prefix_Sum_Patterns.md)
+
+## 12. Binary Trees & BST Invariants
+- **When to use**:
+  - Top-down state propagation (passing $(min, max)$ bounds for BST validation).
+  - Bottom-up post-order metric aggregation (computing diameter, maximum path sum).
+  - Level-by-level BFS snapshots for tree views.
+- **Example**: "Validate BST", "Diameter of Binary Tree", "Lowest Common Ancestor"
+- 📖 **Deep Dive**: [Binary Trees & BST Patterns Guide](./Binary_Trees_and_BST_Patterns.md)
+
+## 13. Graphs & Topological Sort
+- **When to use**:
+  - Dependency ordering and DAG cycle detection via in-degrees (Kahn's algorithm).
+  - Cycle detection in directed graphs via 3-coloring DFS (visiting vs visited).
+  - Simultaneous multi-point spread (Multi-Source BFS).
+- **Example**: "Course Schedule", "Rotting Oranges", "Number of Islands"
+- 📖 **Deep Dive**: [Advanced Graph Traversals & Topological Sort](./Graph_Traversals_and_Topological_Sort.md)

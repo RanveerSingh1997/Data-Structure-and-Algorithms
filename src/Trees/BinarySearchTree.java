@@ -20,6 +20,8 @@ public class BinarySearchTree {
         System.out.println(binarySearchTree.contains(28));
         //True
         System.out.println(binarySearchTree.contains(82));
+
+        System.out.println(binarySearchTree.rContains(82));
     }
 
     public boolean insert(int value) {
@@ -59,5 +61,20 @@ public class BinarySearchTree {
             }
         }
         return false;
+    }
+
+
+    public boolean rContains(TreeNode currentNode, int value) {
+        if (currentNode == null) return false;
+        if (currentNode.val == value) return true;
+        if (value < currentNode.val) {
+            return rContains(currentNode.left, value);
+        } else {
+            return rContains(currentNode.right, value);
+        }
+    }
+
+    public boolean rContains(int value) {
+        return rContains(root, value);
     }
 }

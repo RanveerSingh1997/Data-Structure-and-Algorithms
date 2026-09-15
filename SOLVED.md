@@ -17,13 +17,17 @@ Keep track of all the problems you solve here. Review this list before interview
 | 242  | Valid Anagram                 | Strings / Frequency Array | `O(N)`                  | `O(1)` | [Link](https://leetcode.com/problems/valid-anagram/)                 |
 | 344  | Reverse String                | Stack / Two Pointers      | `O(N)`                  | `O(N)` | [Link](https://leetcode.com/problems/reverse-string/)                |
 | 876  | Middle of the Linked List     | Fast & Slow Pointers      | `O(N)`                  | `O(1)` | [Link](https://leetcode.com/problems/middle-of-the-linked-list/)     |
-| 953  | Verifying an Alien Dictionary | Arrays / HashMap          | `O(N * L)`              | `O(1)` | [Link](https://leetcode.com/problems/verifying-an-alien-dictionary/) |
+| 703  | Kth Largest Element in a Stream | Heap / Min-Heap           | `O(N log K)` init, `O(log K)` add | `O(K)` | [Link](https://leetcode.com/problems/kth-largest-element-in-a-stream/) |
+| 1046 | Last Stone Weight             | Heap / Max-Heap           | `O(N log N)`            | `O(N)` | [Link](https://leetcode.com/problems/last-stone-weight/)             |
 | 1544 | Make The String Great         | Stack / String            | `O(N)`                  | `O(N)` | [Link](https://leetcode.com/problems/make-the-string-great/)         |
 | 1598 | Crawler Log Folder            | Stack / Counter           | `O(N)`                  | `O(N)` | [Link](https://leetcode.com/problems/crawler-log-folder/)            |
+| 2558 | Take Gifts From Richest Pile  | Heap / Max-Heap           | `O(N + K log N)`        | `O(N)` | [Link](https://leetcode.com/problems/take-gifts-from-the-richest-pile/) |
 | -    | First Non-Repeating Character | Strings / HashMap         | `O(N)`                  | `O(1)` | -                                                                    |
 | -    | Has Unique Characters         | Strings / HashSet         | `O(N)`                  | `O(N)` | -                                                                    |
 | -    | Find Pairs                    | Arrays / HashSet          | `O(N + M)`              | `O(N)` | -                                                                    |
 | -    | Remove Duplicates             | Arrays / HashSet          | `O(N)`                  | `O(N)` | -                                                                    |
+| -    | Kth Smallest Element          | Heap / Max-Heap           | `O(N log K)`            | `O(K)` | -                                                                    |
+| -    | Maximum in Stream             | Heap / Max-Heap           | `O(N log N)`            | `O(N)` | -                                                                    |
 
 ## 🟡 Medium (Solved)
 

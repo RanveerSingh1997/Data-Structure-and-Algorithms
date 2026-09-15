@@ -15,12 +15,17 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
   local [visualizer/index.html](./visualizer/index.html)): Interactive algorithmic invariant workbench with step-by-step
   simulations, prediction challenge mode, whiteboard dry-run trace table, and diagnostic wizard.
 * 🏆 **[Solved Problems Tracker & Practice Queue (SOLVED.md)](./SOLVED.md)**: Categorized table of all solved questions,
-  complexities, and 16 curated Google Easy & Medium practice Templates.
+  complexities, 16 curated Google practice templates, and the curated **OOP / LLD Practice Queue**.
+* 🏛️ **[OOP & Low-Level Design (LLD) Mastery Guide](DSANotes/OOP_and_LLD_Mastery_Guide.md)**: SOLID principles deep dive,
+  GoF design patterns, thread-safety & concurrency, 5-step interview playbook, and blueprints for 7 system designs.
+* 📦 **[OOP Practice Module (OOP/README.md)](./OOP/README.md)**: Dedicated LLD module featuring 7 real-world interview systems
+  with standalone runnable test runners.
 * 🚀 **[Fast Learning & Deep Mastery Guide](DSANotes/Fast_Learning_and_Deep_Mastery_Guide.md)**: Accelerated learning
   blueprint, 20-minute rule, invariant proofs, constraint cheat codes, pattern triggers & 5-minute review routine.
 * 🎯 **[Google SWE Interview Prep Guide](DSANotes/Google_Interview_Guide.md)**: Complete 45-minute live coding blueprint,
   evaluation rubric, clarifying questions checklist, and high-frequency follow-ups.
-* 📚 **[Revision Notes & Cheatsheets (notes/)](DSANotes/)**:
+* 📚 **[Revision Notes & Cheatsheets (DSANotes/)](DSANotes/)**:
+    * [OOP & LLD Mastery Guide](DSANotes/OOP_and_LLD_Mastery_Guide.md)
     * [Patterns Cheat Sheet](DSANotes/Patterns.md)
     * [Hashing & Prefix Sum Mastery Guide](DSANotes/Hashing_and_Prefix_Sum_Patterns.md)
     * [Binary Trees & BST Patterns Guide](DSANotes/Binary_Trees_and_BST_Patterns.md)
@@ -100,6 +105,16 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
 │       ├── Stack.java            # Node-based integer stack
 │       ├── StackTemplate.java    # Generic ArrayList-backed stack
 │       └── Queue.java            # Node-based FIFO queue
+├── OOP/                          # 🏛️ Object-Oriented Programming & Low-Level Design Module
+│   ├── README.md                 # LLD module index, problem table & run instructions
+│   └── src/                      # Standalone runnable system designs
+│       ├── DesignParkingLot.java          # Multi-floor parking lot with gates & pricing strategies
+│       ├── DesignElevatorSystem.java       # Multi-car elevator dispatcher with LOOK/SCAN algorithm
+│       ├── DesignChess.java                # 8x8 Board, piece movement validation & move history
+│       ├── DesignConnectFour.java          # Gravity disc drops, turn alternator & win validator
+│       ├── DesignBlackJack.java            # 52-card shoe, dynamic Ace scoring & dealer rules
+│       ├── DesignBank.java                 # Thread-safe accounts, atomic transfers & audit logs
+│       └── DesginMovieRecomendation.java   # Pluggable content-based & top-rated recommendation engine
 ├── visualizer/                   # Standalone offline interactive algorithmic visualizer
 │   ├── index.html                # Interactive simulator, pattern cues & code tracer
 │   ├── styles.css                # Dark glassmorphism, responsive visualizer components
@@ -109,7 +124,7 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
 ├── test/
 │   ├── AllTestsRunner.java       # Automated test runner (45 tests passing)
 │   └── test.SampleTest.java           # JUnit 5 test example
-├── notes/                        # In-depth interview notes, playbooks & cheatsheets
+├── DSANotes/                     # In-depth interview notes, playbooks & cheatsheets
 ├── SOLVED.md                     # Live tracking table & practice queue
 └── README.md
 ```
@@ -275,6 +290,24 @@ javac -d out $(find src test -name "*.java" ! -name "test.SampleTest.java")
 java -cp out test.AllTestsRunner
 ```
 
+### Option 4: Run OOP / Low-Level Design System Simulators
+
+Each system design in the `OOP/` module has an end-to-end interactive verification test runner:
+
+```bash
+# Compile all OOP systems
+javac -d out OOP/src/*.java
+
+# Run any system design simulation
+java -cp out DesignParkingLot
+java -cp out DesignElevatorSystem
+java -cp out DesignChess
+java -cp out DesignConnectFour
+java -cp out DesignBlackJack
+java -cp out DesignBank
+java -cp out DesginMovieRecomendation
+```
+
 ---
 
 ## 📝 Problem Practice Template Format
@@ -330,6 +363,8 @@ public class MergeIntervals {
 - [x] Build developer tools (`TreeVisualizer` with ASCII 2D rendering & `Benchmark` memory profiler).
 - [x] Build comprehensive revision guides (`Fast_Learning_and_Deep_Mastery_Guide.md`, `Google_Interview_Guide.md`).
 - [x] Standardize automated test runner (`test.AllTestsRunner`, 45 passing tests).
+- [x] Integrate **OOP & Low-Level Design Module** with full mastery guide and 7 problem architectures.
+- [ ] Complete all 7 system design practice implementations in [`OOP/`](./OOP/README.md).
 - [ ] Solve the curated **16 Google Easy & Medium Practice Queue** in [`SOLVED.md`](./SOLVED.md).
 - [ ] Complete NeetCode 150 core problem set.
 - [ ] Regular weekly contest participation and upsolving.

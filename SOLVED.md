@@ -87,3 +87,20 @@ Practice each question by implementing the `// TODO` in the template file. Run e
 | **TreeVisualizer**           | Utility          | LeetCode tree string parser & 2D ASCII visualizer |
 | **Benchmark**                | Utility          | Execution timer, ops/sec & memory delta profiler  |
 | **ListNode / TreeNode**      | Utilities        | Standard LeetCode interview node models           |
+
+---
+
+## 🏛️ Object-Oriented Programming (OOP) & Low-Level Design (LLD) Practice Queue
+
+> 📖 **Pre-Practice Study Guide**: Read **[OOP & LLD Mastery Guide](./DSANotes/OOP_and_LLD_Mastery_Guide.md)** and **[OOP Module README](./OOP/README.md)** for SOLID principles, design patterns, concurrency best practices, and the 5-step interview playbook.
+
+| # | System Design Problem | Difficulty | Domain & Core Concepts | Target Companies | Key Design Patterns | Status | Source Template |
+|:-:|:---|:---:|:---|:---|:---|:---:|:---|
+| 1 | **Design Parking Lot** | 🟡 Medium | Multi-floor, Spot types, Ticketing, Dynamic Fees | Amazon, Google, Uber | Strategy, Factory, Singleton | ⏳ Ready to Practice | [`DesignParkingLot.java`](./OOP/src/DesignParkingLot.java) |
+| 2 | **Design Elevator System** | 🔴 Medium–Hard | Multi-car dispatcher, LOOK/SCAN algorithm, State Machine | Google, Microsoft, Amazon | State, Strategy, Observer | ⏳ Ready to Practice | [`DesignElevatorSystem.java`](./OOP/src/DesignElevatorSystem.java) |
+| 3 | **Design Chess Game** | 🔴 Hard | 8x8 Board, Move validation, Collision checking, Turn alternation | Google, Amazon, Uber | Command, Factory, Template Method | ⏳ Ready to Practice | [`DesignChess.java`](./OOP/src/DesignChess.java) |
+| 4 | **Design Connect Four** | 🟡 Medium | Gravity disc drops, Invariant checks, Turn management | Google, Microsoft, Meta | Strategy, Command | ⏳ Ready to Practice | [`DesignConnectFour.java`](./OOP/src/DesignConnectFour.java) |
+| 5 | **Design Blackjack** | 🟡 Medium | 52-card shoe, Hand scoring, Dynamic Ace (1/11), Dealer rules | Bloomberg, Amazon, Meta | Strategy, Factory, Composite | ⏳ Ready to Practice | [`DesignBlackJack.java`](./OOP/src/DesignBlackJack.java) |
+| 6 | **Design Banking System** | 🔴 Medium–Hard | Thread-safe accounts, Atomic transfers, Deadlock avoidance, Audit logs | Goldman Sachs, Stripe, Google Pay | Template Method, Strategy, Command | ⏳ Ready to Practice | [`DesignBank.java`](./OOP/src/DesignBank.java) |
+| 7 | **Design Movie Recommendation** | 🟡 Medium | User ratings, Genre-based & Top-rated filtering, Pluggable algorithms | Netflix, Amazon, Spotify | Strategy, Builder, Observer | ⏳ Ready to Practice | [`DesginMovieRecomendation.java`](./OOP/src/DesginMovieRecomendation.java) |
+

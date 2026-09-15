@@ -11,24 +11,26 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
 
 ## 📊 Quick Links & Resources
 
-* ⚡ **[DSA Studio Live Visualizer](https://ranveer.is-a.dev/Data-Structure-and-Algorithms/)** (or local [visualizer/index.html](./visualizer/index.html)): Interactive algorithmic invariant workbench with step-by-step simulations, prediction challenge mode, whiteboard dry-run trace table, and diagnostic wizard.
+* ⚡ **[DSA Studio Live Visualizer](https://ranveer.is-a.dev/Data-Structure-and-Algorithms/)** (or
+  local [visualizer/index.html](./visualizer/index.html)): Interactive algorithmic invariant workbench with step-by-step
+  simulations, prediction challenge mode, whiteboard dry-run trace table, and diagnostic wizard.
 * 🏆 **[Solved Problems Tracker & Practice Queue (SOLVED.md)](./SOLVED.md)**: Categorized table of all solved questions,
   complexities, and 16 curated Google Easy & Medium practice Templates.
-* 🚀 **[Fast Learning & Deep Mastery Guide](./notes/Fast_Learning_and_Deep_Mastery_Guide.md)**: Accelerated learning
+* 🚀 **[Fast Learning & Deep Mastery Guide](DSANotes/Fast_Learning_and_Deep_Mastery_Guide.md)**: Accelerated learning
   blueprint, 20-minute rule, invariant proofs, constraint cheat codes, pattern triggers & 5-minute review routine.
-* 🎯 **[Google SWE Interview Prep Guide](./notes/Google_Interview_Guide.md)**: Complete 45-minute live coding blueprint,
+* 🎯 **[Google SWE Interview Prep Guide](DSANotes/Google_Interview_Guide.md)**: Complete 45-minute live coding blueprint,
   evaluation rubric, clarifying questions checklist, and high-frequency follow-ups.
-* 📚 **[Revision Notes & Cheatsheets (notes/)](./notes/)**:
-    * [Patterns Cheat Sheet](./notes/Patterns.md)
-    * [Hashing & Prefix Sum Mastery Guide](./notes/Hashing_and_Prefix_Sum_Patterns.md)
-    * [Binary Trees & BST Patterns Guide](./notes/Binary_Trees_and_BST_Patterns.md)
-    * [Advanced Graph Traversals & Topological Sort](./notes/Graph_Traversals_and_Topological_Sort.md)
-    * [Dynamic Programming Mastery Guide](./notes/Dynamic_Programming_Mastery_Guide.md)
-    * [Time & Space Complexity Guide](./notes/TimeComplexity.md)
-    * [Algorithm Quick Refresh](./notes/Algorithm_Quick_Refresh.md)
-    * [Java Syntax & Collections Cheatsheet](./notes/Java_Syntax_Cheatsheet.md)
-    * [Bit Manipulation Tricks](./notes/Bit_Manipulation_Tricks.md)
-    * [Math & Number Theory](./notes/Math_Number_Theory.md)
+* 📚 **[Revision Notes & Cheatsheets (notes/)](DSANotes/)**:
+    * [Patterns Cheat Sheet](DSANotes/Patterns.md)
+    * [Hashing & Prefix Sum Mastery Guide](DSANotes/Hashing_and_Prefix_Sum_Patterns.md)
+    * [Binary Trees & BST Patterns Guide](DSANotes/Binary_Trees_and_BST_Patterns.md)
+    * [Advanced Graph Traversals & Topological Sort](DSANotes/Graph_Traversals_and_Topological_Sort.md)
+    * [Dynamic Programming Mastery Guide](DSANotes/Dynamic_Programming_Mastery_Guide.md)
+    * [Time & Space Complexity Guide](DSANotes/TimeComplexity.md)
+    * [Algorithm Quick Refresh](DSANotes/Algorithm_Quick_Refresh.md)
+    * [Java Syntax & Collections Cheatsheet](DSANotes/Java_Syntax_Cheatsheet.md)
+    * [Bit Manipulation Tricks](DSANotes/Bit_Manipulation_Tricks.md)
+    * [Math & Number Theory](DSANotes/Math_Number_Theory.md)
 
 ---
 
@@ -119,18 +121,28 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
 This repository includes a standalone, zero-dependency offline web application in [
 `visualizer/`](./visualizer/index.html) designed for visual pattern mastery:
 
-* 🎯 **Active Prediction Challenge Mode**: Pauses automatically at critical decision branches to test your intuition (*"Which pointer advances next and why?"*), with real-time scoring and sound feedback to build deep algorithmic muscle memory.
-* 📊 **Whiteboard Dry-Run Variable Trace Table**: Auto-generates real-time variable trace tables (L, R, Area, Window, Stack, etc.) with click-to-scrub time travel and a 1-click **Copy as Markdown** button for whiteboard interview prep.
-* 🧭 **Algorithmic Pattern Diagnostic Wizard**: Interactive 2-step decision tree that diagnoses any interview problem's input structure & constraints and recommends the optimal pattern with direct workbench launch.
-* 🎯 **Interview Playbook & Common Traps**: 3 clarifying questions to ask interviewers, constraint rule-of-thumb cheat codes ($N \le 10^5 \implies O(N)$), and common pitfalls / off-by-one bugs.
-* 📋 **Clean Starter Templates**: One-click copy for clean Java boilerplate without spoilers, ready to paste directly into LeetCode or your IDE.
-* 🎬 **Interactive Step-by-Step State Simulator**: Live visual animations with Play/Pause, Step Forward/Back, scrubber slider, speed presets (0.5x to 2.5x), and Web Audio synthesizer cues.
-* 🧪 **Custom Input Playground**: Type any custom array, string, tree, rotated sequence, or grid into the input box and step through the simulation!
-* 💡 **Algorithmic Invariant Inspector**: Real-time HUD showing pointer values ($L, R, mid$), active stack frames, sliding window bounds, and formal mathematical invariant proofs.
-* 💻 **Synchronized Java Execution Tracing**: Synchronized code viewer tracking the exact Java solution file in this repository with live active line beacons.
+* 🎯 **Active Prediction Challenge Mode**: Pauses automatically at critical decision branches to test your intuition (*"
+  Which pointer advances next and why?"*), with real-time scoring and sound feedback to build deep algorithmic muscle
+  memory.
+* 📊 **Whiteboard Dry-Run Variable Trace Table**: Auto-generates real-time variable trace tables (L, R, Area, Window,
+  Stack, etc.) with click-to-scrub time travel and a 1-click **Copy as Markdown** button for whiteboard interview prep.
+* 🧭 **Algorithmic Pattern Diagnostic Wizard**: Interactive 2-step decision tree that diagnoses any interview problem's
+  input structure & constraints and recommends the optimal pattern with direct workbench launch.
+* 🎯 **Interview Playbook & Common Traps**: 3 clarifying questions to ask interviewers, constraint rule-of-thumb cheat
+  codes ($N \le 10^5 \implies O (N)$), and common pitfalls / off-by-one bugs.
+* 📋 **Clean Starter Templates**: One-click copy for clean Java boilerplate without spoilers, ready to paste directly
+  into LeetCode or your IDE.
+* 🎬 **Interactive Step-by-Step State Simulator**: Live visual animations with Play/Pause, Step Forward/Back, scrubber
+  slider, speed presets (0.5x to 2.5x), and Web Audio synthesizer cues.
+* 🧪 **Custom Input Playground**: Type any custom array, string, tree, rotated sequence, or grid into the input box and
+  step through the simulation!
+* 💡 **Algorithmic Invariant Inspector**: Real-time HUD showing pointer values ($L, R, mid$), active stack frames,
+  sliding window bounds, and formal mathematical invariant proofs.
+* 💻 **Synchronized Java Execution Tracing**: Synchronized code viewer tracking the exact Java solution file in this
+  repository with live active line beacons.
 
 ### How to Launch the Visualizer:
- 
+
 * 🌐 **Option 1: Live GitHub Pages Web App (No Install Required)**:
   [https://ranveer.is-a.dev/Data-Structure-and-Algorithms/](https://ranveer.is-a.dev/Data-Structure-and-Algorithms/)
 

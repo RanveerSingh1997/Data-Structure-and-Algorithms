@@ -78,33 +78,53 @@ public class BinarySearchTree {
     public boolean rContains(int value) {
         return rContains(root, value);
     }
-    private TreeNode rInsert(TreeNode currentNode,int value){
-        if(currentNode==null) return new TreeNode(value);
-        if(value< currentNode.val){
-            currentNode.left=rInsert(currentNode.left,value);
-        }else {
-            currentNode.right=rInsert(currentNode.right,value);
+
+    private TreeNode rInsert(TreeNode currentNode, int value) {
+        if (currentNode == null) return new TreeNode(value);
+        if (value < currentNode.val) {
+            currentNode.left = rInsert(currentNode.left, value);
+        } else {
+            currentNode.right = rInsert(currentNode.right, value);
         }
         return currentNode;
     }
 
-    public TreeNode rInsert(int value){
-        if(root == null) return root= new TreeNode(value);
-        return rInsert(root,value);
+    public TreeNode rInsert(int value) {
+        if (root == null) return root = new TreeNode(value);
+        return rInsert(root, value);
     }
 
-    private boolean rDelete(TreeNode currentNode,int value){
-        if(currentNode.val==value) return currentNode = currentNode;
-        if(value< currentNode.val){
-            currentNode.left=rInsert(currentNode.left,value);
-        }else {
-            currentNode.right=rInsert(currentNode.right,value);
+    private TreeNode rDelete(TreeNode currentNode, int value) {
+        if (currentNode == null) return null;
+        if (value < currentNode.val) {
+            currentNode.left = rDelete(currentNode.left, value);
+        } else if (value > currentNode.val) {
+            currentNode.right = rDelete(currentNode.right, value);
+        } else {
+            if (currentNode.left == null && currentNode.right == null) {
+                return null;
+            } else if (currentNode.left == null) {
+                currentNode = currentNode.right;
+            } else if (currentNode.right == null) {
+                currentNode = currentNode.left;
+            } else {
+                int subTreeMin = minValue(currentNode.right);
+                currentNode.val = subTreeMin;
+                currentNode.right = rDelete(currentNode.right, subTreeMin);
+            }
         }
-        return false;
+        return currentNode;
     }
 
-    public boolean rDelete(int value){
-        if(root == null) return false;
-        return rInsert(root,value);
+    public int minValue(TreeNode node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node.val;
+    }
+
+    public TreeNode rDelete(int value) {
+        if (root == null) return null;
+        return rDelete(root, value);
     }
 }

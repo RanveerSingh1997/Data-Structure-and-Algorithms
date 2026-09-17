@@ -1,5 +1,6 @@
 package Trees;
 
+import Utils.StackTemplate;
 import Utils.TreeNode;
 
 import java.util.ArrayList;
@@ -28,11 +29,13 @@ public class BinarySearchTree {
         System.out.println(binarySearchTree.rContains(82));
 
         System.out.println(binarySearchTree.rInsert(90));
+        System.out.println(binarySearchTree.rInsert(10));
 
         System.out.println("BFS            " + binarySearchTree.BFS());
         System.out.println("DFS Pre Order  " + binarySearchTree.DFSPreOrder());
         System.out.println("DFS Post Order " + binarySearchTree.DFSPostOrder());
-        System.out.println("DFS In Order " + binarySearchTree.DGSInorder());
+        System.out.println("DFS In Order " + binarySearchTree.DFSInorder());
+        System.out.println("IS VALID B TREE " + binarySearchTree.isValidBST());
     }
 
     public boolean insert(int value) {
@@ -191,7 +194,7 @@ public class BinarySearchTree {
         return results;
     }
 
-    public ArrayList<Integer> DGSInorder() {
+    public ArrayList<Integer> DFSInorder() {
         ArrayList<Integer> results = new ArrayList<>();
         class Traverse {
             Traverse(TreeNode currentNode) {
@@ -208,4 +211,42 @@ public class BinarySearchTree {
         return results;
     }
 
+    public StackTemplate<Integer> DFSInorderWithStack() {
+        StackTemplate<Integer> results = new StackTemplate<>();
+        class Traverse {
+            Traverse(TreeNode currentNode) {
+                if (currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+                results.push(currentNode.val);
+                if (currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+        new Traverse(root);
+        return results;
+    }
+
+
+    public boolean isValidBST() {
+        ArrayList<Integer> result = DFSInorder();
+        for (int i = 0; i < result.size() - 1; i++) {
+            if (result.get(i) > result.get(i + 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public int kthSmallest(int k) {
+        StackTemplate<Integer> result = DFSInorderWithStack();
+        System.out.println("STACK DFS" + result);
+        int currentSize = result.size() - k;
+        while (currentSize > 0) {
+            result.pop();
+            currentSize--;
+        }
+        return result.peek();
+    }
 }

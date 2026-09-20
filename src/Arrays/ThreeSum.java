@@ -1,7 +1,6 @@
 package Arrays;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * ============================================================================
@@ -100,6 +99,19 @@ public class ThreeSum {
      * @return list of unique triplets summing to 0
      */
     public List<List<Integer>> threeSum(int[] nums) {
+        HashMap<Integer,List<Integer>> complements=new HashMap<>();
+
+        int left=0;
+        int right=nums.length-1;
+        while(left<right){
+            int complement=nums[left]+nums[right];
+            ArrayList<Integer> newList= new ArrayList<>();
+            newList.add(left);
+            newList.add(right);
+            complements.put(complement,newList);
+            left++;
+            right--;
+        }
         // TODO: Implement your solution here
         return Collections.emptyList();
     }

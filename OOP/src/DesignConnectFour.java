@@ -1,4 +1,6 @@
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * ============================================================================
@@ -28,179 +30,220 @@ import java.util.Arrays;
  * - Check win condition only centered around the newly placed piece in O(1) time rather than scanning the entire board.
  * - Track the current fill height for each column in an `int[] colHeights` array.
  */
+
 public class DesignConnectFour {
 
-    // =========================================================================
-    // 1. ENUMS & BASIC TYPES
-    // =========================================================================
-
-    private final Board board;
-    private final Player player1;
-    private final Player player2;
-
-    // =========================================================================
-    // 2. BOARD & CELL REPRESENTATION
-    // =========================================================================
-    private final int targetWinCount;
-
-    // =========================================================================
-    // 3. GAME CONTROLLER
-    // =========================================================================
-    private final Player currentTurn;
-    private final GameStatus status;
-    private final int totalMovesPlayed;
-
-    public DesignConnectFour(int rows, int cols, int targetWinCount) {
-        this.board = new Board(rows, cols);
-        this.player1 = new Player("Player 1", DiscColor.RED);
-        this.player2 = new Player("Player 2", DiscColor.YELLOW);
-        this.currentTurn = player1;
-        this.status = GameStatus.IN_PROGRESS;
-        this.targetWinCount = targetWinCount;
-        this.totalMovesPlayed = 0;
-    }
-
-    public DesignConnectFour() {
-        this(6, 7, 4);
-    }
-
     public static void main(String[] args) {
-        System.out.println("=== Testing: Connect Four Game System ===");
-
-        DesignConnectFour game = new DesignConnectFour(6, 7, 4);
-
-        // Test 1: Simulate horizontal win for Player 1 (RED) in columns 0, 1, 2, 3
-        game.play(0); // P1
-        game.play(0); // P2
-        game.play(1); // P1
-        game.play(1); // P2
-        game.play(2); // P1
-        game.play(2); // P2
-        game.play(3); // P1 (Should win!)
-
-        if (game.getStatus() == GameStatus.RED_WON) {
-            System.out.println("  [PASS] Test 1: Player 1 (RED) won horizontally in row 5.");
-        } else {
-            System.out.println("  [TODO] Test 1: play() / checkWin() not implemented yet.");
-        }
-
-        // Test 2: Reject move when game is already finished
-        boolean invalidMove = game.play(4);
-        if (!invalidMove) {
-            System.out.println("  [PASS] Test 2: Rejected move after game finished.");
-        } else {
-            System.out.println("  [TODO] Test 2: Game status check not implemented yet.");
-        }
+        Grid grid = new Grid(6, 7);
+        Game game = new Game(grid, 4, 10);
+        game.play();
     }
 
-    /**
-     * Drops a disc in the selected column for the active player.
-     *
-     * @return true if move was successfully played; false otherwise
-     */
-    public boolean play(int col) {
-        // TODO: Implement turn play logic:
-        // 1. Check status == IN_PROGRESS
-        // 2. Drop disc on board -> int row = board.dropDisc(col, currentTurn.getColor())
-        // 3. If row == -1, return false
-        // 4. Increment totalMovesPlayed++
-        // 5. If checkWin(row, col, currentTurn.getColor()): set status to won, return true
-        // 6. If board is full: set status = DRAW, return true
-        // 7. Alternate currentTurn to next player, return true
-        return false;
+
+    enum GridPosition {
+        EMPTY, YELLOW, RED
     }
 
-    /**
-     * Checks if the disc at (row, col) created targetWinCount consecutive discs in any of the 4 directions.
-     */
-    public boolean checkWin(int row, int col, DiscColor color) {
-        // TODO: Count consecutive discs in:
-        // - Horizontal (0, 1)
-        // - Vertical (1, 0)
-        // - Diagonal Down-Right (1, 1)
-        // - Diagonal Up-Right (1, -1)
-        // Return true if any direction >= targetWinCount
-        return false;
-    }
-
-    public GameStatus getStatus() {
-        return status;
-    }
-
-    public Board getBoard() {
-        return board;
-    }
-
-    public Player getCurrentTurn() {
-        return currentTurn;
-    }
-
-    public enum DiscColor {
-        RED, YELLOW, EMPTY
-    }
-
-    public enum GameStatus {
-        IN_PROGRESS, RED_WON, YELLOW_WON, DRAW
-    }
-
-    public record Player(String name, DiscColor color) {
-
-        @Override
-        public String toString() {
-            return name + " (" + color + ")";
-        }
-    }
-
-    // =========================================================================
-    // 4. VERIFICATION TEST HARNESS (Run to test your code!)
-    // =========================================================================
-
-    public static class Board {
+    static class Grid {
         private final int rows;
-        private final int cols;
-        private final DiscColor[][] grid;
-        private final int[] colHeights;
+        private final int columns;
+        private int[][] grid;
 
-        public Board(int rows, int cols) {
+        public Grid(int rows, int columns) {
             this.rows = rows;
-            this.cols = cols;
-            this.grid = new DiscColor[rows][cols];
-            this.colHeights = new int[cols];
-            for (int r = 0; r < rows; r++) {
-                Arrays.fill(grid[r], DiscColor.EMPTY);
+            this.columns = columns;
+            initGrid();
+        }
+
+        public void initGrid() {
+            this.grid = new int[rows][columns];
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < rows; j++) {
+                    grid[i][j] = GridPosition.EMPTY.ordinal();
+                }
             }
         }
 
-        public boolean isColumnFull(int col) {
-            // TODO: Return true if colHeights[col] >= rows
-            return false;
+        int[][] getGrid() {
+            return this.grid;
         }
 
-        /**
-         * Drops a disc into column applying gravity.
-         *
-         * @return row index where disc landed, or -1 if invalid/full
-         */
-        public int dropDisc(int col, DiscColor color) {
-            // TODO: Implement gravity drop:
-            // 1. Check bounds and if column is full
-            // 2. Compute landing row (rows - 1 - colHeights[col])
-            // 3. Assign color into grid[row][col], increment colHeights[col]
-            // 4. Return row
+        int getColumnCount() {
+            return this.columns;
+        }
+
+        public int placePiece(int column, GridPosition piece) {
+            if (column < 0 || column >= this.columns) {
+                throw new Error("Invalid Column");
+            }
+            if (piece == GridPosition.EMPTY) {
+                throw new Error("Invalid Piece");
+            }
+            for (int row = this.rows - 1; row >= 0; row--) {
+                if (this.grid[row][column] == GridPosition.EMPTY.ordinal()) {
+                    this.grid[row][column] = piece.ordinal();
+                    return row;
+                }
+            }
             return -1;
         }
 
-        public DiscColor getCell(int r, int c) {
-            if (r < 0 || r >= rows || c < 0 || c >= cols) return DiscColor.EMPTY;
-            return grid[r][c];
+        public boolean checkWin(int connectN, int row, int col, GridPosition piece) {
+            int count = 0;
+            ///Horizontal Winning Check
+            for (int c = 0; c < this.columns; c++) {
+                if (grid[row][c] == piece.ordinal()) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+                if (count == connectN) {
+                    return true;
+                }
+            }
+
+            ///Vertical Winning Check
+            count = 0;
+            for (int c = 0; c < this.rows; c++) {
+                if (grid[c][col] == piece.ordinal()) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+                if (count == connectN) {
+                    return true;
+                }
+            }
+
+            ///Diagonal Winning Check
+            count = 0;
+            for (int c = 0; c < this.rows; c++) {
+                int r = row + col - c;
+                if (r >= 0 && r < this.columns && grid[c][r] == piece.ordinal()) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+                if (count == connectN) {
+                    return true;
+                }
+            }
+
+            ///Diagonal Winning Check
+            count = 0;
+            for (int c = 0; c < this.rows; c++) {
+                int r = col - row + c;
+                if (r >= 0 && r < this.columns && grid[c][r] == piece.ordinal()) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+                if (count == connectN) {
+                    return true;
+                }
+            }
+
+
+            return false;
+        }
+    }
+
+    static class Player {
+        private final String name;
+        private final GridPosition piece;
+
+        public Player(String name, GridPosition piece) {
+            this.name = name;
+            this.piece = piece;
         }
 
-        public int getRows() {
-            return rows;
+        public String getName() {
+            return this.name;
         }
 
-        public int getCols() {
-            return cols;
+        public GridPosition getPieceColor() {
+            return this.piece;
+        }
+    }
+
+    static class Game {
+        static Scanner input = new Scanner(System.in);
+        private final int connectN;
+        private final Grid grid;
+        private final Player[] players;
+        private final int targetScore;
+        private final Map<String, Integer> score;
+
+
+        Game(Grid grid, int connectN, int targetScore) {
+            this.grid = grid;
+            this.connectN = connectN;
+            this.targetScore = targetScore;
+            this.players = new Player[]{
+                    new Player("Player 1", GridPosition.RED),
+                    new Player("Player 2", GridPosition.YELLOW),
+            };
+            this.score = new HashMap<>();
+            for (Player player : this.players) {
+                this.score.put(player.getName(), 0);
+            }
+        }
+
+        private void printBoard() {
+            System.out.println("-----------Board--------");
+            int[][] grid = this.grid.getGrid();
+            for (int[] ints : grid) {
+                StringBuilder row = new StringBuilder();
+                for (int piece : ints) {
+                    if (piece == GridPosition.EMPTY.ordinal()) {
+                        row.append("0");
+                    } else if (piece == GridPosition.YELLOW.ordinal()) {
+                        row.append("Y");
+                    } else {
+                        row.append("R");
+                    }
+                }
+                System.out.println(row);
+            }
+            System.out.println();
+        }
+
+        private int[] playMove(Player player) {
+            printBoard();
+            System.out.println(player.getName() + "'s turn");
+            int colCnt = this.grid.getColumnCount();
+            System.out.println("Enter column between 0 and" + (colCnt - 1) + "to add piece:");
+            int moveColumn = input.nextInt();
+            int moveRow = this.grid.placePiece(moveColumn, player.getPieceColor());
+            return new int[]{moveRow, moveColumn};
+        }
+
+
+        private Player playRound() {
+            while (true) {
+                for (Player player : this.players) {
+                    int[] pos = playMove(player);
+                    int row = pos[0];
+                    int col = pos[1];
+                    GridPosition pieceColor = player.getPieceColor();
+                    if (this.grid.checkWin(this.connectN, row, col, pieceColor)) {
+                        this.score.put(player.getName(), this.score.get(player.getName() + 1));
+                        return player;
+                    }
+                }
+            }
+        }
+
+        public void play() {
+            int maxScore = 0;
+            Player winner = null;
+            while (maxScore < this.targetScore) {
+                winner = playRound();
+                System.out.println(winner.getName() + "won the round");
+                maxScore = Math.max(this.score.get(winner.getName()), maxScore);
+                this.grid.initGrid(); //reset grid
+            }
+            System.out.println(winner.getName() + "Won the game");
         }
     }
 }

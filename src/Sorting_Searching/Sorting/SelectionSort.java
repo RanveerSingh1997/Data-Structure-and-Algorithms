@@ -1,4 +1,4 @@
-package Sorting_Searching;
+package Sorting_Searching.Sorting;
 
 import Utils.LinkedList;
 import Utils.Node;

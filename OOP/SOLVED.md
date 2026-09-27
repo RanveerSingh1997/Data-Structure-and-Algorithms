@@ -14,7 +14,7 @@ Keep track of your OOP system design implementations here. Review this list befo
 | **4** | **Design Connect Four** | 🟡 Medium | Google, Microsoft, Meta | Strategy, Command | ⏳ To Solve | [`DesignConnectFour.java`](./src/DesignConnectFour.java) | [Solution & Architecture](./solutions/04_Design_Connect_Four.md) |
 | **5** | **Design Blackjack** | 🟡 Medium | Bloomberg, Amazon, Meta | Strategy, Factory, Composite | ⏳ To Solve | [`DesignBlackJack.java`](./src/DesignBlackJack.java) | [Solution & Architecture](./solutions/05_Design_Blackjack.md) |
 | **6** | **Design Banking System** | 🔴 Medium–Hard | Goldman Sachs, Stripe, Google Pay | Template Method, Strategy, Command | ⏳ To Solve | [`DesignBank.java`](./src/DesignBank.java) | [Solution & Architecture](./solutions/06_Design_Banking_System.md) |
-| **7** | **Design Movie Recommendation** | 🟡 Medium | Netflix, Amazon, Spotify | Strategy, Builder, Observer | ⏳ To Solve | [`DesginMovieRecomendation.java`](./src/DesginMovieRecomendation.java) | [Solution & Architecture](./solutions/07_Design_Movie_Recommendation.md) |
+| **7** | **Design Movie Recommendation** | 🟡 Medium | Netflix, Amazon, Spotify | Strategy, Builder, Observer | ⏳ To Solve | [`DesignMovieRecommendation.java`](./src/DesignMovieRecommendation.java) | [Solution & Architecture](./solutions/07_Design_Movie_Recommendation.md) |
 
 ---
 

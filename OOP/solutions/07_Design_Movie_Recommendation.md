@@ -2,7 +2,7 @@
 
 **Problem**: Design a personalized movie recommendation engine with pluggable strategies.  
 **Difficulty**: Medium | **Target Companies**: Netflix, Amazon Prime, Spotify, Hulu  
-**Practice Template**: [`OOP/src/DesginMovieRecomendation.java`](../src/DesginMovieRecomendation.java)
+**Practice Template**: [`OOP/src/DesignMovieRecommendation.java`](../src/DesignMovieRecommendation.java)
 
 ---
 
@@ -33,7 +33,7 @@ classDiagram
     class GenreBasedStrategy {
         +recommend(User user, Map~String, Movie~ catalog, int limit) List~Movie~
     }
-    class DesginMovieRecomendation {
+    class DesignMovieRecommendation {
         -Map~String, Movie~ catalog
         -Map~String, User~ users
         -RecommendationStrategy strategy
@@ -43,7 +43,7 @@ classDiagram
 
     RecommendationStrategy <|.. TopRatedStrategy
     RecommendationStrategy <|.. GenreBasedStrategy
-    DesginMovieRecomendation --> RecommendationStrategy
+    DesignMovieRecommendation --> RecommendationStrategy
 ```
 
 ---

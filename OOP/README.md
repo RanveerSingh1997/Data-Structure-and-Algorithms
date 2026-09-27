@@ -31,7 +31,7 @@ All problem templates in this module are located in [`src/`](./src) and are form
 | **4** | **Design Connect Four** | Gravity Grid, $O(1)$ Directional Win Evaluation | 🟡 Medium | Google, Microsoft, Meta | Strategy, Command | [`DesignConnectFour.java`](./src/DesignConnectFour.java) | [Solution & Architecture](./solutions/04_Design_Connect_Four.md) |
 | **5** | **Design Blackjack** | 52-Card Deck/Shoe, Hand Scoring, Dynamic Ace (1/11) | 🟡 Medium | Bloomberg, Amazon, Meta | Strategy, Factory, Composite | [`DesignBlackJack.java`](./src/DesignBlackJack.java) | [Solution & Architecture](./solutions/05_Design_Blackjack.md) |
 | **6** | **Design Banking System** | Thread-Safe Accounts, ACID, Deadlock-Free Transfers | 🔴 Medium–Hard | Goldman Sachs, Stripe, Google Pay | Template Method, Strategy, Command | [`DesignBank.java`](./src/DesignBank.java) | [Solution & Architecture](./solutions/06_Design_Banking_System.md) |
-| **7** | **Design Movie Recommendation** | Pluggable Recommendation Strategies (Genre/Rating) | 🟡 Medium | Netflix, Amazon, Spotify | Strategy, Builder, Observer | [`DesginMovieRecomendation.java`](./src/DesginMovieRecomendation.java) | [Solution & Architecture](./solutions/07_Design_Movie_Recommendation.md) |
+| **7** | **Design Movie Recommendation** | Pluggable Recommendation Strategies (Genre/Rating) | 🟡 Medium | Netflix, Amazon, Spotify | Strategy, Builder, Observer | [`DesignMovieRecommendation.java`](./src/DesignMovieRecommendation.java) | [Solution & Architecture](./solutions/07_Design_Movie_Recommendation.md) |
 
 
 ---
@@ -159,8 +159,8 @@ In machine coding and LLD interviews, interviewers frequently ask:
 - **Key Challenge**: Enforcing minimum balance vs overdraft limits; thread-safe atomic transfers with deterministic lock ordering to prevent deadlocks.
 
 ### Problem 7: Design Movie Recommendation System
-*File*: [`src/DesginMovieRecomendation.java`](./src/DesginMovieRecomendation.java)  
-- **Key Classes**: `Movie`, `User`, `Genre`, `RecommendationStrategy`, `TopRatedStrategy`, `GenreBasedStrategy`, `DesginMovieRecomendation`.
+*File*: [`src/DesignMovieRecommendation.java`](./src/DesignMovieRecommendation.java)  
+- **Key Classes**: `Movie`, `User`, `Genre`, `RecommendationStrategy`, `TopRatedStrategy`, `GenreBasedStrategy`, `DesignMovieRecommendation`.
 - **Patterns**: Strategy Pattern, Builder Pattern.
 - **Key Challenge**: Filtering unwatched movies, ranking by average rating and genre overlap with user's highest rated movies (rated $\ge 4.0$).
 
@@ -186,7 +186,7 @@ java -cp out DesignChess
 java -cp out DesignConnectFour
 java -cp out DesignBlackJack
 java -cp out DesignBank
-java -cp out DesginMovieRecomendation
+java -cp out DesignMovieRecommendation
 ```
 
 ---

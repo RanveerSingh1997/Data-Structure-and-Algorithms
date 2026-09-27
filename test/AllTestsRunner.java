@@ -13,6 +13,11 @@ import Utils.DoublyLinkedList;
 import Utils.LinkedList;
 import Utils.Node;
 import Utils.StackTemplate;
+import Sorting_Searching.BinarySearch;
+import Sorting_Searching.MinEatingSpeed;
+import Heap.LastStoneWeight;
+import Templates.DSU;
+import Templates.Trie;
 
 import java.util.Arrays;
 
@@ -38,6 +43,12 @@ public class AllTestsRunner {
         testFindMiddleNode();
         testFindLoop();
         testRemoveDuplicates();
+        testAnagram();
+        testBinarySearch();
+        testKokoMinEatingSpeed();
+        testLastStoneWeight();
+        testTrie();
+        testDSU();
 
         System.out.println("\n==========================================");
         System.out.printf("Results: %d PASSED, %d FAILED%n", testsPassed, testsFailed);
@@ -230,5 +241,59 @@ public class AllTestsRunner {
         assertEquals(2, n1.get_next().get_value(), "Second node value");
         assertEquals(3, n1.get_next().get_next().get_value(), "Third node value (duplicate 2 removed)");
         assertEquals(null, n1.get_next().get_next().get_next(), "List terminates after 3");
+    }
+
+    private static void testAnagram() {
+        System.out.println("\nTesting Anagram:");
+        assertTrue(Anagram.isAnagram("anagram", "nagaram"), "Anagram 'anagram' and 'nagaram'");
+        assertTrue(Anagram.isAnagram("tea", "eat"), "Anagram 'tea' and 'eat'");
+        assertFalse(Anagram.isAnagram("rat", "cat"), "Not anagram 'rat' and 'cat'");
+        assertFalse(Anagram.isAnagram("a", "ab"), "Different lengths 'a' and 'ab'");
+    }
+
+    private static void testBinarySearch() {
+        System.out.println("\nTesting BinarySearch:");
+        assertEquals(3, BinarySearch.search(new int[]{-1, 0, 2, 4, 6, 8}, 4), "Search 4 in [-1,0,2,4,6,8]");
+        assertEquals(-1, BinarySearch.search(new int[]{-1, 0, 2, 4, 6, 8}, 3), "Search 3 in [-1,0,2,4,6,8] (not found)");
+        assertEquals(0, BinarySearch.search(new int[]{5}, 5), "Search single element match");
+        assertEquals(-1, BinarySearch.search(new int[]{5}, 1), "Search single element mismatch");
+    }
+
+    private static void testKokoMinEatingSpeed() {
+        System.out.println("\nTesting MinEatingSpeed (Koko Bananas):");
+        assertEquals(2, MinEatingSpeed.minEatingSpeed(new int[]{1, 4, 3, 2}, 9), "Min eating speed [1,4,3,2] with h=9 is 2");
+        assertEquals(25, MinEatingSpeed.minEatingSpeed(new int[]{25, 10, 23, 4}, 4), "Min eating speed [25,10,23,4] with h=4 is 25");
+    }
+
+    private static void testLastStoneWeight() {
+        System.out.println("\nTesting LastStoneWeight:");
+        LastStoneWeight lsw = new LastStoneWeight();
+        assertEquals(1, lsw.lastStoneWeight(new int[]{2, 7, 4, 1, 8, 1}), "Last stone weight [2,7,4,1,8,1] is 1");
+        assertEquals(1, lsw.lastStoneWeight(new int[]{1}), "Single stone [1] is 1");
+        assertEquals(0, lsw.lastStoneWeight(new int[]{2, 2}), "Equal stones [2,2] is 0");
+    }
+
+    private static void testTrie() {
+        System.out.println("\nTesting Trie:");
+        Trie trie = new Trie();
+        trie.insert("apple");
+        assertTrue(trie.search("apple"), "Trie contains 'apple'");
+        assertFalse(trie.search("app"), "Trie does not contain full word 'app'");
+        assertTrue(trie.startsWith("app"), "Trie starts with prefix 'app'");
+        trie.insert("app");
+        assertTrue(trie.search("app"), "Trie now contains full word 'app'");
+    }
+
+    private static void testDSU() {
+        System.out.println("\nTesting DSU:");
+        DSU dsu = new DSU(5);
+        assertFalse(dsu.connected(0, 2), "Initially 0 and 2 not connected");
+        dsu.union(0, 1);
+        dsu.union(1, 2);
+        assertTrue(dsu.connected(0, 2), "0 and 2 connected via 1");
+        assertFalse(dsu.connected(0, 3), "0 and 3 not connected");
+        dsu.union(3, 4);
+        dsu.union(2, 3);
+        assertTrue(dsu.connected(0, 4), "0 and 4 connected after uniting components");
     }
 }

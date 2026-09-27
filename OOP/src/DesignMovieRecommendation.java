@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
  * - Use Java Streams to filter unwatched movies (`!user.hasWatched(m.getMovieId())`).
  * - Apply Strategy pattern for `RecommendationStrategy`.
  */
-public class DesginMovieRecomendation {
+public class DesignMovieRecommendation {
 
     // =========================================================================
     // 1. ENUMS & DATA MODELS
@@ -171,7 +171,7 @@ public class DesginMovieRecomendation {
     public static void main(String[] args) {
         System.out.println("=== Testing: Movie Recommendation Engine ===");
 
-        DesginMovieRecomendation service = new DesginMovieRecomendation();
+        DesignMovieRecommendation service = new DesignMovieRecommendation();
 
         Movie m1 = new Movie("M1", "Inception", 2010, Set.of(Genre.SCI_FI, Genre.ACTION));
         Movie m2 = new Movie("M2", "Interstellar", 2014, Set.of(Genre.SCI_FI, Genre.DRAMA));

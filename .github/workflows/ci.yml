@@ -1,0 +1,33 @@
+name: Java DSA Build & Automated Test Suite
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    name: Compile & Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Compile All Java Sources
+        run: |
+          mkdir -p out
+          javac -d out $(find src test -name "*.java" ! -name "SampleTest.java")
+          javac -d out $(find OOP/src DesignPatterns/src -name "*.java")
+
+      - name: Run DSA Automated Test Suite
+        run: |
+          java -cp out test.AllTestsRunner

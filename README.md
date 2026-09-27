@@ -16,11 +16,15 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
   simulations, prediction challenge mode, whiteboard dry-run trace table, and diagnostic wizard.
 * 🏆 **[Solved Problems Tracker & Practice Queue (SOLVED.md)](./SOLVED.md)**: Categorized table of all solved questions,
   complexities, and 16 curated Google Easy & Medium practice Templates.
+* 🎯 **[Grind 75 Study Roadmap & Tracker (GRIND75.md)](./GRIND75.md)**: 75 curated high-ROI questions ranked by concept dependency, time estimates, and topic balance.
 * 🚀 **[Fast Learning & Deep Mastery Guide](DSANotes/Fast_Learning_and_Deep_Mastery_Guide.md)**: Accelerated learning
   blueprint, 20-minute rule, invariant proofs, constraint cheat codes, pattern triggers & 5-minute review routine.
 * 🎯 **[Google SWE Interview Prep Guide](DSANotes/Google_Interview_Guide.md)**: Complete 45-minute live coding blueprint,
   evaluation rubric, clarifying questions checklist, and high-frequency follow-ups.
-* 📚 **[Revision Notes & Cheatsheets (notes/)](DSANotes/)**:
+* 📚 **[Revision Notes & Cheatsheets (DSANotes/)](DSANotes/)**:
+    * [Algorithmic Corner Cases & Traps Cheatsheet](DSANotes/Corner_Cases_Cheatsheet.md)
+    * [Reverse Interviewing: Questions to Ask Interviewers](DSANotes/Questions_To_Ask_Interviewer.md)
+    * [Behavioral Interview STAR Playbook](DSANotes/Behavioral_STAR_Playbook.md)
     * [Patterns Cheat Sheet](DSANotes/Patterns.md)
     * [Hashing & Prefix Sum Mastery Guide](DSANotes/Hashing_and_Prefix_Sum_Patterns.md)
     * [Binary Trees & BST Patterns Guide](DSANotes/Binary_Trees_and_BST_Patterns.md)
@@ -107,9 +111,10 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
 │   ├── visualizers.js            # Algorithmic state generators for all core patterns
 │   └── app.js                    # Playback engine, step scrubber & DOM canvas renderers
 ├── test/
-│   ├── AllTestsRunner.java       # Automated test runner (45 tests passing)
-│   └── test.SampleTest.java           # JUnit 5 test example
-├── notes/                        # In-depth interview notes, playbooks & cheatsheets
+│   ├── AllTestsRunner.java       # Automated test runner (66 tests passing)
+│   └── SampleTest.java           # JUnit 5 test example
+├── DSANotes/                     # In-depth interview notes, playbooks & cheatsheets
+├── GRIND75.md                    # Curated 75-question ROI study roadmap & tracker
 ├── SOLVED.md                     # Live tracking table & practice queue
 └── README.md
 ```
@@ -170,9 +175,7 @@ Stop manually building binary Trees node-by-node! You can now copy-paste LeetCod
 TreeNode root = TreeNode.fromLeetCode("[4, 2, 7, 1, 3, 6, 9]");
 
 // Render 2D visual ASCII diagram in console
-root.
-
-print(); // or TreeVisualizer.printTree(root);
+root.print(); // or TreeVisualizer.printTree(root);
 ```
 
 **Console Output:**
@@ -202,14 +205,10 @@ in your console:
 ArrayVisualizer.printTwoPointers(heights, left, right, "Move R left");
 
 // Sliding window bracket representation
-ArrayVisualizer.
-
-printSlidingWindow(text, left, right, "Valid distinct window");
+ArrayVisualizer.printSlidingWindow(text, left, right, "Valid distinct window");
 
 // Monotonic stack inspection
-ArrayVisualizer.
-
-printStackState(temperatures, currentIndex, stack, "Popped previous colder day");
+ArrayVisualizer.printStackState(temperatures, currentIndex, stack, "Popped previous colder day");
 ```
 
 Run the array visualizer demo:
@@ -226,11 +225,11 @@ heap memory allocation tracking:
 ```java
 Benchmark.compare(
     "int[128] Array",
-            () ->{ /* approach 1 */ },
-        "HashMap<Character, Integer>",
-        ()->{ /* approach 2 */ },
-        100_000
-        );
+    () -> { /* approach 1 */ },
+    "HashMap<Character, Integer>",
+    () -> { /* approach 2 */ },
+    100_000
+);
 ```
 
 Run the benchmark demo:
@@ -329,7 +328,7 @@ public class MergeIntervals {
 - [x] Implement advanced Templates (`DSU`, `SegmentTree`, `Trie`).
 - [x] Build developer tools (`TreeVisualizer` with ASCII 2D rendering & `Benchmark` memory profiler).
 - [x] Build comprehensive revision guides (`Fast_Learning_and_Deep_Mastery_Guide.md`, `Google_Interview_Guide.md`).
-- [x] Standardize automated test runner (`test.AllTestsRunner`, 45 passing tests).
+- [x] Standardize automated test runner (`test.AllTestsRunner`, 66 passing tests).
 - [ ] Solve the curated **16 Google Easy & Medium Practice Queue** in [`SOLVED.md`](./SOLVED.md).
 - [ ] Complete NeetCode 150 core problem set.
 - [ ] Regular weekly contest participation and upsolving.

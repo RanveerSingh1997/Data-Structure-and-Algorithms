@@ -269,7 +269,7 @@ OOP/src/
 ├── DesignConnectFour.java          # Gravity-based disc drop grid, winning alignment validator
 ├── DesignBlackJack.java            # Deck, Card shoe, Player/Dealer hands, Ace dual-scoring
 ├── DesignBank.java                 # Thread-safe accounts, atomic transfers, deadlock prevention & audit log
-└── DesginMovieRecomendation.java   # User profiles, ratings, genre similarity & collaborative filtering
+└── DesignMovieRecommendation.java   # User profiles, ratings, genre similarity & collaborative filtering
 ```
 
 ---
@@ -454,7 +454,7 @@ classDiagram
 ---
 
 ### Problem 7: Design Movie Recommendation System
-*File*: [`OOP/src/DesginMovieRecomendation.java`](file:///Users/zml-mac-ranveerg-01/IdeaProjects/Data%20Strucure%20and%20Algorithms/OOP/src/DesginMovieRecomendation.java)  
+*File*: [`OOP/src/DesignMovieRecommendation.java`](file:///Users/zml-mac-ranveerg-01/IdeaProjects/Data%20Strucure%20and%20Algorithms/OOP/src/DesignMovieRecommendation.java)  
 *Difficulty*: Medium | *Companies*: Netflix, Amazon, Hulu, Spotify
 
 #### Key Requirements:

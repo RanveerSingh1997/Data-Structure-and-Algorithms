@@ -33,7 +33,7 @@ boolean isAnagram(String str1, String str2) {
 
 /// Strings contain only lowercase English letters (a-z).
 public class Anagram {
-    static boolean isAnagram(String str1, String str2) {
+    public static boolean isAnagram(String str1, String str2) {
         if (str1.length() != str2.length()) {
             return false;
         }

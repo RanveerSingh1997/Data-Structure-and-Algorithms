@@ -21,8 +21,8 @@ const PATTERNS_DATA = [
     "invariantProof": "Width strictly decreases by 1 each step. Limiting height is min(h[L], h[R]). Shorter bar cannot produce a larger area with any remaining inner boundary, so it is provably safe to advance.",
     "complexity": "Time: O(N) · Space: O(1)",
     "defaultProblem": "Container With Most Water (LeetCode #11)",
-    "repoPath": "src/arrays/ContainerWithMostWater.java",
-    "repoClass": "arrays.ContainerWithMostWater",
+    "repoPath": "src/Arrays/ContainerWithMostWater.java",
+    "repoClass": "Arrays.ContainerWithMostWater",
     "presets": [
       {
         "label": "Standard Case",
@@ -43,35 +43,35 @@ const PATTERNS_DATA = [
         "name": "Container With Most Water",
         "id": 11,
         "difficulty": "Medium",
-        "file": "src/arrays/ContainerWithMostWater.java",
+        "file": "src/Arrays/ContainerWithMostWater.java",
         "company": "Google"
       },
       {
         "name": "3Sum",
         "id": 15,
         "difficulty": "Medium",
-        "file": "src/arrays/ThreeSum.java",
+        "file": "src/Arrays/ThreeSum.java",
         "company": "Google"
       },
       {
         "name": "Two Sum II - Input Array Is Sorted",
         "id": 167,
         "difficulty": "Medium",
-        "file": "src/arrays/TwoSum.java",
+        "file": "src/Arrays/TwoSum.java",
         "company": "Amazon"
       },
       {
         "name": "Valid Palindrome",
         "id": 125,
         "difficulty": "Easy",
-        "file": "src/strings/ValidPalindrome.java",
+        "file": "src/Strings/ValidPalindrome.java",
         "company": "Meta"
       },
       {
         "name": "Trapping Rain Water",
         "id": 42,
         "difficulty": "Hard",
-        "file": "src/arrays/TrappingRainWater.java",
+        "file": "src/Arrays/TrappingRainWater.java",
         "company": "Google"
       }
     ],
@@ -107,8 +107,8 @@ const PATTERNS_DATA = [
     "invariantProof": "Window [L..R] represents the largest valid unique prefix ending at R. When character s[R] has been seen at index j >= L, all subsegments starting before j + 1 contain a duplicate, so setting L = j + 1 is optimal.",
     "complexity": "Time: O(N) · Space: O(min(N, Σ))",
     "defaultProblem": "Longest Substring Without Repeating Characters (LeetCode #3)",
-    "repoPath": "src/strings/LongestSubstringWithoutRepeating.java",
-    "repoClass": "strings.LongestSubstringWithoutRepeating",
+    "repoPath": "src/Strings/LongestSubstringWithoutRepeating.java",
+    "repoClass": "Strings.LongestSubstringWithoutRepeating",
     "presets": [
       {
         "label": "Repeated Chars",
@@ -129,35 +129,35 @@ const PATTERNS_DATA = [
         "name": "Longest Substring Without Repeating",
         "id": 3,
         "difficulty": "Medium",
-        "file": "src/strings/LongestSubstringWithoutRepeating.java",
+        "file": "src/Strings/LongestSubstringWithoutRepeating.java",
         "company": "Google"
       },
       {
         "name": "Minimum Size Subarray Sum",
         "id": 209,
         "difficulty": "Medium",
-        "file": "src/arrays/MinSubArrayLen.java",
+        "file": "src/Arrays/MinSubArrayLen.java",
         "company": "Meta"
       },
       {
         "name": "Max Consecutive Ones III",
         "id": 1004,
         "difficulty": "Medium",
-        "file": "src/arrays/MaxConsecutiveOnes.java",
+        "file": "src/Arrays/MaxConsecutiveOnes.java",
         "company": "Google"
       },
       {
         "name": "Permutation in String",
         "id": 567,
         "difficulty": "Medium",
-        "file": "src/strings/PermutationInString.java",
+        "file": "src/Strings/PermutationInString.java",
         "company": "Microsoft"
       },
       {
         "name": "Sliding Window Maximum",
         "id": 239,
         "difficulty": "Hard",
-        "file": "src/stacks_queues/SlidingWindowMax.java",
+        "file": "src/Stacks_Queues/SlidingWindowMax.java",
         "company": "Google"
       }
     ],
@@ -193,8 +193,8 @@ const PATTERNS_DATA = [
     "invariantProof": "Each element remains on stack until a strictly warmer element is encountered. Popping index j upon seeing index i proves i is the earliest day with temp[i] > temp[j]. Each item enters and leaves stack at most once.",
     "complexity": "Time: O(N) · Space: O(N)",
     "defaultProblem": "Daily Temperatures (LeetCode #739)",
-    "repoPath": "src/stacks_queues/DailyTemperatures.java",
-    "repoClass": "stacks_queues.DailyTemperatures",
+    "repoPath": "src/Stacks_Queues/DailyTemperatures.java",
+    "repoClass": "Stacks_Queues.DailyTemperatures",
     "presets": [
       {
         "label": "Standard Weather",
@@ -215,35 +215,35 @@ const PATTERNS_DATA = [
         "name": "Daily Temperatures",
         "id": 739,
         "difficulty": "Medium",
-        "file": "src/stacks_queues/DailyTemperatures.java",
+        "file": "src/Stacks_Queues/DailyTemperatures.java",
         "company": "Google"
       },
       {
         "name": "Next Greater Element I",
         "id": 496,
         "difficulty": "Easy",
-        "file": "src/stacks_queues/NextGreaterElement.java",
+        "file": "src/Stacks_Queues/NextGreaterElement.java",
         "company": "Amazon"
       },
       {
         "name": "Largest Rectangle in Histogram",
         "id": 84,
         "difficulty": "Hard",
-        "file": "src/stacks_queues/LargestRectangleHistogram.java",
+        "file": "src/Stacks_Queues/LargestRectangleHistogram.java",
         "company": "Google"
       },
       {
         "name": "Online Stock Span",
         "id": 901,
         "difficulty": "Medium",
-        "file": "src/stacks_queues/OnlineStockSpan.java",
+        "file": "src/Stacks_Queues/OnlineStockSpan.java",
         "company": "Meta"
       },
       {
         "name": "Validate Stack Sequences",
         "id": 946,
         "difficulty": "Medium",
-        "file": "src/stacks_queues/ValidateStackSequences.java",
+        "file": "src/Stacks_Queues/ValidateStackSequences.java",
         "company": "Google"
       }
     ],
@@ -279,8 +279,8 @@ const PATTERNS_DATA = [
     "invariantProof": "Splitting any rotated sorted array at index mid yields at least one contiguous strictly ordered subarray [low..mid] or [mid..high]. Checking whether target falls within that ordered range deterministically discards half the search space.",
     "complexity": "Time: O(log N) · Space: O(1)",
     "defaultProblem": "Search in Rotated Sorted Array (LeetCode #33)",
-    "repoPath": "src/sorting_searching/SearchRotatedSortedArray.java",
-    "repoClass": "sorting_searching.SearchRotatedSortedArray",
+    "repoPath": "src/Sorting_Searching/SearchRotatedSortedArray.java",
+    "repoClass": "Sorting_Searching.SearchRotatedSortedArray",
     "presets": [
       {
         "label": "Target 0 (Pivot Right)",
@@ -301,28 +301,28 @@ const PATTERNS_DATA = [
         "name": "Search in Rotated Sorted Array",
         "id": 33,
         "difficulty": "Medium",
-        "file": "src/sorting_searching/SearchRotatedSortedArray.java",
+        "file": "src/Sorting_Searching/SearchRotatedSortedArray.java",
         "company": "Google"
       },
       {
         "name": "Find Minimum in Rotated Sorted Array",
         "id": 153,
         "difficulty": "Medium",
-        "file": "src/sorting_searching/FindMinRotated.java",
+        "file": "src/Sorting_Searching/FindMinRotated.java",
         "company": "Meta"
       },
       {
         "name": "Find Peak Element",
         "id": 162,
         "difficulty": "Medium",
-        "file": "src/sorting_searching/FindPeakElement.java",
+        "file": "src/Sorting_Searching/FindPeakElement.java",
         "company": "Google"
       },
       {
         "name": "Koko Eating Bananas",
         "id": 875,
         "difficulty": "Medium",
-        "file": "src/sorting_searching/KokoEatingBananas.java",
+        "file": "src/Sorting_Searching/KokoEatingBananas.java",
         "company": "Google"
       }
     ],
@@ -358,8 +358,8 @@ const PATTERNS_DATA = [
     "invariantProof": "Floyd's Tortoise and Hare algorithm: In an acyclic list, fast reaches null in N/2 steps. In a cyclic list of loop length C, the relative distance between fast and slow increases by 1 step per iteration, guaranteeing meeting within C steps.",
     "complexity": "Time: O(N) · Space: O(1)",
     "defaultProblem": "Linked List Cycle (LeetCode #141)",
-    "repoPath": "src/linked_list/FindLoop.java",
-    "repoClass": "linked_list.FindLoop",
+    "repoPath": "src/LinkedList/FindLoop.java",
+    "repoClass": "LinkedList.FindLoop",
     "presets": [
       {
         "label": "Cycle at Node 3",
@@ -380,28 +380,28 @@ const PATTERNS_DATA = [
         "name": "Linked List Cycle",
         "id": 141,
         "difficulty": "Easy",
-        "file": "src/linked_list/FindLoop.java",
+        "file": "src/LinkedList/FindLoop.java",
         "company": "Amazon"
       },
       {
         "name": "Middle of the Linked List",
         "id": 876,
         "difficulty": "Easy",
-        "file": "src/linked_list/FindMiddleNode.java",
+        "file": "src/LinkedList/FindMiddleNode.java",
         "company": "Google"
       },
       {
         "name": "Linked List Cycle II (Find Start)",
         "id": 142,
         "difficulty": "Medium",
-        "file": "src/linked_list/FindLoop.java",
+        "file": "src/LinkedList/FindLoop.java",
         "company": "Meta"
       },
       {
         "name": "Happy Number",
         "id": 202,
         "difficulty": "Easy",
-        "file": "src/linked_list/FindLoop.java",
+        "file": "src/LinkedList/FindLoop.java",
         "company": "Google"
       }
     ],
@@ -437,8 +437,8 @@ const PATTERNS_DATA = [
     "invariantProof": "For each node, recursively inverting the left subtree and right subtree before or after swapping their pointers guarantees every symmetric relationship across all levels is reflected accurately.",
     "complexity": "Time: O(N) · Space: O(H)",
     "defaultProblem": "Invert Binary Tree (LeetCode #226)",
-    "repoPath": "src/trees/InvertBinaryTree.java",
-    "repoClass": "trees.InvertBinaryTree",
+    "repoPath": "src/Trees/InvertBinaryTree.java",
+    "repoClass": "Trees.InvertBinaryTree",
     "presets": [
       {
         "label": "Full Binary Tree (3 Levels)",
@@ -455,28 +455,28 @@ const PATTERNS_DATA = [
         "name": "Invert Binary Tree",
         "id": 226,
         "difficulty": "Easy",
-        "file": "src/trees/InvertBinaryTree.java",
+        "file": "src/Trees/InvertBinaryTree.java",
         "company": "Google"
       },
       {
         "name": "Diameter of Binary Tree",
         "id": 543,
         "difficulty": "Easy",
-        "file": "src/trees/DiameterOfBinaryTree.java",
+        "file": "src/Trees/DiameterOfBinaryTree.java",
         "company": "Google"
       },
       {
         "name": "Validate Binary Search Tree",
         "id": 98,
         "difficulty": "Medium",
-        "file": "src/trees/ValidateBinarySearchTree.java",
+        "file": "src/Trees/ValidateBinarySearchTree.java",
         "company": "Amazon"
       },
       {
         "name": "Lowest Common Ancestor",
         "id": 236,
         "difficulty": "Medium",
-        "file": "src/trees/LowestCommonAncestor.java",
+        "file": "src/Trees/LowestCommonAncestor.java",
         "company": "Google"
       }
     ],
@@ -512,8 +512,8 @@ const PATTERNS_DATA = [
     "invariantProof": "Enqueueing all initial sources at t=0 and processing queue in level-sized batches guarantees that any reachable cell is reached in the minimum possible number of minutes/steps.",
     "complexity": "Time: O(R · C) · Space: O(R · C)",
     "defaultProblem": "Rotting Oranges (LeetCode #994)",
-    "repoPath": "src/graphs/RottingOranges.java",
-    "repoClass": "graphs.RottingOranges",
+    "repoPath": "src/Graphs/RottingOranges.java",
+    "repoClass": "Graphs.RottingOranges",
     "presets": [
       {
         "label": "Standard Grid (3x3)",
@@ -530,21 +530,21 @@ const PATTERNS_DATA = [
         "name": "Rotting Oranges",
         "id": 994,
         "difficulty": "Medium",
-        "file": "src/graphs/RottingOranges.java",
+        "file": "src/Graphs/RottingOranges.java",
         "company": "Google"
       },
       {
         "name": "Number of Islands",
         "id": 200,
         "difficulty": "Medium",
-        "file": "src/graphs/NumberOfIslands.java",
+        "file": "src/Graphs/NumberOfIslands.java",
         "company": "Google"
       },
       {
         "name": "Course Schedule",
         "id": 207,
         "difficulty": "Medium",
-        "file": "src/graphs/CourseSchedule.java",
+        "file": "src/Graphs/CourseSchedule.java",
         "company": "Google"
       }
     ],
@@ -580,8 +580,8 @@ const PATTERNS_DATA = [
     "invariantProof": "A node with in-degree 0 has all prerequisites fulfilled and can be taken immediately. Removing it decrements neighbor in-degrees, uncovering newly unlocked nodes. If processed node count < total nodes, a cycle exists.",
     "complexity": "Time: O(V + E) · Space: O(V + E)",
     "defaultProblem": "Course Schedule (LeetCode #207)",
-    "repoPath": "src/graphs/CourseSchedule.java",
-    "repoClass": "graphs.CourseSchedule",
+    "repoPath": "src/Graphs/CourseSchedule.java",
+    "repoClass": "Graphs.CourseSchedule",
     "presets": [
       {
         "label": "Valid 4 Courses DAG",
@@ -598,21 +598,21 @@ const PATTERNS_DATA = [
         "name": "Course Schedule",
         "id": 207,
         "difficulty": "Medium",
-        "file": "src/graphs/CourseSchedule.java",
+        "file": "src/Graphs/CourseSchedule.java",
         "company": "Google"
       },
       {
         "name": "Course Schedule II (Return Order)",
         "id": 210,
         "difficulty": "Medium",
-        "file": "src/graphs/CourseSchedule.java",
+        "file": "src/Graphs/CourseSchedule.java",
         "company": "Amazon"
       },
       {
         "name": "Alien Dictionary",
         "id": 269,
         "difficulty": "Hard",
-        "file": "src/arrays/AlienDictionary.java",
+        "file": "src/Arrays/AlienDictionary.java",
         "company": "Google"
       }
     ],
@@ -648,8 +648,8 @@ const PATTERNS_DATA = [
     "invariantProof": "Once intervals are sorted by start time, any interval that can possibly overlap with interval[i] must have start <= interval[i].end. We either extend the current segment's end or start a new disjoint segment.",
     "complexity": "Time: O(N log N) · Space: O(N)",
     "defaultProblem": "Merge Intervals (LeetCode #56)",
-    "repoPath": "src/arrays/MergeIntervals.java",
-    "repoClass": "arrays.MergeIntervals",
+    "repoPath": "src/Arrays/MergeIntervals.java",
+    "repoClass": "Arrays.MergeIntervals",
     "presets": [
       {
         "label": "Standard Intervals",
@@ -670,21 +670,21 @@ const PATTERNS_DATA = [
         "name": "Merge Intervals",
         "id": 56,
         "difficulty": "Medium",
-        "file": "src/arrays/MergeIntervals.java",
+        "file": "src/Arrays/MergeIntervals.java",
         "company": "Google"
       },
       {
         "name": "Meeting Rooms",
         "id": 252,
         "difficulty": "Easy",
-        "file": "src/arrays/MeetingRooms.java",
+        "file": "src/Arrays/MeetingRooms.java",
         "company": "Google"
       },
       {
         "name": "Insert Interval",
         "id": 57,
         "difficulty": "Medium",
-        "file": "src/arrays/InsertInterval.java",
+        "file": "src/Arrays/InsertInterval.java",
         "company": "Google"
       }
     ],
@@ -720,8 +720,8 @@ const PATTERNS_DATA = [
     "invariantProof": "A min-heap of size K holds the K largest elements seen so far with the minimum of those K at the root. Any incoming candidate greater than root replaces it, maintaining the K largest invariant without full sorting.",
     "complexity": "Time: O(N log K) · Space: O(K)",
     "defaultProblem": "Top K Frequent Elements (LeetCode #347)",
-    "repoPath": "src/arrays/TopKFrequentElements.java",
-    "repoClass": "arrays.TopKFrequentElements",
+    "repoPath": "src/Arrays/TopKFrequentElements.java",
+    "repoClass": "Arrays.TopKFrequentElements",
     "presets": [
       {
         "label": "Frequency K=2",
@@ -742,21 +742,21 @@ const PATTERNS_DATA = [
         "name": "Top K Frequent Elements",
         "id": 347,
         "difficulty": "Medium",
-        "file": "src/arrays/TopKFrequentElements.java",
+        "file": "src/Arrays/TopKFrequentElements.java",
         "company": "Amazon"
       },
       {
         "name": "Kth Largest Element in an Array",
         "id": 215,
         "difficulty": "Medium",
-        "file": "src/arrays/TopKFrequentElements.java",
+        "file": "src/Arrays/TopKFrequentElements.java",
         "company": "Meta"
       },
       {
         "name": "Find Median from Data Stream",
         "id": 295,
         "difficulty": "Hard",
-        "file": "src/arrays/TopKFrequentElements.java",
+        "file": "src/Arrays/TopKFrequentElements.java",
         "company": "Google"
       }
     ],
@@ -792,8 +792,8 @@ const PATTERNS_DATA = [
     "invariantProof": "dp[i] represents the minimum count to form target i using available choices. Since choices only affect future states non-negatively, Bellman's principle of optimality guarantees optimal subproblem composition.",
     "complexity": "Time: O(amount · coins) · Space: O(amount)",
     "defaultProblem": "Coin Change (LeetCode #322)",
-    "repoPath": "src/dp/CoinChange.java",
-    "repoClass": "dp.CoinChange",
+    "repoPath": "src/DP/CoinChange.java",
+    "repoClass": "DP.CoinChange",
     "presets": [
       {
         "label": "Coins [1,2,5] Target 11",
@@ -814,21 +814,21 @@ const PATTERNS_DATA = [
         "name": "Coin Change",
         "id": 322,
         "difficulty": "Medium",
-        "file": "src/dp/CoinChange.java",
+        "file": "src/DP/CoinChange.java",
         "company": "Google"
       },
       {
         "name": "Climbing Stairs",
         "id": 70,
         "difficulty": "Easy",
-        "file": "src/dp/ClimbingStairs.java",
+        "file": "src/DP/ClimbingStairs.java",
         "company": "Amazon"
       },
       {
         "name": "Longest Increasing Subsequence",
         "id": 300,
         "difficulty": "Medium",
-        "file": "src/dp/LIS.java",
+        "file": "src/DP/LIS.java",
         "company": "Google"
       }
     ],

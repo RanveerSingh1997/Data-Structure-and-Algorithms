@@ -1,6 +1,8 @@
 package Arrays;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * ============================================================================
@@ -49,7 +51,7 @@ import java.util.*;
  */
 public class ThreeSum {
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         ThreeSum solver = new ThreeSum();
 
         System.out.println("=== Testing: LeetCode 15 - 3Sum ===");
@@ -88,6 +90,7 @@ public class ThreeSum {
         }
     }
 
+
     // ========================================================================
     // 🧪 TEST SUITE (Run this file to verify your implementation)
     // ========================================================================
@@ -99,20 +102,33 @@ public class ThreeSum {
      * @return list of unique triplets summing to 0
      */
     public List<List<Integer>> threeSum(int[] nums) {
-        HashMap<Integer,List<Integer>> complements=new HashMap<>();
-
-        int left=0;
-        int right=nums.length-1;
-        while(left<right){
-            int complement=nums[left]+nums[right];
-            ArrayList<Integer> newList= new ArrayList<>();
-            newList.add(left);
-            newList.add(right);
-            complements.put(complement,newList);
-            left++;
-            right--;
+        Arrays.sort(nums);
+        List<List<Integer>> results = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            int l = i + 1;
+            int r = nums.length - 1;
+            while (l < r) {
+                int sum = nums[i] + nums[l] + nums[r];
+                if (sum == 0) {
+                    results.add(Arrays.asList(nums[i], nums[l], nums[r]));
+                    while (l < r && nums[l] == nums[l + 1]) {
+                        l++;
+                    }
+                    while (l < r && nums[r] == nums[r - 1]) {
+                        r--;
+                    }
+                    l++;
+                    r--;
+                } else if (sum > 0) {
+                    l++;
+                } else {
+                    r--;
+                }
+            }
         }
-        // TODO: Implement your solution here
-        return Collections.emptyList();
+        return results;
     }
 }

@@ -28,6 +28,7 @@ jobs:
           javac -d out $(find src test -name "*.java" ! -name "SampleTest.java")
           javac -d out $(find OOP/src DesignPatterns/src -name "*.java")
 
-      - name: Run DSA Automated Test Suite
+      - name: Verify Spec-Driven Development (SDD) & Run Tests
         run: |
-          java -cp out test.AllTestsRunner
+          chmod +x ./sdd
+          ./sdd verify

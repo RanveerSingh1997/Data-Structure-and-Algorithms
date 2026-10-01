@@ -14,6 +14,7 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
 * ⚡ **[DSA Studio Live Visualizer](https://ranveer.is-a.dev/Data-Structure-and-Algorithms/)** (or
   local [visualizer/index.html](./visualizer/index.html)): Interactive algorithmic invariant workbench with step-by-step
   simulations, prediction challenge mode, whiteboard dry-run trace table, and diagnostic wizard.
+* 📐 **[Spec-Driven Development (specs/)](specs/README.md)**: Formal mathematical invariants, API contracts, boundary constraints, and test matrices developed before writing algorithmic code. Managed via `./sdd` CLI.
 * 🏆 **[Solved Problems Tracker & Practice Queue (SOLVED.md)](./SOLVED.md)**: Categorized table of all solved questions,
   complexities, and 16 curated Google Easy & Medium practice Templates.
 * 🎯 **[Grind 75 Study Roadmap & Tracker (GRIND75.md)](./GRIND75.md)**: 75 curated high-ROI questions ranked by concept dependency, time estimates, and topic balance.
@@ -38,10 +39,58 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
 
 ---
 
+## 📐 Spec-Driven Development (SDD) Framework
+
+This repository enforces **Spec-Driven Development (SDD)**: every algorithm, data structure, and design pattern begins with a formal specification (`.spec.md`) defining its mathematical invariants, boundary constraints, complexity budget, and acceptance matrix *prior* to implementation.
+
+### The 5-Phase SDD Lifecycle
+
+```text
+1. SPECIFY      ───>  ./sdd new <Category> <ProblemName>
+                      (Draft invariants, boundary constraints & acceptance matrix)
+2. ALIGN        ───>  Review invariant soundness & Big-O complexity budget
+3. TEST DESIGN  ───>  Derive test assertions in class main() & AllTestsRunner
+4. IMPLEMENT    ───>  Write clean, modular Java in src/<Category>/
+5. VERIFY       ───>  ./sdd verify (Zero regressions, tests green, spec verified)
+```
+
+### 🛠️ The `./sdd` CLI Workflow
+
+Manage specifications, code scaffolding, and compliance testing directly from your terminal:
+
+```bash
+# 1. Scaffold a new specification and Java starter
+./sdd new Arrays SlidingWindowMaximum
+
+# 2. View repository SDD coverage and status dashboard
+./sdd status
+
+# 3. Verify a specific problem against its specification
+./sdd verify TrappingRainWater
+
+# 4. Run repository-wide compliance audit & all tests
+./sdd verify
+
+# 5. Run test runner
+./sdd test TrappingRainWater
+./sdd test all
+```
+
+See [`specs/README.md`](specs/README.md) for full guidelines and [`specs/TEMPLATE.spec.md`](specs/TEMPLATE.spec.md) for the canonical specification format.
+
+---
+
 ## 📂 Repository Structure
 
 ```text
 .
+├── sdd                           # Spec-Driven Development CLI tool (scaffold, test, verify)
+├── specs/                        # Formal specifications & invariant contracts
+│   ├── TEMPLATE.spec.md          # Canonical 6-section spec template
+│   ├── README.md                 # SDD engineering guidelines & state lifecycle
+│   └── Arrays/                   # Specifications by algorithmic category
+│       ├── TrappingRainWater.spec.md
+│       └── ContainerWithMostWater.spec.md
 ├── src/
 │   ├── Hashing/                  # Hash table, roman numerals, frequency maps
 │   │   └── RomanToInteger.java

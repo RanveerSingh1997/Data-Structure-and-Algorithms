@@ -43,6 +43,12 @@ Keep track of all the problems you solve here. Review this list before interview
 | -    | Remove Duplicates from List      | Linked List / Set             | `O(N)`           | `O(N)`     | -                                                                       |
 | -    | Subarray Sum (Target Indices)    | Arrays / HashMap / Prefix Sum | `O(N)`           | `O(N)`     | -                                                                       |
 
+## 🔴 Hard (Solved)
+
+| #    | Problem Name                  | Topic                         | Time    | Space  | Spec / Link                                                                                 |
+|:-----|:------------------------------|:------------------------------|:--------|:-------|:--------------------------------------------------------------------------------------------|
+| 42   | Trapping Rain Water           | Two Pointers / Monotonic Stack| `O(N)`  | `O(1)` | [Spec](specs/Arrays/TrappingRainWater.spec.md) · [LeetCode](https://leetcode.com/problems/trapping-rain-water/) |
+
 ## 🎯 Google Interview Practice Queue (Templates Ready to Solve)
 
 Practice each question by implementing the `// TODO` in the template file. Run each file directly to test your solution!

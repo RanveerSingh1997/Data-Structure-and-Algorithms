@@ -4,24 +4,24 @@ Keep track of all the problems you solve here. Review this list before interview
 
 ## 🟢 Easy
 
-| #    | Problem Name                  | Topic                     | Time                    | Space  | Link                                                                 |
-|:-----|:------------------------------|:--------------------------|:------------------------|:-------|:---------------------------------------------------------------------|
-| 1    | Two Sum                       | Arrays / HashMap          | `O(N)`                  | `O(N)` | [Link](https://leetcode.com/problems/two-sum/)                       |
-| 13   | Roman to Integer              | Strings / HashMap         | `O(N)`                  | `O(1)` | [Link](https://leetcode.com/problems/roman-to-integer/)              |
-| 20   | Valid Parentheses             | Stack                     | `O(N)`                  | `O(N)` | [Link](https://leetcode.com/problems/valid-parentheses/)             |
-| 141  | Linked List Cycle             | Fast & Slow Pointers      | `O(N)`                  | `O(1)` | [Link](https://leetcode.com/problems/linked-list-cycle/)             |
-| 206  | Reverse Linked List           | Linked List               | `O(N)`                  | `O(1)` | [Link](https://leetcode.com/problems/reverse-linked-list/)           |
-| 217  | Contains Duplicate            | Arrays / HashSet          | `O(N)`                  | `O(N)` | [Link](https://leetcode.com/problems/contains-duplicate/)            |
+| #    | Problem Name                  | Topic                     | Time                    | Space  | Spec / Link                                                                 |
+|:-----|:------------------------------|:--------------------------|:------------------------|:-------|:----------------------------------------------------------------------------|
+| 1    | Two Sum                       | Arrays / HashMap          | `O(N)`                  | `O(N)` | [Spec](specs/Arrays/TwoSum.spec.md) · [Link](https://leetcode.com/problems/two-sum/) |
+| 13   | Roman to Integer              | Strings / HashMap         | `O(N)`                  | `O(1)` | [Spec](specs/Hashing/RomanToInteger.spec.md) · [Link](https://leetcode.com/problems/roman-to-integer/) |
+| 20   | Valid Parentheses             | Stack                     | `O(N)`                  | `O(N)` | [Spec](specs/Stacks_Queues/ValidParentheses.spec.md) · [Link](https://leetcode.com/problems/valid-parentheses/) |
+| 141  | Linked List Cycle             | Fast & Slow Pointers      | `O(N)`                  | `O(1)` | [Spec](specs/LinkedList/FindLoop.spec.md) · [Link](https://leetcode.com/problems/linked-list-cycle/) |
+| 206  | Reverse Linked List           | Linked List               | `O(N)`                  | `O(1)` | [Spec](specs/LinkedList/Reverse.spec.md) · [Link](https://leetcode.com/problems/reverse-linked-list/) |
+| 217  | Contains Duplicate            | Arrays / HashSet          | `O(N)`                  | `O(N)` | [Spec](specs/Arrays/ContainsDuplicate.spec.md) · [Link](https://leetcode.com/problems/contains-duplicate/) |
 | 225  | Implement Stack using Queues  | Stack / Queues            | `O(N)` push, `O(1)` pop | `O(N)` | [Link](https://leetcode.com/problems/implement-stack-using-queues/)  |
 | 232  | Implement Queue using Stacks  | Queue / Stacks            | `O(N)` push, `O(1)` pop | `O(N)` | [Link](https://leetcode.com/problems/implement-queue-using-stacks/)  |
-| 242  | Valid Anagram                 | Strings / Frequency Array | `O(N)`                  | `O(1)` | [Link](https://leetcode.com/problems/valid-anagram/)                 |
-| 344  | Reverse String                | Stack / Two Pointers      | `O(N)`                  | `O(N)` | [Link](https://leetcode.com/problems/reverse-string/)                |
-| 876  | Middle of the Linked List     | Fast & Slow Pointers      | `O(N)`                  | `O(1)` | [Link](https://leetcode.com/problems/middle-of-the-linked-list/)     |
-| 703  | Kth Largest Element in a Stream | Heap / Min-Heap           | `O(N log K)` init, `O(log K)` add | `O(K)` | [Link](https://leetcode.com/problems/kth-largest-element-in-a-stream/) |
-| 1046 | Last Stone Weight             | Heap / Max-Heap           | `O(N log N)`            | `O(N)` | [Link](https://leetcode.com/problems/last-stone-weight/)             |
-| 1544 | Make The String Great         | Stack / String            | `O(N)`                  | `O(N)` | [Link](https://leetcode.com/problems/make-the-string-great/)         |
-| 1598 | Crawler Log Folder            | Stack / Counter           | `O(N)`                  | `O(N)` | [Link](https://leetcode.com/problems/crawler-log-folder/)            |
-| 2558 | Take Gifts From Richest Pile  | Heap / Max-Heap           | `O(N + K log N)`        | `O(N)` | [Link](https://leetcode.com/problems/take-gifts-from-the-richest-pile/) |
+| 242  | Valid Anagram                 | Strings / Frequency Array | `O(N)`                  | `O(1)` | [Spec](specs/Arrays/Anagram.spec.md) · [Link](https://leetcode.com/problems/valid-anagram/) |
+| 344  | Reverse String                | Stack / Two Pointers      | `O(N)`                  | `O(N)` | [Spec](specs/Stacks_Queues/ReverseString.spec.md) · [Link](https://leetcode.com/problems/reverse-string/) |
+| 876  | Middle of the Linked List     | Fast & Slow Pointers      | `O(N)`                  | `O(1)` | [Spec](specs/LinkedList/FindMiddleNode.spec.md) · [Link](https://leetcode.com/problems/middle-of-the-linked-list/) |
+| 703  | Kth Largest Element in a Stream | Heap / Min-Heap           | `O(N log K)` init, `O(log K)` add | `O(K)` | [Spec](specs/Heap/KthLargest.spec.md) · [Link](https://leetcode.com/problems/kth-largest-element-in-a-stream/) |
+| 1046 | Last Stone Weight             | Heap / Max-Heap           | `O(N log N)`            | `O(N)` | [Spec](specs/Heap/LastStoneWeight.spec.md) · [Link](https://leetcode.com/problems/last-stone-weight/) |
+| 1544 | Make The String Great         | Stack / String            | `O(N)`                  | `O(N)` | [Spec](specs/Stacks_Queues/MakeStringGreat.spec.md) · [Link](https://leetcode.com/problems/make-the-string-great/) |
+| 1598 | Crawler Log Folder            | Stack / Counter           | `O(N)`                  | `O(1)` | [Spec](specs/Stacks_Queues/MinOperation.spec.md) · [Link](https://leetcode.com/problems/crawler-log-folder/) |
+| 2558 | Take Gifts From Richest Pile  | Heap / Max-Heap           | `O(N + K log N)`        | `O(N)` | [Spec](specs/Heap/PickGifts.spec.md) · [Link](https://leetcode.com/problems/take-gifts-from-the-richest-pile/) |
 | -    | First Non-Repeating Character | Strings / HashMap         | `O(N)`                  | `O(1)` | -                                                                    |
 | -    | Has Unique Characters         | Strings / HashSet         | `O(N)`                  | `O(N)` | -                                                                    |
 | -    | Find Pairs                    | Arrays / HashSet          | `O(N + M)`              | `O(N)` | -                                                                    |
@@ -31,16 +31,16 @@ Keep track of all the problems you solve here. Review this list before interview
 
 ## 🟡 Medium (Solved)
 
-| #    | Problem Name                     | Topic                         | Time             | Space      | Link                                                                    |
+| #    | Problem Name                     | Topic                         | Time             | Space      | Spec / Link                                                             |
 |:-----|:---------------------------------|:------------------------------|:-----------------|:-----------|:------------------------------------------------------------------------|
-| 49   | Group Anagrams                   | Strings / HashMap             | `O(N * K log K)` | `O(N * K)` | [Link](https://leetcode.com/problems/group-anagrams/)                   |
-| 128  | Longest Consecutive Sequence     | Arrays / HashSet              | `O(N)`           | `O(N)`     | [Link](https://leetcode.com/problems/longest-consecutive-sequence/)    |
-| 150  | Evaluate Reverse Polish Notation | Stack / Math                  | `O(N)`           | `O(N)`     | [Link](https://leetcode.com/problems/evaluate-reverse-polish-notation/) |
-| 347  | Top K Frequent Elements          | Min-Heap / Buckets            | `O(N log K)`     | `O(N)`     | [Link](https://leetcode.com/problems/top-k-frequent-elements/)          |
-| 2390 | Removing Stars From a String     | Stack / String                | `O(N)`           | `O(N)`     | [Link](https://leetcode.com/problems/removing-stars-from-a-string/)     |
-| -    | Find Kth Node From End           | Two Pointers                  | `O(N)`           | `O(1)`     | -                                                                       |
-| -    | Sort Stack                       | Stack                         | `O(N^2)`         | `O(N)`     | -                                                                       |
-| -    | Remove Duplicates from List      | Linked List / Set             | `O(N)`           | `O(N)`     | -                                                                       |
+| 49   | Group Anagrams                   | Strings / HashMap             | `O(N * K log K)` | `O(N * K)` | [Spec](specs/Arrays/GroupAnagram.spec.md) · [Link](https://leetcode.com/problems/group-anagrams/) |
+| 128  | Longest Consecutive Sequence     | Arrays / HashSet              | `O(N)`           | `O(N)`     | [Spec](specs/Hashing/LongestConsecutiveSequence.spec.md) · [Link](https://leetcode.com/problems/longest-consecutive-sequence/) |
+| 150  | Evaluate Reverse Polish Notation | Stack / Math                  | `O(N)`           | `O(N)`     | [Spec](specs/Stacks_Queues/ReversePolishNotation.spec.md) · [Link](https://leetcode.com/problems/evaluate-reverse-polish-notation/) |
+| 347  | Top K Frequent Elements          | Min-Heap / Buckets            | `O(N log K)`     | `O(N)`     | [Spec](specs/Arrays/TopKFrequentElements.spec.md) · [Link](https://leetcode.com/problems/top-k-frequent-elements/) |
+| 2390 | Removing Stars From a String     | Stack / String                | `O(N)`           | `O(N)`     | [Spec](specs/Stacks_Queues/RemoveStarsFromString.spec.md) · [Link](https://leetcode.com/problems/removing-stars-from-a-string/) |
+| -    | Find Kth Node From End           | Two Pointers                  | `O(N)`           | `O(1)`     | [Spec](specs/LinkedList/FindKthElementFromEnd.spec.md)                  |
+| -    | Sort Stack                       | Stack                         | `O(N^2)`         | `O(N)`     | [Spec](specs/Stacks_Queues/SortStack.spec.md)                           |
+| -    | Remove Duplicates from List      | Linked List / Set             | `O(N)`           | `O(N)`     | [Spec](specs/LinkedList/RemoveDuplicates.spec.md)                       |
 | -    | Subarray Sum (Target Indices)    | Arrays / HashMap / Prefix Sum | `O(N)`           | `O(N)`     | -                                                                       |
 
 ## 🔴 Hard (Solved)

@@ -5,6 +5,7 @@ import Arrays.Anagram;
 import Arrays.ContainsDuplicate;
 import Arrays.TopKFrequentElements;
 import Arrays.TwoSum;
+import Arrays.TrappingRainWater;
 import LinkedList.*;
 import Stacks_Queues.ReverseString;
 import Stacks_Queues.SortStack;
@@ -49,6 +50,7 @@ public class AllTestsRunner {
         testLastStoneWeight();
         testTrie();
         testDSU();
+        testTrappingRainWater();
 
         System.out.println("\n==========================================");
         System.out.printf("Results: %d PASSED, %d FAILED%n", testsPassed, testsFailed);
@@ -295,5 +297,16 @@ public class AllTestsRunner {
         dsu.union(3, 4);
         dsu.union(2, 3);
         assertTrue(dsu.connected(0, 4), "0 and 4 connected after uniting components");
+    }
+
+    private static void testTrappingRainWater() {
+        System.out.println("\nTesting TrappingRainWater (Spec-042):");
+        assertEquals(6, TrappingRainWater.trapOpti(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}), "Standard example 1 equals 6");
+        assertEquals(9, TrappingRainWater.trapOpti(new int[]{0, 2, 0, 3, 1, 0, 1, 3, 2, 1}), "Valley example equals 9");
+        assertEquals(9, TrappingRainWater.trapOpti(new int[]{4, 2, 0, 3, 2, 5}), "Asymmetric bowl equals 9");
+        assertEquals(0, TrappingRainWater.trapOpti(new int[]{}), "Empty array equals 0");
+        assertEquals(0, TrappingRainWater.trapOpti(new int[]{1, 2}), "Two elements equals 0");
+        assertEquals(0, TrappingRainWater.trapOpti(new int[]{1, 2, 3, 4, 5}), "Increasing array equals 0");
+        assertEquals(3, TrappingRainWater.trapOpti(new int[]{3, 0, 3}), "Single valley equals 3");
     }
 }

@@ -303,9 +303,18 @@ class DSAStudioApp {
       deepDiveTimeBadge: document.getElementById("deepDiveTimeBadge"),
       deepDiveTimeDesc: document.getElementById("deepDiveTimeDesc"),
       deepDiveSpaceBadge: document.getElementById("deepDiveSpaceBadge"),
-      deepDiveSpaceDesc: document.getElementById("deepDiveSpaceDesc"),
+      wizardCardStage: document.getElementById("wizardCardStage"),
 
-      wizardCardStage: document.getElementById("wizardCardStage")
+      // Video Masterclass & Documentation Hub Elements
+      videoPanelBox: document.getElementById("videoPanelBox"),
+      videoModal: document.getElementById("videoModal"),
+      videoModalChannel: document.getElementById("videoModalChannel"),
+      videoModalTitle: document.getElementById("videoModalTitle"),
+      videoIframeWrapper: document.getElementById("videoIframeWrapper"),
+      videoModalSummary: document.getElementById("videoModalSummary"),
+      videoModalExternalLink: document.getElementById("videoModalExternalLink"),
+      closeVideoModalBtn: document.getElementById("closeVideoModalBtn"),
+      closeVideoModalSecondaryBtn: document.getElementById("closeVideoModalSecondaryBtn")
     };
   }
 
@@ -414,6 +423,33 @@ class DSAStudioApp {
       this.showToast(`Switched to ${target === 'dark' ? 'Amber Obsidian Dark' : 'Amber Sand Light'} theme`, "info");
     });
 
+    // Video Modal Listeners & Light-Dismiss Fallback
+    if (this.dom.closeVideoModalBtn) {
+      this.dom.closeVideoModalBtn.addEventListener("click", () => this.closeVideoModal());
+    }
+    if (this.dom.closeVideoModalSecondaryBtn) {
+      this.dom.closeVideoModalSecondaryBtn.addEventListener("click", () => this.closeVideoModal());
+    }
+    if (this.dom.videoModal) {
+      if (!('closedBy' in HTMLDialogElement.prototype)) {
+        this.dom.videoModal.addEventListener("click", (e) => {
+          if (e.target !== this.dom.videoModal) return;
+          const rect = this.dom.videoModal.getBoundingClientRect();
+          const inContent = (
+            rect.top <= e.clientY &&
+            e.clientY <= rect.top + rect.height &&
+            rect.left <= e.clientX &&
+            e.clientX <= rect.left + rect.width
+          );
+          if (!inContent) {
+            this.closeVideoModal();
+          }
+        });
+      }
+      this.dom.videoModal.addEventListener("close", () => this.stopVideoPlayback());
+      this.dom.videoModal.addEventListener("cancel", () => this.stopVideoPlayback());
+    }
+
     // Keyboard Shortcuts
     if (typeof window !== "undefined" && window.addEventListener) {
       window.addEventListener("keydown", (e) => {
@@ -498,14 +534,21 @@ class DSAStudioApp {
 
     // Practice Queue List
     this.dom.practiceQueueList.innerHTML = pattern.curatedProblems.map(q => `
-      <li class="problem-list-entry">
-        <span style="display:flex; align-items:center; gap:0.4rem;">
-          <span style="font-family:var(--font-mono); color:var(--text-dim);">#${q.id}</span>
-          <b>${q.name}</b>
-        </span>
-        <div style="display:flex; align-items:center; gap:0.4rem;">
-          <span class="kw-tag" style="font-size:0.65rem;">${q.company}</span>
-          <span class="diff-tag ${q.difficulty.toLowerCase()}">${q.difficulty}</span>
+      <li class="problem-list-entry" style="flex-direction:column; align-items:flex-start; gap:0.35rem; padding:0.6rem 0.75rem;">
+        <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+          <span style="display:flex; align-items:center; gap:0.4rem;">
+            <span style="font-family:var(--font-mono); color:var(--text-dim);">#${q.id}</span>
+            <b>${this.escapeHTML(q.name)}</b>
+          </span>
+          <div style="display:flex; align-items:center; gap:0.4rem;">
+            <span class="kw-tag" style="font-size:0.65rem;">${q.company}</span>
+            <span class="diff-tag ${q.difficulty.toLowerCase()}">${q.difficulty}</span>
+          </div>
+        </div>
+        ${q.summary ? `<p style="font-size:0.74rem; color:var(--text-muted); margin:0; line-height:1.4;">${this.escapeHTML(q.summary)}</p>` : ''}
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-top:0.2rem;">
+          ${q.videoUrl ? `<a href="${q.videoUrl}" target="_blank" rel="noopener noreferrer" class="tool-chip" style="text-decoration:none; font-size:0.68rem; padding:2px 8px; color:#fbbf24; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.3); font-weight:700;">▶ Video</a>` : ''}
+          ${q.docsUrl ? `<a href="${q.docsUrl}" target="_blank" rel="noopener noreferrer" class="tool-chip" style="text-decoration:none; font-size:0.68rem; padding:2px 8px; color:var(--text-main); background:rgba(255,255,255,0.05); border:1px solid var(--border);">📖 Read Guide</a>` : ''}
         </div>
       </li>
     `).join("");
@@ -528,6 +571,7 @@ class DSAStudioApp {
     this.challengedSteps.clear();
     this.hideChallengeOverlay();
     this.renderPlaybookAndComplexity(pattern);
+    this.renderVideoAndDocs(pattern);
     this.renderDryRunTable();
 
     this.renderStep();
@@ -1347,9 +1391,22 @@ class DSAStudioApp {
           ${p.signalKeywords.map(kw => `<span class="kw-tag">${kw}</span>`).join("")}
         </div>
 
-        <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:1rem;">
+        <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:0.75rem;">
           <b style="color:var(--accent-light);">Invariant Proof:</b> ${p.invariantProof}
         </p>
+
+        ${p.video ? `
+          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.75rem;">
+            <a href="${p.video.url}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:0.35rem; text-decoration:none; font-family:var(--font-mono); font-size:0.72rem; color:#fbbf24; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.3); padding:3px 8px; border-radius:4px; font-weight:700;">
+              ▶ ${p.video.channel}
+            </a>
+            ${p.docs && p.docs[0] ? `
+              <a href="${p.docs[0].url}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:0.35rem; text-decoration:none; font-family:var(--font-mono); font-size:0.72rem; color:var(--text-main); background:rgba(255,255,255,0.05); border:1px solid var(--border); padding:3px 8px; border-radius:4px;">
+                📖 Docs
+              </a>
+            ` : ''}
+          </div>
+        ` : ''}
 
         <div class="matrix-card-bottom">
           <span>${p.complexity}</span>
@@ -2030,7 +2087,8 @@ class DSAStudioApp {
       code: "tabPaneCode",
       dryrun: "tabPaneDryrun",
       playbook: "tabPanePlaybook",
-      complexity: "tabPaneComplexity"
+      complexity: "tabPaneComplexity",
+      video: "tabPaneVideo"
     };
 
     Object.keys(paneMap).forEach(key => {
@@ -2042,6 +2100,12 @@ class DSAStudioApp {
 
     if (tabId === "dryrun") {
       this.renderDryRunTable();
+    }
+    if (tabId === "video") {
+      const pattern = this.patterns.find(p => p.id === this.currentPatternId);
+      if (pattern) {
+        this.renderVideoAndDocs(pattern);
+      }
     }
   }
 
@@ -2071,6 +2135,150 @@ class DSAStudioApp {
     }
     if (this.dom.deepDiveSpaceDesc && pattern.complexityDeepDive) {
       this.dom.deepDiveSpaceDesc.innerText = pattern.complexityDeepDive.space || "";
+    }
+  }
+
+  renderVideoAndDocs(pattern) {
+    if (!this.dom.videoPanelBox) return;
+    const pat = pattern || this.patterns.find(p => p.id === this.currentPatternId);
+    if (!pat) return;
+
+    const v = pat.video || {
+      title: "Algorithmic Invariant Deep-Dive",
+      channel: "Curated Masterclass",
+      url: "https://www.youtube.com",
+      embedId: "",
+      summary: pat.overview || ""
+    };
+
+    const isRisingBrain = (v.channel || "").toLowerCase().includes("risingbrain");
+    const docs = pat.docs || [];
+    const quickSummary = pat.quickSummary || pat.overview || "";
+
+    this.dom.videoPanelBox.innerHTML = `
+      <!-- Featured Video Masterclass Card -->
+      <div class="video-featured-card">
+        <div class="video-card-header">
+          <span class="video-channel-pill ${isRisingBrain ? 'risingbrain' : ''}">
+            <span>${isRisingBrain ? '🌟' : '📺'}</span> ${this.escapeHTML(v.channel)}
+          </span>
+          <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-light);">Featured Masterclass</span>
+        </div>
+        <h3 class="video-title-text">${this.escapeHTML(v.title)}</h3>
+        <p class="video-desc-text">${this.escapeHTML(v.summary)}</p>
+        <div class="video-cta-group">
+          ${v.embedId ? `
+            <button class="video-watch-btn" onclick="window.studioApp.openVideoModal('${this.escapeQuotes(v.title)}', '${this.escapeQuotes(v.channel)}', '${v.embedId}', '${this.escapeQuotes(v.summary)}', '${v.url}')">
+              ▶ Watch in Studio
+            </button>
+          ` : ''}
+          <a href="${v.url}" target="_blank" rel="noopener noreferrer" class="video-external-btn">
+            Open on YouTube ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Instant Core Summary Card (Read Without Navigating) -->
+      <div class="quick-summary-card">
+        <div class="quick-summary-title">
+          <span>💡</span> Instant Core Invariant & Summary (No Navigation Needed)
+        </div>
+        <p class="quick-summary-body">${this.escapeHTML(quickSummary)}</p>
+      </div>
+
+      <!-- Documentation & Editorials -->
+      <div class="docs-section-card">
+        <div class="docs-section-heading">
+          <span>📖</span> Curated Documentation & Editorial Guides
+        </div>
+        <div class="doc-links-grid">
+          ${docs.map(d => `
+            <a href="${d.url}" target="_blank" rel="noopener noreferrer" class="doc-link-item">
+              <span>${this.escapeHTML(d.title)}</span>
+              <span class="doc-source-tag">${this.escapeHTML(d.source)} ↗</span>
+            </a>
+          `).join("")}
+        </div>
+      </div>
+
+      <!-- Pattern Curated Problems Directory -->
+      <div class="docs-section-card">
+        <div class="docs-section-heading">
+          <span>🎯</span> Problem Video & Documentation Directory
+        </div>
+        <ul class="problem-list-container" style="gap:0.6rem;">
+          ${pat.curatedProblems.map(q => `
+            <li class="problem-list-entry" style="flex-direction:column; align-items:flex-start; gap:0.4rem; padding:0.65rem 0.85rem;">
+              <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+                <span style="display:flex; align-items:center; gap:0.4rem;">
+                  <span style="font-family:var(--font-mono); color:var(--text-dim);">#${q.id}</span>
+                  <b style="color:var(--text-main); font-size:0.88rem;">${this.escapeHTML(q.name)}</b>
+                </span>
+                <div style="display:flex; align-items:center; gap:0.4rem;">
+                  <span class="kw-tag" style="font-size:0.65rem;">${q.company}</span>
+                  <span class="diff-tag ${q.difficulty.toLowerCase()}">${q.difficulty}</span>
+                </div>
+              </div>
+              ${q.summary ? `<p style="font-size:0.75rem; color:var(--text-muted); margin:0; line-height:1.4;">${this.escapeHTML(q.summary)}</p>` : ''}
+              <div style="display:flex; align-items:center; gap:0.5rem; margin-top:0.2rem;">
+                ${q.videoUrl ? `
+                  <a href="${q.videoUrl}" target="_blank" rel="noopener noreferrer" class="tool-chip" style="text-decoration:none; font-size:0.68rem; padding:2px 8px; color:#fbbf24; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.3); font-weight:700;">
+                    ▶ Video Tutorial
+                  </a>` : ''}
+                ${q.docsUrl ? `
+                  <a href="${q.docsUrl}" target="_blank" rel="noopener noreferrer" class="tool-chip" style="text-decoration:none; font-size:0.68rem; padding:2px 8px; color:var(--text-main); background:rgba(255,255,255,0.05); border:1px solid var(--border);">
+                    📖 Read Editorial
+                  </a>` : ''}
+              </div>
+            </li>
+          `).join("")}
+        </ul>
+      </div>
+    `;
+  }
+
+  escapeQuotes(str) {
+    return (str || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+  }
+
+  openVideoModal(title, channel, embedId, summary, externalUrl) {
+    if (!this.dom.videoModal) return;
+    if (this.dom.videoModalTitle) this.dom.videoModalTitle.innerText = title;
+    if (this.dom.videoModalChannel) this.dom.videoModalChannel.innerText = channel;
+    if (this.dom.videoModalSummary) this.dom.videoModalSummary.innerText = summary;
+    if (this.dom.videoModalExternalLink) this.dom.videoModalExternalLink.href = externalUrl;
+
+    if (this.dom.videoIframeWrapper) {
+      this.dom.videoIframeWrapper.innerHTML = `
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/${embedId}?autoplay=1&rel=0" 
+          title="${this.escapeHTML(title)}"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+
+    try {
+      this.dom.videoModal.showModal();
+    } catch (e) {
+      this.dom.videoModal.setAttribute('open', '');
+    }
+  }
+
+  closeVideoModal() {
+    if (!this.dom.videoModal) return;
+    try {
+      this.dom.videoModal.close();
+    } catch (e) {
+      this.dom.videoModal.removeAttribute('open');
+    }
+    this.stopVideoPlayback();
+  }
+
+  stopVideoPlayback() {
+    if (this.dom.videoIframeWrapper) {
+      this.dom.videoIframeWrapper.innerHTML = '';
     }
   }
 

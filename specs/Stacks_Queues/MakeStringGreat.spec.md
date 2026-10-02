@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `Stacks_Queues / String / Stack`  
 > **Source**: [LeetCode #1544 - Make The String Great](https://leetcode.com/problems/make-the-string-great/)  
+> **Video Explanation**: [NeetCode - Make The String Great](https://youtu.be/zEvk0QvOa_w)  
+> **Documentation / Read Link**: [LeetCode Editorial](https://leetcode.com/problems/make-the-string-great/editorial/)  
 > **Target Complexity**: Time `O(N)` | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Iterate through chars. If stack is non-empty and the absolute ASCII difference between the incoming character and the top character equals 32 ($|c_1 - c_2| == 32$), they are identical letters of opposite casing; pop the top character. Otherwise, push the incoming character. Build and return the remaining characters.
+
+### 1.2 Description
 Given a string `s` of lower and upper case English letters, remove adjacent opposite-cased duplicate characters (e.g. `'a'` and `'A'`) iteratively until no such adjacent pair exists.
 
 ### 1.2 Method Signature

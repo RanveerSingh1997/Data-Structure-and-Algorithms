@@ -4,13 +4,18 @@
 > **Difficulty**: `🟡 Medium`  
 > **Category**: `Arrays / Heap / Hash Table`  
 > **Source**: [LeetCode #347 - Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)  
-> **Target Complexity**: Time `O(N log K)` | Space `O(N)`  
+> **Video Explanation**: [NeetCode - Top K Frequent Elements](https://youtu.be/YPTqKIgVk-k)  
+> **Documentation / Read Link**: [NeetCode.io - Top K Frequent Elements](https://neetcode.io/problems/top-k-elements-in-list) · [TakeUForward - Top K Frequent Elements](https://takeuforward.org/arrays/top-k-frequent-elements/)  
+> **Target Complexity**: Time `O(N)` (via Bucket Sort) or `O(N \log K)` (via Min-Heap) | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Count element frequencies into a hash map. For $O(N)$ linear time, initialize an array of buckets where the index denotes frequency ($0 \dots N$). Place each unique value into the bucket corresponding to its count. Traverse the buckets from right to left (highest frequency to lowest) and collect elements until $K$ elements are accumulated.
+
+### 1.2 Description
 Given an integer array `nums` and an integer `k`, return the `k` most frequent elements. You may return the answer in any order.
 
 ### 1.2 Method Signature

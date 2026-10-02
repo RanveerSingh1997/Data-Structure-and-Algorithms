@@ -4,13 +4,18 @@
 > **Difficulty**: `🟡 Medium`  
 > **Category**: `Stacks_Queues / Monotonic Stack`  
 > **Source**: Classical Stack Interview Problem (Cracking the Coding Interview)  
+> **Video Explanation**: [TakeUForward - Sort a Stack using Recursion](https://youtu.be/MOGBRkkOhkY)  
+> **Documentation / Read Link**: [GFG - Sort a stack using recursion](https://www.geeksforgeeks.org/sort-a-stack-using-recursion/)  
 > **Target Complexity**: Time `O(N^2)` | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Use recursion or an auxiliary stack to insert elements into sorted order. Pop the top element and recursively sort the remainder of the stack. On backtracking, insert the held element into its correct sorted position in the stack (popping any elements larger/smaller than it to the recursion call stack, placing the element, and restoring popped items).
+
+### 1.2 Description
 Given a stack of integers, sort it in-place such that the smallest items are on top. You may use an additional temporary stack, but you may not copy the elements into any other data structure (such as an array).
 
 ### 1.2 Method Signature

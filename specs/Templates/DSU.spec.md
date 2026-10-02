@@ -4,13 +4,18 @@
 > **Difficulty**: `🟡 Medium`  
 > **Category**: `Templates / Graph / Union-Find`  
 > **Source**: Core Algorithmic Template  
+> **Video Explanation**: [Abdul Bari - Disjoint Sets Data Structure](https://youtu.be/wU6udHRIkcc) · [NeetCode - Redundant Connection (DSU)](https://youtu.be/ayW5B2W9hfo)  
+> **Documentation / Read Link**: [CP-Algorithms - Disjoint Set Union](https://cp-algorithms.com/data_structures/disjoint_set_union.html) · [TakeUForward - DSU Disjoint Set](https://takeuforward.org/data-structure/disjoint-set-union-by-rank-union-by-size-path-compression-gist-graph-series-part-46/)  
 > **Target Complexity**: Time `O(\alpha(N))` amortized per op | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Maintain dynamic connectivity among elements partitioned into disjoint sets. Optimize `find(i)` with **Path Compression** (re-pointing every visited node directly to the component root) and `union(i, j)` with **Union by Rank** (attaching the shallower tree under the deeper tree root). This combination reduces operations to the near-constant inverse Ackermann complexity $\alpha(N) \le 4$.
+
+### 1.2 Description
 Design a Disjoint Set Union (DSU) data structure supporting:
 - `find(i)`: Return representative root of element `i` with path compression.
 - `union(i, j)`: Unify sets containing `i` and `j` by rank.

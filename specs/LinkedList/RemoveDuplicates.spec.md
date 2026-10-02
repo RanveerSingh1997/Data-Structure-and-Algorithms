@@ -4,13 +4,18 @@
 > **Difficulty**: `🟡 Medium`  
 > **Category**: `LinkedList / HashSet`  
 > **Source**: Classical Linked List Interview Problem  
+> **Video Explanation**: [TakeUForward - Remove Duplicates from Linked List](https://youtu.be/dhLtP4aoZEU)  
+> **Documentation / Read Link**: [GFG - Remove duplicates from an unsorted linked list](https://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/)  
 > **Target Complexity**: Time `O(N)` | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Traverse the linked list while tracking encountered node values in a `HashSet`. For each candidate node `curr`, inspect `curr.next`. If `set.contains(curr.next.value)`, delete the duplicate by linking around it (`curr.next = curr.next.next`); otherwise add `curr.next.value` to the set and advance `curr`.
+
+### 1.2 Description
 Given the head of an unsorted linked list, remove all duplicate nodes such that each value appears at most once in the list, preserving original relative order.
 
 ### 1.2 Method Signature

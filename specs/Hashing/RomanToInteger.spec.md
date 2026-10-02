@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `Hashing / Strings`  
 > **Source**: [LeetCode #13 - Roman to Integer](https://leetcode.com/problems/roman-to-integer/)  
+> **Video Explanation**: [NeetCode - Roman to Integer](https://youtu.be/3jdxYj3DD98)  
+> **Documentation / Read Link**: [LeetCode Editorial](https://leetcode.com/problems/roman-to-integer/editorial/) · [GFG - Roman Numerals to Integer](https://www.geeksforgeeks.org/roman-numerals-to-integer/)  
 > **Target Complexity**: Time `O(N)` | Space `O(1)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Map each Roman character to its integer value. Iterate through the string from left to right: if the value at the current index is strictly less than the value at index $i+1$ (e.g. `IV`, `IX`, `CD`), subtract current value from the running accumulator; otherwise add it.
+
+### 1.2 Description
 Roman numerals are represented by seven different symbols: `I`, `V`, `X`, `L`, `C`, `D` and `M`.
 Given a roman numeral string `s`, convert it to an integer. Handle subtraction rules (`IV`=4, `IX`=9, `XL`=40, `XC`=90, `CD`=400, `CM`=900).
 

@@ -4,13 +4,18 @@
 > **Difficulty**: `🔴 Hard`  
 > **Category**: `Arrays / Two Pointers / Monotonic Stack`  
 > **Source**: [LeetCode #42 - Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)  
+> **Video Explanation**: [NeetCode - Trapping Rain Water](https://youtu.be/ZI2z5pq0TqA) · [TakeUForward - Trapping Rainwater](https://youtu.be/m18Hntz4go8)  
+> **Documentation / Read Link**: [NeetCode.io - Trapping Rain Water](https://neetcode.io/problems/trapping-rain-water) · [TakeUForward - Trapping Rainwater](https://takeuforward.org/data-structure/trapping-rainwater/)  
 > **Target Complexity**: Time `O(N)` | Space `O(1)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Water trapped at any index $i$ is strictly governed by the bottleneck $\min(\text{leftMax}, \text{rightMax}) - \text{height}[i]$. Using two pointers ($L=0, R=N-1$), if $\text{leftMax} \le \text{rightMax}$, the water over $L$ is bounded strictly by $\text{leftMax}$ regardless of taller bars further to the right. Thus, process $L$ and advance inward; otherwise process $R$ and advance inward, computing trapped water in $O(N)$ time and $O(1)$ space.
+
+### 1.2 Description
 Given $n$ non-negative integers representing an elevation map where the width of each bar is $1$, compute how much water it can trap after raining.
 
 A bar at index $i$ can trap water if and only if there exists a taller bar to its left and a taller bar to its right. The volume of water trapped above bar $i$ is determined by the minimum of the maximum height to its left and the maximum height to its right, minus the height of bar $i$ itself:

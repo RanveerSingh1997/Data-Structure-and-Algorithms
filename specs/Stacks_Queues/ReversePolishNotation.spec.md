@@ -4,13 +4,18 @@
 > **Difficulty**: `🟡 Medium`  
 > **Category**: `Stacks_Queues / Stack / Math`  
 > **Source**: [LeetCode #150 - Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)  
+> **Video Explanation**: [NeetCode - Evaluate Reverse Polish Notation](https://youtu.be/iu0082c4HDE)  
+> **Documentation / Read Link**: [NeetCode.io - Evaluate Reverse Polish Notation](https://neetcode.io/problems/evaluate-reverse-polish-notation) · [GFG - RPN Evaluation](https://www.geeksforgeeks.org/evaluate-the-value-of-an-arithmetic-expression-in-reverse-polish-notation-in-java/)  
 > **Target Complexity**: Time `O(N)` | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Evaluate postfix expressions using a stack. Scan tokens: if an integer is seen, push it onto the stack. If an operator (`+`, `-`, `*`, `/`) is seen, pop operand $b$, then operand $a$, evaluate $a \text{ op } b$, and push the result back onto the stack. The final remaining stack value is the expression result.
+
+### 1.2 Description
 Evaluate the value of an arithmetic expression in Reverse Polish Notation (postfix). Valid operators are `+`, `-`, `*`, and `/`. Each operand may be an integer or another expression. Division truncates toward zero.
 
 ### 1.2 Method Signature

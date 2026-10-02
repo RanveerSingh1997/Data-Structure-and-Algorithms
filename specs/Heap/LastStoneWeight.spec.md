@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `Heap / Priority Queue`  
 > **Source**: [LeetCode #1046 - Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)  
+> **Video Explanation**: [NeetCode - Last Stone Weight](https://youtu.be/B-QCq79-Vfw)  
+> **Documentation / Read Link**: [NeetCode.io - Last Stone Weight](https://neetcode.io/problems/last-stone-weight) · [GFG - Last Stone Weight](https://www.geeksforgeeks.org/last-stone-weight/)  
 > **Target Complexity**: Time `O(N \log N)` | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Insert all stones into a Max-Heap (`PriorityQueue` with `Collections.reverseOrder()`). In each round, pop the two heaviest stones $y$ and $x$ ($y \ge x$). If $y > x$, insert the difference $(y - x)$ back into the heap. Repeat until fewer than two stones remain. Return the top stone if present, otherwise 0.
+
+### 1.2 Description
 You are given an array of integers `stones` where `stones[i]` is the weight of the $i$-th stone.
 We play a game with the stones: on each turn, we choose the heaviest two stones with weights $x$ and $y$ with $x \le y$. The result of this smash is:
 - If $x == y$, both stones are destroyed.

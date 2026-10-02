@@ -4,13 +4,18 @@
 > **Difficulty**: `🟡 Medium`  
 > **Category**: `Templates / Tree / Prefix Tree`  
 > **Source**: [LeetCode #208 - Implement Trie](https://leetcode.com/problems/implement-trie-prefix-tree/)  
+> **Video Explanation**: [NeetCode - Implement Trie](https://youtu.be/oobqoCJlHA0) · [TakeUForward - Implement Trie (Prefix Tree)](https://youtu.be/dBGUmUQhjaM)  
+> **Documentation / Read Link**: [NeetCode.io - Implement Prefix Tree](https://neetcode.io/problems/implement-prefix-tree) · [TakeUForward - Implement Trie](https://takeuforward.org/data-structure/implement-trie-1/)  
 > **Target Complexity**: Time `O(L)` per operation | Space `O(\sum L \cdot 26)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+A tree where every node represents a character transition via a 26-element array of child pointers, along with an `isEndOfWord` boolean flag. Inserting, searching, or verifying prefixes requires tracing down the tree character-by-character in strictly $O(L)$ time, where $L$ is word length, irrespective of how many millions of words exist in the dictionary.
+
+### 1.2 Description
 A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings.
 Implement the `Trie` class:
 - `Trie()` Initializes the trie object.

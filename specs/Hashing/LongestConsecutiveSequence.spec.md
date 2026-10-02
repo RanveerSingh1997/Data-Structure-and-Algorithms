@@ -4,13 +4,18 @@
 > **Difficulty**: `🟡 Medium`  
 > **Category**: `Hashing / HashSet / Arrays`  
 > **Source**: [LeetCode #128 - Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)  
+> **Video Explanation**: [NeetCode - Longest Consecutive Sequence](https://youtu.be/P6RZZMu_maU)  
+> **Documentation / Read Link**: [NeetCode.io - Longest Consecutive Sequence](https://neetcode.io/problems/longest-consecutive-sequence) · [TakeUForward - Longest Consecutive Sequence](https://takeuforward.org/data-structure/longest-consecutive-sequence-in-an-array/)  
 > **Target Complexity**: Time `O(N)` | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Store all array values into a `HashSet`. Iterate over elements: only initiate a sequence streak from number $x$ if $x - 1$ is absent from the set (which proves $x$ is the true beginning of a streak). From there, loop $x+1, x+2, \dots$ checking membership and updating the maximum length. Each number is visited at most twice, guaranteeing $O(N)$ time.
+
+### 1.2 Description
 Given an unsorted array of integers `nums`, return the length of the longest consecutive elements sequence.
 You must write an algorithm that runs in $O(N)$ time.
 

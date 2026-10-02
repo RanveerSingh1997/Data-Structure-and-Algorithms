@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `Stacks_Queues / Stack`  
 > **Source**: [LeetCode #20 - Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)  
+> **Video Explanation**: [NeetCode - Valid Parentheses](https://youtu.be/WTzjTskDFMg)  
+> **Documentation / Read Link**: [NeetCode.io - Valid Parentheses](https://neetcode.io/problems/valid-parentheses) · [TakeUForward - Valid Parentheses](https://takeuforward.org/data-structure/check-for-balanced-parentheses/)  
 > **Target Complexity**: Time `O(N)` | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Maintain a LIFO stack for open brackets. When an opening bracket `(`, `{`, `[` arrives, push it. When a closing bracket `)`, `}`, `]` arrives, check if the stack is non-empty and the top matches the corresponding opening bracket; if not, return false immediately. The string is valid if and only if the stack is completely empty at the end.
+
+### 1.2 Description
 Given a string `s` containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.
 An input string is valid if:
 1. Open brackets must be closed by the same type of brackets.

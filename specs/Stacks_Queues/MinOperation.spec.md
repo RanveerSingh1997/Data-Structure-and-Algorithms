@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `Stacks_Queues / Counter / Stack`  
 > **Source**: [LeetCode #1598 - Crawler Log Folder](https://leetcode.com/problems/crawler-log-folder/)  
+> **Video Explanation**: [Kevin Naughton - Crawler Log Folder](https://youtu.be/z6pZ3aQy_F4)  
+> **Documentation / Read Link**: [LeetCode Editorial](https://leetcode.com/problems/crawler-log-folder/editorial/)  
 > **Target Complexity**: Time `O(N)` | Space `O(1)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Track directory hierarchy depth using an integer counter `depth = 0`. For `"../"`, decrement `depth = Math.max(0, depth - 1)` (preventing negative depth below root); for `"./"`, do nothing; for any folder name `"dir/"`, increment `depth++`. Return `depth` at the end without heap allocation.
+
+### 1.2 Description
 Given a list of folder navigation operations:
 - `"../"` : Move to parent folder (stay in main folder if already at root).
 - `"./"`  : Remain in current folder.

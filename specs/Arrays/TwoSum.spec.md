@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `Arrays / HashMap / Two Pointers`  
 > **Source**: [LeetCode #1 - Two Sum](https://leetcode.com/problems/two-sum/)  
+> **Video Explanation**: [NeetCode - Two Sum](https://youtu.be/KLlXCFG5TnA)  
+> **Documentation / Read Link**: [NeetCode.io - Two Sum](https://neetcode.io/problems/two-sum) · [TakeUForward - Two Sum](https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array/)  
 > **Target Complexity**: Time `O(N)` | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Iterate through the array while maintaining a hash map of `(value -> index)` for all previously seen elements. For each number $x$, compute complement $C = \text{target} - x$. If $C$ is already in the map, return $[map[C], i]$ immediately in a single $O(N)$ pass without nested loops.
+
+### 1.2 Description
 Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.
 You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.
 

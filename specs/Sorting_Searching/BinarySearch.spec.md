@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `Sorting_Searching / Binary Search`  
 > **Source**: [LeetCode #704 - Binary Search](https://leetcode.com/problems/binary-search/)  
-> **Target Complexity**: Time `O(log N)` | Space `O(log N)` (Recursive) / `O(1)` (Iterative)  
+> **Video Explanation**: [NeetCode - Binary Search](https://youtu.be/s4DPM8ct1pI)  
+> **Documentation / Read Link**: [NeetCode.io - Binary Search](https://neetcode.io/problems/binary-search) · [TakeUForward - Binary Search Explained](https://takeuforward.org/data-structure/binary-search-explained/)  
+> **Target Complexity**: Time `O(log N)` | Space `O(1)` (Iterative)  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Repeatedly divide a sorted search space in half. Calculate midpoint $mid = L + (R - L) / 2$. If `nums[mid] == target`, return $mid$. If $nums[mid] < target$, eliminate left half ($L = mid + 1$); if $nums[mid] > target$, eliminate right half ($R = mid - 1$). Terminates when $L > R$.
+
+### 1.2 Description
 Given an array of integers `nums` which is sorted in ascending order, and an integer `target`, write a function to search `target` in `nums`. If `target` exists, then return its index. Otherwise, return `-1`.
 
 ### 1.2 Method Signature

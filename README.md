@@ -15,8 +15,7 @@ descriptions, constraints, examples, Big-O complexities, and includes its own st
   local [visualizer/index.html](./visualizer/index.html)): Interactive algorithmic invariant workbench with step-by-step
   simulations, prediction challenge mode, whiteboard dry-run trace table, and diagnostic wizard.
 * 📐 **[Spec-Driven Development (specs/)](specs/README.md)**: Formal mathematical invariants, API contracts, boundary constraints, and test matrices developed before writing algorithmic code. Managed via `./sdd` CLI.
-* 🏆 **[Solved Problems Tracker & Practice Queue (SOLVED.md)](./SOLVED.md)**: Categorized table of all solved questions,
-  complexities, and 16 curated Google Easy & Medium practice Templates.
+* 🏆 **[Solved Problems Tracker & Master Resource Hub (SOLVED.md)](./SOLVED.md)**: Comprehensive repository knowledge base featuring curated video masterclasses (RisingBrain, NeetCode, Striver, Abdul Bari), documentation & editorial links (NeetCode.io, CP-Algorithms, GFG), and instant problem summaries to review without navigating away.
 * 🎯 **[Grind 75 Study Roadmap & Tracker (GRIND75.md)](./GRIND75.md)**: 75 curated high-ROI questions ranked by concept dependency, time estimates, and topic balance.
 * 🚀 **[Fast Learning & Deep Mastery Guide](DSANotes/Fast_Learning_and_Deep_Mastery_Guide.md)**: Accelerated learning
   blueprint, 20-minute rule, invariant proofs, constraint cheat codes, pattern triggers & 5-minute review routine.

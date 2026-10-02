@@ -4,13 +4,18 @@
 > **Difficulty**: `🟡 Medium`  
 > **Category**: `Sorting_Searching / Binary Search on Answer`  
 > **Source**: [LeetCode #875 - Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)  
+> **Video Explanation**: [NeetCode - Koko Eating Bananas](https://youtu.be/U2SozAs9RzA)  
+> **Documentation / Read Link**: [NeetCode.io - Eating Bananas](https://neetcode.io/problems/eating-bananas) · [TakeUForward - Koko Eating Bananas](https://takeuforward.org/binary-search/koko-eating-bananas/)  
 > **Target Complexity**: Time `O(N \log(\max(piles)))` | Space `O(1)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Binary search the optimal speed $k$ within range $[1, \max(piles)]$. The hours required $\sum \lceil pile[i] / k \rceil$ monotonically decreases as $k$ increases. If current speed $k$ finishes within $h$ hours, record $k$ as a valid answer and attempt a slower speed in the left half ($R = mid - 1$); otherwise speed up ($L = mid + 1$).
+
+### 1.2 Description
 Koko loves to eat bananas. There are $n$ piles of bananas, the $i$-th pile has `piles[i]` bananas. The guards will come back in $h$ hours.
 Koko can decide her bananas-per-hour eating speed of $k$. Each hour, she chooses some pile and eats $k$ bananas from that pile. If the pile has less than $k$ bananas, she eats all of them and will not eat any more bananas during this hour.
 Return the minimum integer $k$ such that she can eat all the bananas within $h$ hours.

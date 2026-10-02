@@ -4,13 +4,18 @@
 > **Difficulty**: `🟡 Medium`  
 > **Category**: `LinkedList / Two Pointers`  
 > **Source**: Classical Linked List Interview Problem  
+> **Video Explanation**: [TakeUForward - Remove/Find Nth Node from End of Linked List](https://youtu.be/XVuQxVej6y8)  
+> **Documentation / Read Link**: [TakeUForward - Nth Node from End](https://takeuforward.org/data-structure/remove-nth-node-from-the-end-of-a-linked-list/) · [GFG - Nth node from end of linked list](https://www.geeksforgeeks.org/nth-node-from-the-end-of-a-linked-list/)  
 > **Target Complexity**: Time `O(N)` | Space `O(1)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Use two pointers (`leader` and `follower`) separated by $k$ nodes. Advance `leader` forward $k$ steps. If `leader` hits null before $k$ steps, $k$ exceeds list length. Then move both pointers forward one step at a time. When `leader` reaches null, `follower` is situated exactly at the $k$-th node from the end.
+
+### 1.2 Description
 Find and return the $k$-th node from the end of a singly linked list (1-indexed: $k=1$ is the tail node). Return `null` if $k$ exceeds the length of the list or $k \le 0$.
 
 ### 1.2 Method Signature

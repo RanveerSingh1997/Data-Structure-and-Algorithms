@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `LinkedList / Pointers`  
 > **Source**: [LeetCode #206 - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)  
+> **Video Explanation**: [NeetCode - Reverse Linked List](https://youtu.be/G0_I-ZF0S38)  
+> **Documentation / Read Link**: [NeetCode.io - Reverse Linked List](https://neetcode.io/problems/reverse-a-linked-list) · [TakeUForward - Reverse Linked List](https://takeuforward.org/data-structure/reverse-a-linked-list/)  
 > **Target Complexity**: Time `O(N)` | Space `O(1)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Reverse pointer direction in-place using three pointers: `prev = null`, `curr = head`, and `next`. In each iteration: stash `next = curr.next`, redirect `curr.next = prev`, shift `prev = curr`, and advance `curr = next`. When `curr` becomes null, `prev` is the new head of the reversed list.
+
+### 1.2 Description
 Given the head of a singly linked list, reverse the list, and return the reversed list.
 
 ### 1.2 Method Signature

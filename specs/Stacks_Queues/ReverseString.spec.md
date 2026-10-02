@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `Stacks_Queues / Two Pointers / Stack`  
 > **Source**: [LeetCode #344 - Reverse String](https://leetcode.com/problems/reverse-string/)  
-> **Target Complexity**: Time `O(N)` | Space `O(N)` (via Stack)  
+> **Video Explanation**: [NeetCode - Reverse String](https://youtu.be/_d0T_2Lk2qA)  
+> **Documentation / Read Link**: [LeetCode Editorial](https://leetcode.com/problems/reverse-string/editorial/) · [GFG - Reverse a String](https://www.geeksforgeeks.org/reverse-a-string-in-java/)  
+> **Target Complexity**: Time `O(N)` | Space `O(N)` (via Stack) or `O(1)` (Two Pointers)  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Push all characters of the input string onto a LIFO stack. Pop each character successively to construct the reversed string, naturally reversing order due to Last-In, First-Out semantics. Alternatively, swap characters from opposite ends using two pointers in $O(1)$ space.
+
+### 1.2 Description
 Given a string `str`, return a new string with the characters reversed using a LIFO stack.
 
 ### 1.2 Method Signature

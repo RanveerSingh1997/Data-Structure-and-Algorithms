@@ -36,6 +36,14 @@
                 <span class="live-indicator"></span>
                 <span>Java 21 · Standalone</span>
             </div>
+            <button class="action-chip-btn" id="headerVideoBtn" onclick="window.studioApp.switchTab('video')" title="Open Video Lessons & Documentation Hub" style="display:inline-flex; align-items:center; gap:0.35rem; background:rgba(239,68,68,0.15); color:#fca5a5; border:1px solid rgba(239,68,68,0.35); font-weight:700; cursor:pointer;">
+                <span>📺</span>
+                <span>Video Hub</span>
+            </button>
+            <a href="https://github.com/RanveerSingh1997/Data-Structure-and-Algorithms/blob/main/SOLVED.md" target="_blank" rel="noopener noreferrer" class="action-chip-btn" title="View 51+ Problem Resource Hub in SOLVED.md" style="display:inline-flex; align-items:center; gap:0.35rem; text-decoration:none; cursor:pointer;">
+                <span>📚</span>
+                <span>51+ Problems Hub</span>
+            </a>
             <button aria-label="Toggle Sound Effects" class="theme-toggle-btn" id="soundToggleBtn" title="Toggle Synthesizer Sound FX (Muted)">
                 <span id="soundIcon">🔇</span>
             </button>
@@ -66,6 +74,11 @@
         <ul class="pattern-nav-track" id="patternNavTrack">
             <!-- Rendered dynamically by app.js -->
         </ul>
+        <button class="preset-chip-btn"
+                onclick="document.getElementById('diagnosticWizardSection').scrollIntoView({behavior: 'smooth'})"
+                style="padding: 0.5rem 0.85rem;">
+            Diagnostic Wizard 🧭
+        </button>
         <button class="preset-chip-btn"
                 onclick="document.getElementById('referenceSection').scrollIntoView({behavior: 'smooth'})"
                 style="padding: 0.5rem 0.85rem;">
@@ -196,6 +209,9 @@
                     </button>
                     <button class="inspector-tab-btn" data-tab="complexity" id="tabBtnComplexity" role="tab">
                         ⚡ Complexity & Proof
+                    </button>
+                    <button class="inspector-tab-btn" data-tab="video" id="tabBtnVideo" role="tab">
+                        📺 Video & Docs
                     </button>
                 </div>
 
@@ -329,6 +345,14 @@
                     </div>
                 </div>
 
+                <!-- Tab 5: Video Masterclasses & Documentation Hub -->
+                <div class="inspector-tab-content" id="tabPaneVideo">
+                    <div class="video-panel-box" id="videoPanelBox">
+                        <!-- Rendered dynamically by app.js:
+                             Featured Video Masterclass, Instant Summary, Docs Links, Problem Directory -->
+                    </div>
+                </div>
+
             </div>
 
         </aside>
@@ -390,6 +414,36 @@
     </footer>
 
 </div>
+
+<!-- Native Accessible Video & Intuition Modal (Light Dismissable) -->
+<dialog id="videoModal" class="video-modal-dialog" closedby="any" aria-labelledby="videoModalTitle">
+    <div class="video-modal-card">
+        <div class="video-modal-header">
+            <div class="video-modal-meta">
+                <span class="status-tag" id="videoModalChannel">Featured Channel</span>
+                <h3 id="videoModalTitle" class="video-modal-title">Algorithmic Masterclass</h3>
+            </div>
+            <button type="button" class="video-modal-close-btn" id="closeVideoModalBtn" aria-label="Close dialog">✕</button>
+        </div>
+        <div class="video-iframe-wrapper" id="videoIframeWrapper">
+            <!-- Dynamic responsive iframe container -->
+        </div>
+        <div class="video-modal-body">
+            <div class="video-summary-callout">
+                <div class="video-summary-badge">
+                    <span>💡</span> Instant Core Invariant & Summary (No Navigation Needed)
+                </div>
+                <p id="videoModalSummary" class="video-summary-text"></p>
+            </div>
+            <div class="video-modal-footer-row">
+                <a id="videoModalExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="action-chip-btn" style="background:linear-gradient(135deg,#ef4444,#dc2626); color:#fff; border:none; padding:0.5rem 1rem;">
+                    ▶ Open on YouTube ↗
+                </a>
+                <button type="button" class="control-step-btn" id="closeVideoModalSecondaryBtn">Close Preview</button>
+            </div>
+        </div>
+    </div>
+</dialog>
 
 <!-- Toast notification container -->
 <div id="toastContainer" class="toast-container"></div>

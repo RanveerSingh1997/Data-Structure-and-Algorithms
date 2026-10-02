@@ -4,16 +4,21 @@
 > **Difficulty**: `🟢 Easy` | `🟡 Medium` | `🔴 Hard`  
 > **Category**: `[e.g., Arrays / Two Pointers / Dynamic Programming]`  
 > **Source**: `[LeetCode #XYZ / External Link]`  
+> **Video Explanation**: `[Channel Name - Video Title](https://...)`  
+> **Documentation / Read Link**: `[NeetCode.io / LeetCode / GeeksforGeeks](https://...)`  
 > **Target Complexity**: Time `O(...)` | Space `O(...)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
-[Concise, unambiguous statement of the problem, input formats, and expected output behavior.]
+### 1.1 Core Summary (Read Without Navigating)
+[Concise 1-3 sentence distillation of the problem and key algorithmic intuition so the reader instantly understands the solution without navigating away.]
 
-### 1.2 Method Signature
+### 1.2 Full Description
+[Unambiguous statement of the problem, input formats, and expected output behavior.]
+
+### 1.3 Method Signature
 ```java
 package [Category];
 
@@ -24,12 +29,12 @@ public class [ProblemName] {
 }
 ```
 
-### 1.3 Pre-Conditions
+### 1.4 Pre-Conditions
 - Input parameter is non-null unless explicitly allowed.
 - [e.g., Array length satisfies $1 \le N \le 10^5$.]
 - [e.g., Array elements are bounded by $-10^4 \le \text{nums}[i] \le 10^4$.]
 
-### 1.4 Post-Conditions
+### 1.5 Post-Conditions
 - Returns [exact description of returned value].
 - Mutates / Does NOT mutate input structure in-place.
 - Guaranteed to terminate within [Time Budget].

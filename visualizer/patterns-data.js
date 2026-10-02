@@ -4,6 +4,7 @@
  * ============================================================================
  * Production-ready catalog of core data structure patterns, invariant proofs,
  * testing presets, Big-O complexities, clarifying questions, and interview traps.
+ * Enriched with Video Masterclasses, Documentation Hub, and Instant Summaries.
  */
 const PATTERNS_DATA = [
   {
@@ -44,35 +45,50 @@ const PATTERNS_DATA = [
         "id": 11,
         "difficulty": "Medium",
         "file": "src/Arrays/ContainerWithMostWater.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/UuiTKBwPgAo",
+        "docsUrl": "https://neetcode.io/problems/max-water-container",
+        "summary": "Two pointers inward; always advance the shorter bottleneck bar."
       },
       {
         "name": "3Sum",
         "id": 15,
         "difficulty": "Medium",
         "file": "src/Arrays/ThreeSum.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/jzZsG8n2R9A",
+        "docsUrl": "https://neetcode.io/problems/three-integer-sum",
+        "summary": "Sort array, fix one element, run two pointers on remainder skipping duplicates."
       },
       {
         "name": "Two Sum II - Input Array Is Sorted",
         "id": 167,
         "difficulty": "Medium",
         "file": "src/Arrays/TwoSum.java",
-        "company": "Amazon"
+        "company": "Amazon",
+        "videoUrl": "https://youtu.be/cQ1Oz4ckcMT8",
+        "docsUrl": "https://neetcode.io/problems/two-integer-sum-ii",
+        "summary": "Sorted input allows L and R pointers to check target sum in O(N) time, O(1) space."
       },
       {
         "name": "Valid Palindrome",
         "id": 125,
         "difficulty": "Easy",
         "file": "src/Strings/ValidPalindrome.java",
-        "company": "Meta"
+        "company": "Meta",
+        "videoUrl": "https://youtu.be/jJXJ16kPFWg",
+        "docsUrl": "https://neetcode.io/problems/is-palindrome",
+        "summary": "Compare alphanumeric characters from opposite ends, skipping punctuation."
       },
       {
         "name": "Trapping Rain Water",
         "id": 42,
         "difficulty": "Hard",
         "file": "src/Arrays/TrappingRainWater.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/ZI2z5pq0TqA",
+        "docsUrl": "https://neetcode.io/problems/trapping-rain-water",
+        "summary": "Two pointers tracking leftMax and rightMax; advance whichever boundary has smaller max."
       }
     ],
     "cheatCode": "Sorted array / Pair matching / In-place sweep ⇒ N ≤ 10^5 demands O(N) single pass",
@@ -90,7 +106,32 @@ const PATTERNS_DATA = [
       "time": "O(N) - In every step, either left advances or right retreats, yielding exactly N-1 iterations.",
       "space": "O(1) - Only two integer pointer variables (left, right) are maintained."
     },
-    "starterTemplate": "class Solution {\n    public int maxArea(int[] height) {\n        int left = 0, right = height.length - 1;\n        int maxArea = 0;\n        while (left < right) {\n            // TODO: Compute container area and advance bottleneck pointer\n        }\n        return maxArea;\n    }\n}"
+    "starterTemplate": "class Solution {\n    public int maxArea(int[] height) {\n        int left = 0, right = height.length - 1;\n        int maxArea = 0;\n        while (left < right) {\n            // TODO: Compute container area and advance bottleneck pointer\n        }\n        return maxArea;\n    }\n}",
+    "video": {
+      "title": "NeetCode - Container With Most Water (LeetCode #11)",
+      "channel": "NeetCode",
+      "url": "https://youtu.be/UuiTKBwPgAo",
+      "embedId": "UuiTKBwPgAo",
+      "summary": "Visualizes why moving the taller line can never yield a larger area than the current bottleneck. By always moving the pointer with the shorter bar inward, we test all viable maximum containers in O(N) time without quadratic checking."
+    },
+    "docs": [
+      {
+        "title": "NeetCode.io - Container With Most Water",
+        "url": "https://neetcode.io/problems/max-water-container",
+        "source": "NeetCode"
+      },
+      {
+        "title": "TakeUForward - Container With Most Water",
+        "url": "https://takeuforward.org/data-structure/container-with-most-water/",
+        "source": "TakeUForward"
+      },
+      {
+        "title": "LeetCode Editorial - Container With Most Water",
+        "url": "https://leetcode.com/problems/container-with-most-water/editorial/",
+        "source": "LeetCode"
+      }
+    ],
+    "quickSummary": "Initialize two pointers at opposite ends (0 and N-1). Calculate container area as width * min(h[L], h[R]). Since width decreases at every step, the only way to find a larger area is to seek a taller bar; thus, discard the shorter bottleneck pointer and advance inward."
   },
   {
     "id": "sliding-window",
@@ -130,35 +171,50 @@ const PATTERNS_DATA = [
         "id": 3,
         "difficulty": "Medium",
         "file": "src/Strings/LongestSubstringWithoutRepeating.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/wiGpQwVHdE0",
+        "docsUrl": "https://neetcode.io/problems/longest-substring-without-duplicates",
+        "summary": "Expand right, shrink left when duplicate found in hash set."
       },
       {
         "name": "Minimum Size Subarray Sum",
         "id": 209,
         "difficulty": "Medium",
         "file": "src/Arrays/MinSubArrayLen.java",
-        "company": "Meta"
+        "company": "Meta",
+        "videoUrl": "https://youtu.be/aYqYMIJDN40",
+        "docsUrl": "https://neetcode.io/problems/minimum-size-subarray-sum",
+        "summary": "Expand window adding elements; contract left as long as window sum >= target."
       },
       {
         "name": "Max Consecutive Ones III",
         "id": 1004,
         "difficulty": "Medium",
         "file": "src/Arrays/MaxConsecutiveOnes.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/3E4JBHSLpYk",
+        "docsUrl": "https://leetcode.com/problems/max-consecutive-ones-iii/editorial/",
+        "summary": "Sliding window tolerating at most K zeros; shrink left when zero count > K."
       },
       {
         "name": "Permutation in String",
         "id": 567,
         "difficulty": "Medium",
         "file": "src/Strings/PermutationInString.java",
-        "company": "Microsoft"
+        "company": "Microsoft",
+        "videoUrl": "https://youtu.be/UbyhOgBN834",
+        "docsUrl": "https://neetcode.io/problems/permutation-string",
+        "summary": "Fixed window of length |s1| matching 26-char frequency counts."
       },
       {
         "name": "Sliding Window Maximum",
         "id": 239,
         "difficulty": "Hard",
         "file": "src/Stacks_Queues/SlidingWindowMax.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/DfljaUwZsOk",
+        "docsUrl": "https://neetcode.io/problems/sliding-window-maximum",
+        "summary": "Monotonic decreasing deque holding indices in window; front is always current max."
       }
     ],
     "cheatCode": "Contiguous subarray/substring with condition ⇒ Expand right, shrink left when breached",
@@ -176,7 +232,42 @@ const PATTERNS_DATA = [
       "time": "O(N) - Each character enters the window via right and leaves at most once via left.",
       "space": "O(min(N, Σ)) - Space bounded by unique characters in string or alphabet size Σ."
     },
-    "starterTemplate": "class Solution {\n    public int lengthOfLongestSubstring(String s) {\n        Map<Character, Integer> lastSeen = new HashMap<>();\n        int left = 0, maxLen = 0;\n        for (int right = 0; right < s.length(); right++) {\n            // TODO: Maintain unique window invariant and track maxLen\n        }\n        return maxLen;\n    }\n}"
+    "starterTemplate": "class Solution {\n    public int lengthOfLongestSubstring(String s) {\n        Map<Character, Integer> lastSeen = new HashMap<>();\n        int left = 0, maxLen = 0;\n        for (int right = 0; right < s.length(); right++) {\n            // TODO: Maintain unique window invariant and track maxLen\n        }\n        return maxLen;\n    }\n}",
+    "video": {
+      "title": "RisingBrain: Maximum Subarray with Sum K | Brute Force to Optimised (Sliding Window & Prefix Sum)",
+      "channel": "RisingBrain (Anjali Kumari)",
+      "url": "https://youtu.be/dgjKO46bu3A",
+      "embedId": "dgjKO46bu3A",
+      "summary": "Comprehensive visual tutorial breaking down transition from O(N^2) brute force to O(N) optimal sliding window and prefix sum hash map. Explains when sliding window is sound (monotonic sum for non-negative values) versus prefix sum hash maps for general arrays."
+    },
+    "docs": [
+      {
+        "title": "RisingBrain: Maximum Subarray with Sum K Video Tutorial",
+        "url": "https://youtu.be/dgjKO46bu3A",
+        "source": "RisingBrain"
+      },
+      {
+        "title": "TakeUForward - Longest Subarray with Sum K",
+        "url": "https://takeuforward.org/data-structure/longest-subarray-with-given-sum-k/",
+        "source": "TakeUForward"
+      },
+      {
+        "title": "RisingBrain DSA Patterns Sheet",
+        "url": "https://www.risingbrain.org/sheet",
+        "source": "RisingBrain"
+      },
+      {
+        "title": "NeetCode.io - Longest Substring Without Repeating",
+        "url": "https://neetcode.io/problems/longest-substring-without-duplicates",
+        "source": "NeetCode"
+      },
+      {
+        "title": "LeetCode #560 - Subarray Sum Equals K",
+        "url": "https://leetcode.com/problems/subarray-sum-equals-k/",
+        "source": "LeetCode"
+      }
+    ],
+    "quickSummary": "Maintain a contiguous range [L..R]. Expand the right boundary to incorporate the next item. When the window violates constraints (e.g. duplicate character, or sum > target for positive numbers), shrink the left boundary until the invariant is restored."
   },
   {
     "id": "monotonic-stack",
@@ -216,35 +307,50 @@ const PATTERNS_DATA = [
         "id": 739,
         "difficulty": "Medium",
         "file": "src/Stacks_Queues/DailyTemperatures.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/cTBiBSnjO3c",
+        "docsUrl": "https://neetcode.io/problems/daily-temperatures",
+        "summary": "Monotonic decreasing stack storing indices; resolve warmer days on pop."
       },
       {
         "name": "Next Greater Element I",
         "id": 496,
         "difficulty": "Easy",
         "file": "src/Stacks_Queues/NextGreaterElement.java",
-        "company": "Amazon"
+        "company": "Amazon",
+        "videoUrl": "https://youtu.be/68a1Dc_qVq4",
+        "docsUrl": "https://neetcode.io/problems/next-greater-element-i",
+        "summary": "Stack finds next greater element for all nums2 items and maps them in a hash map."
       },
       {
         "name": "Largest Rectangle in Histogram",
         "id": 84,
         "difficulty": "Hard",
         "file": "src/Stacks_Queues/LargestRectangleHistogram.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/zx5Sw9x30z0",
+        "docsUrl": "https://neetcode.io/problems/largest-rectangle-in-histogram",
+        "summary": "Monotonic increasing stack; when bar drops, pop and compute area with popped height."
       },
       {
         "name": "Online Stock Span",
         "id": 901,
         "difficulty": "Medium",
         "file": "src/Stacks_Queues/OnlineStockSpan.java",
-        "company": "Meta"
+        "company": "Meta",
+        "videoUrl": "https://youtu.be/slYh0ZNEqSw",
+        "docsUrl": "https://leetcode.com/problems/online-stock-span/editorial/",
+        "summary": "Stack stores (price, span) pairs; pop and accumulate spans while incoming price >= top."
       },
       {
         "name": "Validate Stack Sequences",
         "id": 946,
         "difficulty": "Medium",
         "file": "src/Stacks_Queues/ValidateStackSequences.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/vHKXMOmgt7w",
+        "docsUrl": "https://leetcode.com/problems/validate-stack-sequences/editorial/",
+        "summary": "Simulate stack push; greedily pop while stack top matches current popped token."
       }
     ],
     "cheatCode": "Nearest greater/smaller element in O(1) amortized ⇒ Stack maintains strictly sorted values",
@@ -262,7 +368,32 @@ const PATTERNS_DATA = [
       "time": "O(N) amortized - Every index is pushed exactly once and popped at most once.",
       "space": "O(N) - Monotonically decreasing input leaves all N indices on the stack."
     },
-    "starterTemplate": "class Solution {\n    public int[] dailyTemperatures(int[] temperatures) {\n        int n = temperatures.length;\n        int[] ans = new int[n];\n        Deque<Integer> stack = new ArrayDeque<>();\n        for (int i = 0; i < n; i++) {\n            // TODO: Pop cooler indices and record span\n        }\n        return ans;\n    }\n}"
+    "starterTemplate": "class Solution {\n    public int[] dailyTemperatures(int[] temperatures) {\n        int n = temperatures.length;\n        int[] ans = new int[n];\n        Deque<Integer> stack = new ArrayDeque<>();\n        for (int i = 0; i < n; i++) {\n            // TODO: Pop cooler indices and record span\n        }\n        return ans;\n    }\n}",
+    "video": {
+      "title": "NeetCode - Daily Temperatures (LeetCode #739)",
+      "channel": "NeetCode",
+      "url": "https://youtu.be/cTBiBSnjO3c",
+      "embedId": "cTBiBSnjO3c",
+      "summary": "Visualizes why keeping unresolved day indices in a monotonic decreasing stack guarantees that when a warmer day arrives, it acts as the immediate next greater element for all smaller days popped from the stack."
+    },
+    "docs": [
+      {
+        "title": "NeetCode.io - Daily Temperatures",
+        "url": "https://neetcode.io/problems/daily-temperatures",
+        "source": "NeetCode"
+      },
+      {
+        "title": "TakeUForward - Next Greater Element",
+        "url": "https://takeuforward.org/data-structure/next-greater-element-using-stack/",
+        "source": "TakeUForward"
+      },
+      {
+        "title": "LeetCode Editorial - Daily Temperatures",
+        "url": "https://leetcode.com/problems/daily-temperatures/editorial/",
+        "source": "LeetCode"
+      }
+    ],
+    "quickSummary": "Maintain indices in a stack with values strictly descending. When current temperature is higher than the stack top, pop the top index and record the distance (currIdx - poppedIdx) into the result array. Each index is pushed and popped at most once."
   },
   {
     "id": "binary-search",
@@ -302,28 +433,40 @@ const PATTERNS_DATA = [
         "id": 33,
         "difficulty": "Medium",
         "file": "src/Sorting_Searching/SearchRotatedSortedArray.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/U8XENwh8Oy8",
+        "docsUrl": "https://neetcode.io/problems/find-target-in-rotated-sorted-array",
+        "summary": "Identify the sorted half; if target is within bounds, search there, else search other half."
       },
       {
         "name": "Find Minimum in Rotated Sorted Array",
         "id": 153,
         "difficulty": "Medium",
         "file": "src/Sorting_Searching/FindMinRotated.java",
-        "company": "Meta"
+        "company": "Meta",
+        "videoUrl": "https://youtu.be/nIVW4P8b1VA",
+        "docsUrl": "https://neetcode.io/problems/find-minimum-in-rotated-sorted-array",
+        "summary": "Compare nums[mid] with nums[right] to determine which half contains the inflection point."
       },
       {
         "name": "Find Peak Element",
         "id": 162,
         "difficulty": "Medium",
         "file": "src/Sorting_Searching/FindPeakElement.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/kMzJy9es7Hc",
+        "docsUrl": "https://leetcode.com/problems/find-peak-element/editorial/",
+        "summary": "Compare nums[mid] with nums[mid+1]; walk uphill towards the peak in O(log N)."
       },
       {
         "name": "Koko Eating Bananas",
         "id": 875,
         "difficulty": "Medium",
         "file": "src/Sorting_Searching/KokoEatingBananas.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/U2SozAs9RzA",
+        "docsUrl": "https://neetcode.io/problems/eating-bananas",
+        "summary": "Binary search eating speed k in [1, max(piles)]; find minimum feasible speed within h hours."
       }
     ],
     "cheatCode": "Sorted or rotated monotonic space ⇒ O(log N) partition by inspecting mid",
@@ -341,7 +484,32 @@ const PATTERNS_DATA = [
       "time": "O(log N) - Each step bisects search interval by at least 50%.",
       "space": "O(1) - Iterative pointer manipulation without recursion stack."
     },
-    "starterTemplate": "class Solution {\n    public int search(int[] nums, int target) {\n        int low = 0, high = nums.length - 1;\n        while (low <= high) {\n            int mid = low + (high - low) / 2;\n            // TODO: Identify sorted half and prune\n        }\n        return -1;\n    }\n}"
+    "starterTemplate": "class Solution {\n    public int search(int[] nums, int target) {\n        int low = 0, high = nums.length - 1;\n        while (low <= high) {\n            int mid = low + (high - low) / 2;\n            // TODO: Identify sorted half and prune\n        }\n        return -1;\n    }\n}",
+    "video": {
+      "title": "NeetCode - Search in Rotated Sorted Array (LeetCode #33)",
+      "channel": "NeetCode",
+      "url": "https://youtu.be/U8XENwh8Oy8",
+      "embedId": "U8XENwh8Oy8",
+      "summary": "Proves that in any rotated sorted array, splitting at midpoint always produces at least one completely sorted subarray. Check if the target is within the sorted boundary; if yes, search there, else search the opposite half."
+    },
+    "docs": [
+      {
+        "title": "NeetCode.io - Search Rotated Sorted Array",
+        "url": "https://neetcode.io/problems/find-target-in-rotated-sorted-array",
+        "source": "NeetCode"
+      },
+      {
+        "title": "TakeUForward - Binary Search in Rotated Array",
+        "url": "https://takeuforward.org/data-structure/search-in-rotated-sorted-array/",
+        "source": "TakeUForward"
+      },
+      {
+        "title": "CP-Algorithms - Binary Search",
+        "url": "https://cp-algorithms.com/num_methods/binary_search.html",
+        "source": "CP-Algorithms"
+      }
+    ],
+    "quickSummary": "Calculate midpoint mid = L + (R - L) / 2. Identify which half of the array ([L..mid] or [mid..R]) is sorted by comparing boundary values. If the target lies inside the sorted interval, restrict search to it; otherwise search the disordered half. Halves search range in O(log N)."
   },
   {
     "id": "fast-slow-pointers",
@@ -381,28 +549,40 @@ const PATTERNS_DATA = [
         "id": 141,
         "difficulty": "Easy",
         "file": "src/LinkedList/FindLoop.java",
-        "company": "Amazon"
+        "company": "Amazon",
+        "videoUrl": "https://youtu.be/gBTe7lFR3vc",
+        "docsUrl": "https://neetcode.io/problems/linked-list-cycle-detection",
+        "summary": "Slow moves 1, fast moves 2; collision indicates cycle in O(1) space."
       },
       {
         "name": "Middle of the Linked List",
         "id": 876,
         "difficulty": "Easy",
         "file": "src/LinkedList/FindMiddleNode.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/A2_ldqM4QcY",
+        "docsUrl": "https://neetcode.io/problems/middle-of-the-linked-list",
+        "summary": "When fast pointer reaches list end, slow pointer rests precisely on the median node."
       },
       {
         "name": "Linked List Cycle II (Find Start)",
         "id": 142,
         "difficulty": "Medium",
         "file": "src/LinkedList/FindLoop.java",
-        "company": "Meta"
+        "company": "Meta",
+        "videoUrl": "https://youtu.be/wjYnzkAhcNk",
+        "docsUrl": "https://takeuforward.org/data-structure/find-the-starting-point-of-the-loop-in-a-linked-list/",
+        "summary": "After collision, reset one pointer to head and move both at speed 1 to find cycle entrance."
       },
       {
         "name": "Happy Number",
         "id": 202,
         "difficulty": "Easy",
         "file": "src/LinkedList/FindLoop.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/ljz85bxOYJ0",
+        "docsUrl": "https://neetcode.io/problems/non-cyclical-number",
+        "summary": "Treat sum of squared digits as next pointer; detect infinite loop with Floyd's cycle detection."
       }
     ],
     "cheatCode": "Cycle detection & list midpoints without extra memory ⇒ Slow moves 1x, Fast moves 2x",
@@ -420,7 +600,27 @@ const PATTERNS_DATA = [
       "time": "O(N) - Fast reaches null in N/2 steps if acyclic; closes gap within C steps if cyclic.",
       "space": "O(1) - Only two node references maintained."
     },
-    "starterTemplate": "public class Solution {\n    public boolean hasCycle(ListNode head) {\n        if (head == null || head.next == null) return false;\n        ListNode slow = head, fast = head;\n        while (fast != null && fast.next != null) {\n            // TODO: Advance slow 1x and fast 2x\n        }\n        return false;\n    }\n}"
+    "starterTemplate": "public class Solution {\n    public boolean hasCycle(ListNode head) {\n        if (head == null || head.next == null) return false;\n        ListNode slow = head, fast = head;\n        while (fast != null && fast.next != null) {\n            // TODO: Advance slow 1x and fast 2x\n        }\n        return false;\n    }\n}",
+    "video": {
+      "title": "NeetCode - Linked List Cycle Detection (LeetCode #141)",
+      "channel": "NeetCode",
+      "url": "https://youtu.be/gBTe7lFR3vc",
+      "embedId": "gBTe7lFR3vc",
+      "summary": "Floyd's Tortoise and Hare algorithm: slow pointer moves 1 node, fast pointer moves 2 nodes. Proves that if a cycle exists, the relative gap between them decreases by 1 on every step until collision, operating in O(1) auxiliary space."
+    },
+    "docs": [
+      {
+        "title": "NeetCode.io - Linked List Cycle Detection",
+        "url": "https://neetcode.io/problems/linked-list-cycle-detection",
+        "source": "NeetCode"
+      },
+      {
+        "title": "TakeUForward - Detect Cycle in Linked List",
+        "url": "https://takeuforward.org/data-structure/detect-a-cycle-in-a-linked-list/",
+        "source": "TakeUForward"
+      }
+    ],
+    "quickSummary": "Move slow pointer by 1 step and fast pointer by 2 steps. If fast or fast.next reaches null, the list is acyclic. If slow and fast point to the same node, a cycle exists. To find the midpoint of a list, when fast hits the end, slow is precisely at the median node."
   },
   {
     "id": "tree-traversal",
@@ -456,28 +656,40 @@ const PATTERNS_DATA = [
         "id": 226,
         "difficulty": "Easy",
         "file": "src/Trees/InvertBinaryTree.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/OnSn2XEQ4MY",
+        "docsUrl": "https://neetcode.io/problems/invert-a-binary-tree",
+        "summary": "Swap left and right children, then recursively invert subtrees."
       },
       {
         "name": "Diameter of Binary Tree",
         "id": 543,
         "difficulty": "Easy",
         "file": "src/Trees/DiameterOfBinaryTree.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/bkxqA8Rfv04",
+        "docsUrl": "https://neetcode.io/problems/binary-tree-diameter",
+        "summary": "Bottom-up DFS returns subtree height while updating global diameter = leftHeight + rightHeight."
       },
       {
         "name": "Validate Binary Search Tree",
         "id": 98,
         "difficulty": "Medium",
         "file": "src/Trees/ValidateBinarySearchTree.java",
-        "company": "Amazon"
+        "company": "Amazon",
+        "videoUrl": "https://youtu.be/s6ATEkipzow",
+        "docsUrl": "https://neetcode.io/problems/valid-binary-search-tree",
+        "summary": "Validate BST invariant by passing allowable range (minVal, maxVal) down the recursion."
       },
       {
         "name": "Lowest Common Ancestor",
         "id": 236,
         "difficulty": "Medium",
         "file": "src/Trees/LowestCommonAncestor.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/gs2LMfuOR9k",
+        "docsUrl": "https://neetcode.io/problems/lowest-common-ancestor-in-binary-search-tree",
+        "summary": "Bottom-up DFS: if both left and right return non-null, current node is the LCA."
       }
     ],
     "cheatCode": "Divide and conquer on subtrees ⇒ Process root, recurse left, recurse right",
@@ -495,7 +707,32 @@ const PATTERNS_DATA = [
       "time": "O(N) - Every node in the binary tree is visited exactly once.",
       "space": "O(H) - Call stack depth equals tree height H (O(log N) balanced, O(N) worst-case skewed)."
     },
-    "starterTemplate": "class Solution {\n    public TreeNode invertTree(TreeNode root) {\n        if (root == null) return null;\n        // TODO: Swap subtrees recursively\n        return root;\n    }\n}"
+    "starterTemplate": "class Solution {\n    public TreeNode invertTree(TreeNode root) {\n        if (root == null) return null;\n        // TODO: Swap subtrees recursively\n        return root;\n    }\n}",
+    "video": {
+      "title": "NeetCode - Invert Binary Tree (LeetCode #226)",
+      "channel": "NeetCode",
+      "url": "https://youtu.be/OnSn2XEQ4MY",
+      "embedId": "OnSn2XEQ4MY",
+      "summary": "Explains depth-first recursive subtree swapping: swap left and right child pointers at the current node, then recursively invert the left and right subtrees until base null is reached."
+    },
+    "docs": [
+      {
+        "title": "NeetCode.io - Invert Binary Tree",
+        "url": "https://neetcode.io/problems/invert-a-binary-tree",
+        "source": "NeetCode"
+      },
+      {
+        "title": "TakeUForward - Invert Binary Tree",
+        "url": "https://takeuforward.org/data-structure/invert-a-binary-tree/",
+        "source": "TakeUForward"
+      },
+      {
+        "title": "GeeksforGeeks - Binary Tree Traversals",
+        "url": "https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/",
+        "source": "GeeksforGeeks"
+      }
+    ],
+    "quickSummary": "Traverse tree nodes recursively (pre-order, in-order, or post-order). Base case: if root is null, return null. Swap child pointers, recurse left, recurse right, and bubble subtree solutions up to the caller."
   },
   {
     "id": "grid-bfs",
@@ -531,21 +768,30 @@ const PATTERNS_DATA = [
         "id": 994,
         "difficulty": "Medium",
         "file": "src/Graphs/RottingOranges.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/y704cgRxPQA",
+        "docsUrl": "https://neetcode.io/problems/rotting-fruit",
+        "summary": "Enqueue all initial rotten oranges; expand 4-directionally level by level until no fresh remain."
       },
       {
         "name": "Number of Islands",
         "id": 200,
         "difficulty": "Medium",
         "file": "src/Graphs/NumberOfIslands.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/pV2kpPD66nE",
+        "docsUrl": "https://neetcode.io/problems/count-number-of-islands",
+        "summary": "Iterate grid; finding '1' increments island count and triggers BFS/DFS sinking connected land."
       },
       {
         "name": "Course Schedule",
         "id": 207,
         "difficulty": "Medium",
         "file": "src/Graphs/CourseSchedule.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/EgI5nU9etnU",
+        "docsUrl": "https://neetcode.io/problems/course-schedule",
+        "summary": "Directed graph cycle detection using Kahn's BFS with in-degree array."
       }
     ],
     "cheatCode": "Simultaneous shortest path & infection waves ⇒ Seed all sources at t=0, expand in batches",
@@ -563,7 +809,32 @@ const PATTERNS_DATA = [
       "time": "O(R · C) - Each grid cell is added and removed from the queue at most once.",
       "space": "O(R · C) - Maximum queue size bounded by perimeter/area of the grid."
     },
-    "starterTemplate": "class Solution {\n    public int orangesRotting(int[][] grid) {\n        // TODO: Enqueue all rotten cells at t=0, track freshCount, expand 4-directionally\n        return -1;\n    }\n}"
+    "starterTemplate": "class Solution {\n    public int orangesRotting(int[][] grid) {\n        // TODO: Enqueue all rotten cells at t=0, track freshCount, expand 4-directionally\n        return -1;\n    }\n}",
+    "video": {
+      "title": "NeetCode - Rotting Oranges (LeetCode #994)",
+      "channel": "NeetCode",
+      "url": "https://youtu.be/y704cgRxPQA",
+      "embedId": "y704cgRxPQA",
+      "summary": "Multi-source BFS using a queue. All initially rotten oranges are added at minute 0. The queue expands outward simultaneously in 4 directions, rotting adjacent fresh oranges minute-by-minute until all reachable oranges are processed."
+    },
+    "docs": [
+      {
+        "title": "NeetCode.io - Rotting Fruit",
+        "url": "https://neetcode.io/problems/rotting-fruit",
+        "source": "NeetCode"
+      },
+      {
+        "title": "TakeUForward - Rotting Oranges Multi-source BFS",
+        "url": "https://takeuforward.org/data-structure/rotting-oranges-min-time-to-rot-all-oranges-bfs/",
+        "source": "TakeUForward"
+      },
+      {
+        "title": "LeetCode Editorial - Rotting Oranges",
+        "url": "https://leetcode.com/problems/rotting-oranges/editorial/",
+        "source": "LeetCode"
+      }
+    ],
+    "quickSummary": "Seed a queue with all starting nodes (e.g. all rotten oranges). Process queue level-by-level using queue.size(). For each node, inspect 4-directional cardinal neighbors; mutate state and enqueue valid neighbors. Guarantees shortest time / path in uniform grids."
   },
   {
     "id": "topological-sort",
@@ -599,21 +870,30 @@ const PATTERNS_DATA = [
         "id": 207,
         "difficulty": "Medium",
         "file": "src/Graphs/CourseSchedule.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/EgI5nU9etnU",
+        "docsUrl": "https://neetcode.io/problems/course-schedule",
+        "summary": "Kahn's BFS in-degrees; cycle detected if visited vertex count < total vertices."
       },
       {
         "name": "Course Schedule II (Return Order)",
         "id": 210,
         "difficulty": "Medium",
         "file": "src/Graphs/CourseSchedule.java",
-        "company": "Amazon"
+        "company": "Amazon",
+        "videoUrl": "https://youtu.be/Akt3glAwyfY",
+        "docsUrl": "https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/",
+        "summary": "Return array of topological order from Kahn's BFS, or empty array if cycle detected."
       },
       {
         "name": "Alien Dictionary",
         "id": 269,
         "difficulty": "Hard",
         "file": "src/Arrays/AlienDictionary.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/6kTZYvNNyps",
+        "docsUrl": "https://neetcode.io/problems/foreign-dictionary",
+        "summary": "Build directed graph from adjacent dictionary words; run topological sort for alphabet order."
       }
     ],
     "cheatCode": "Prerequisites & build dependencies ⇒ In-degree array + Queue of 0-prerequisite nodes",
@@ -631,7 +911,32 @@ const PATTERNS_DATA = [
       "time": "O(V + E) - Visits each course vertex and decrements each prerequisite edge once.",
       "space": "O(V + E) - Stores adjacency graph, in-degree counts, and BFS worklist queue."
     },
-    "starterTemplate": "class Solution {\n    public boolean canFinish(int numCourses, int[][] prerequisites) {\n        // TODO: Build graph, inDegree array, queue 0-inDegree roots, verify count\n        return true;\n    }\n}"
+    "starterTemplate": "class Solution {\n    public boolean canFinish(int numCourses, int[][] prerequisites) {\n        // TODO: Build graph, inDegree array, queue 0-inDegree roots, verify count\n        return true;\n    }\n}",
+    "video": {
+      "title": "NeetCode - Course Schedule (LeetCode #207)",
+      "channel": "NeetCode",
+      "url": "https://youtu.be/EgI5nU9etnU",
+      "embedId": "EgI5nU9etnU",
+      "summary": "Kahn's algorithm for topological sorting: compute in-degrees for all vertices. Enqueue nodes with in-degree 0. As each course is completed, decrement prerequisite counts for dependent neighbors. If processed courses count equals total vertices, no cycle exists."
+    },
+    "docs": [
+      {
+        "title": "NeetCode.io - Course Schedule",
+        "url": "https://neetcode.io/problems/course-schedule",
+        "source": "NeetCode"
+      },
+      {
+        "title": "TakeUForward - Topological Sort (Kahn's Algorithm)",
+        "url": "https://takeuforward.org/data-structure/topological-sort-bfs/",
+        "source": "TakeUForward"
+      },
+      {
+        "title": "CP-Algorithms - Topological Sorting",
+        "url": "https://cp-algorithms.com/graph/topological-sort.html",
+        "source": "CP-Algorithms"
+      }
+    ],
+    "quickSummary": "Calculate the in-degree (number of incoming dependency edges) for every vertex. Enqueue all 0-in-degree nodes. Repeatedly pop a node, append to topological order, and decrement neighbor in-degrees. If neighbor hits 0, enqueue it. If output length < V, graph has a cycle."
   },
   {
     "id": "merge-intervals",
@@ -671,21 +976,30 @@ const PATTERNS_DATA = [
         "id": 56,
         "difficulty": "Medium",
         "file": "src/Arrays/MergeIntervals.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/44H3cEC2fFM",
+        "docsUrl": "https://neetcode.io/problems/merge-intervals",
+        "summary": "Sort by start times; merge when current interval start <= previous interval end."
       },
       {
         "name": "Meeting Rooms",
         "id": 252,
         "difficulty": "Easy",
         "file": "src/Arrays/MeetingRooms.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/PaJxqZVPhbg",
+        "docsUrl": "https://neetcode.io/problems/meeting-schedule",
+        "summary": "Sort by start; return false if any adjacent intervals overlap (intervals[i][0] < intervals[i-1][1])."
       },
       {
         "name": "Insert Interval",
         "id": 57,
         "difficulty": "Medium",
         "file": "src/Arrays/InsertInterval.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/A8NUOmlwOlM",
+        "docsUrl": "https://neetcode.io/problems/insert-new-interval",
+        "summary": "Add all intervals ending before newInterval starts; merge overlapping ones; append remaining."
       }
     ],
     "cheatCode": "Overlapping spans ⇒ Sort by start time, then greedy single-pass boundary union",
@@ -703,7 +1017,32 @@ const PATTERNS_DATA = [
       "time": "O(N log N) - Dominated by initial start-time sorting. Merge scan runs in O(N).",
       "space": "O(N) - Storage for merged intervals list."
     },
-    "starterTemplate": "class Solution {\n    public int[][] merge(int[][] intervals) {\n        // TODO: Sort by start time, merge overlaps with Math.max\n        return new int[0][];\n    }\n}"
+    "starterTemplate": "class Solution {\n    public int[][] merge(int[][] intervals) {\n        // TODO: Sort by start time, merge overlaps with Math.max\n        return new int[0][];\n    }\n}",
+    "video": {
+      "title": "NeetCode - Merge Intervals (LeetCode #56)",
+      "channel": "NeetCode",
+      "url": "https://youtu.be/44H3cEC2fFM",
+      "embedId": "44H3cEC2fFM",
+      "summary": "Sort intervals primarily by start time. Iterate through sorted intervals: if the current start time is <= the end time of the previous interval, merge them by extending the previous interval end to max(prev.end, curr.end); otherwise create a new interval."
+    },
+    "docs": [
+      {
+        "title": "NeetCode.io - Merge Intervals",
+        "url": "https://neetcode.io/problems/merge-intervals",
+        "source": "NeetCode"
+      },
+      {
+        "title": "TakeUForward - Merge Overlapping Sub-intervals",
+        "url": "https://takeuforward.org/data-structure/merge-overlapping-sub-intervals/",
+        "source": "TakeUForward"
+      },
+      {
+        "title": "GeeksforGeeks - Merge Overlapping Intervals",
+        "url": "https://www.geeksforgeeks.org/merging-intervals/",
+        "source": "GeeksforGeeks"
+      }
+    ],
+    "quickSummary": "Sort intervals by start time. Initialize result list with first interval. For each subsequent interval: if curr[0] <= prev[1], overlap occurs: update prev[1] = Math.max(prev[1], curr[1]). If no overlap, add curr interval to result list."
   },
   {
     "id": "top-k-heap",
@@ -743,21 +1082,30 @@ const PATTERNS_DATA = [
         "id": 347,
         "difficulty": "Medium",
         "file": "src/Arrays/TopKFrequentElements.java",
-        "company": "Amazon"
+        "company": "Amazon",
+        "videoUrl": "https://youtu.be/YPTqKIgVk-k",
+        "docsUrl": "https://neetcode.io/problems/top-k-elements-in-list",
+        "summary": "Frequency hash map with bucket sort where index = frequency yields O(N) time."
       },
       {
         "name": "Kth Largest Element in an Array",
         "id": 215,
         "difficulty": "Medium",
         "file": "src/Arrays/TopKFrequentElements.java",
-        "company": "Meta"
+        "company": "Meta",
+        "videoUrl": "https://youtu.be/XEmy13g1Qxc",
+        "docsUrl": "https://neetcode.io/problems/kth-largest-element-in-an-array",
+        "summary": "Min-Heap of size K retains top elements; peek() yields Kth largest in O(N log K)."
       },
       {
         "name": "Find Median from Data Stream",
         "id": 295,
         "difficulty": "Hard",
         "file": "src/Arrays/TopKFrequentElements.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/itmhHWaHupI",
+        "docsUrl": "https://neetcode.io/problems/find-median-in-a-data-stream",
+        "summary": "Two heaps (Max-Heap for lower half, Min-Heap for upper half) maintain median in O(1) peek."
       }
     ],
     "cheatCode": "Top K frequent / Kth largest ⇒ Min-Heap of size K evicts smallest in O(N log K)",
@@ -775,7 +1123,32 @@ const PATTERNS_DATA = [
       "time": "O(N log K) - PriorityQueue capped at size K requires log K per insertion/eviction.",
       "space": "O(N + K) - Frequency HashMap takes O(N), Min-Heap takes O(K)."
     },
-    "starterTemplate": "class Solution {\n    public int[] topKFrequent(int[] nums, int k) {\n        // TODO: Compute frequency map, maintain Min-Heap of capacity K\n        return new int[k];\n    }\n}"
+    "starterTemplate": "class Solution {\n    public int[] topKFrequent(int[] nums, int k) {\n        // TODO: Compute frequency map, maintain Min-Heap of capacity K\n        return new int[k];\n    }\n}",
+    "video": {
+      "title": "NeetCode - Top K Frequent Elements (LeetCode #347)",
+      "channel": "NeetCode",
+      "url": "https://youtu.be/YPTqKIgVk-k",
+      "embedId": "YPTqKIgVk-k",
+      "summary": "Contrasts O(N log K) min-heap with O(N) bucket sort. Frequency count is stored in map. An array of buckets where index represents frequency allows collecting the top K elements in a single reverse sweep."
+    },
+    "docs": [
+      {
+        "title": "NeetCode.io - Top K Elements in List",
+        "url": "https://neetcode.io/problems/top-k-elements-in-list",
+        "source": "NeetCode"
+      },
+      {
+        "title": "TakeUForward - Top K Frequent Elements",
+        "url": "https://takeuforward.org/arrays/top-k-frequent-elements/",
+        "source": "TakeUForward"
+      },
+      {
+        "title": "Abdul Bari - Heap Data Structure",
+        "url": "https://youtu.be/HqPJF2L5h9U",
+        "source": "Abdul Bari"
+      }
+    ],
+    "quickSummary": "Count occurrences in a hash map. For O(N) optimal time, create N+1 frequency buckets and append values into bucket[count]. Scan buckets backwards from N down to 0, accumulating values until K items are gathered."
   },
   {
     "id": "dynamic-programming",
@@ -815,21 +1188,30 @@ const PATTERNS_DATA = [
         "id": 322,
         "difficulty": "Medium",
         "file": "src/DP/CoinChange.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/H9bfqozJoqs",
+        "docsUrl": "https://neetcode.io/problems/coin-change",
+        "summary": "Bottom-up 1D DP: dp[a] = min(dp[a], 1 + dp[a - coin]) for each coin."
       },
       {
         "name": "Climbing Stairs",
         "id": 70,
         "difficulty": "Easy",
         "file": "src/DP/ClimbingStairs.java",
-        "company": "Amazon"
+        "company": "Amazon",
+        "videoUrl": "https://youtu.be/Y0lT9Fck7qI",
+        "docsUrl": "https://neetcode.io/problems/climbing-stairs",
+        "summary": "Fibonacci recurrence dp[i] = dp[i-1] + dp[i-2] solved with two variables in O(1) space."
       },
       {
         "name": "Longest Increasing Subsequence",
         "id": 300,
         "difficulty": "Medium",
         "file": "src/DP/LIS.java",
-        "company": "Google"
+        "company": "Google",
+        "videoUrl": "https://youtu.be/cjWnW0hdF1Y",
+        "docsUrl": "https://neetcode.io/problems/longest-increasing-subsequence",
+        "summary": "Patience sorting / binary search maintains tails array in O(N log N) time."
       }
     ],
     "cheatCode": "Optimal substructure & fewest choices to reach target ⇒ dp[i] = min(dp[i], 1 + dp[i - c])",
@@ -847,7 +1229,32 @@ const PATTERNS_DATA = [
       "time": "O(amount · |coins|) - Evaluates each subproblem amount against each coin choice.",
       "space": "O(amount) - 1D tabulation array from 0 to amount."
     },
-    "starterTemplate": "class Solution {\n    public int coinChange(int[] coins, int amount) {\n        // TODO: Initialize dp[0..amount] to amount + 1, dp[0] = 0, compose bottom-up\n        return -1;\n    }\n}"
+    "starterTemplate": "class Solution {\n    public int coinChange(int[] coins, int amount) {\n        // TODO: Initialize dp[0..amount] to amount + 1, dp[0] = 0, compose bottom-up\n        return -1;\n    }\n}",
+    "video": {
+      "title": "NeetCode - Coin Change (LeetCode #322)",
+      "channel": "NeetCode",
+      "url": "https://youtu.be/H9bfqozJoqs",
+      "embedId": "H9bfqozJoqs",
+      "summary": "Bottom-up tabulation: initialize dp array of size amount + 1 with amount + 1. Set dp[0] = 0. For each coin and each target amount from coin to total, update dp[a] = min(dp[a], 1 + dp[a - coin])."
+    },
+    "docs": [
+      {
+        "title": "NeetCode.io - Coin Change",
+        "url": "https://neetcode.io/problems/coin-change",
+        "source": "NeetCode"
+      },
+      {
+        "title": "TakeUForward - Coin Change 2 DP",
+        "url": "https://takeuforward.org/data-structure/coin-change-2-dp-22/",
+        "source": "TakeUForward"
+      },
+      {
+        "title": "Abdul Bari - Dynamic Programming Principles",
+        "url": "https://youtu.be/oBt53YbR9Kk",
+        "source": "Abdul Bari"
+      }
+    ],
+    "quickSummary": "Bottom-up array dp[0..amount] where dp[i] represents min coins to make amount i. Initialize entries to sentinel (amount + 1), with dp[0] = 0. For each subproblem amount i from 1 to target and each coin c <= i: dp[i] = min(dp[i], 1 + dp[i - c]). Return dp[amount] > amount ? -1 : dp[amount]."
   }
 ];
 

@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `Arrays / HashSet`  
 > **Source**: [LeetCode #217 - Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)  
+> **Video Explanation**: [NeetCode - Contains Duplicate](https://youtu.be/3OamzN90kPg)  
+> **Documentation / Read Link**: [NeetCode.io - Contains Duplicate](https://neetcode.io/problems/duplicate-integer) · [TakeUForward - Contains Duplicate](https://takeuforward.org/data-structure/contains-duplicate-in-array/)  
 > **Target Complexity**: Time `O(N)` | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Iterate through the array and insert each element into a hash set. Since sets store unique elements, if `set.add(num)` returns false (or `set.contains(num)` is true), a duplicate exists, allowing an immediate early exit in $O(N)$ time and $O(N)$ space.
+
+### 1.2 Description
 Given an integer array `nums`, return `true` if any value appears at least twice in the array, and return `false` if every element is distinct.
 
 ### 1.2 Method Signature

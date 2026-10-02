@@ -4,13 +4,18 @@
 > **Difficulty**: `🟡 Medium`  
 > **Category**: `Arrays / Strings / HashMap`  
 > **Source**: [LeetCode #49 - Group Anagrams](https://leetcode.com/problems/group-anagrams/)  
+> **Video Explanation**: [NeetCode - Group Anagrams](https://youtu.be/vzdNOK2oDA4)  
+> **Documentation / Read Link**: [NeetCode.io - Group Anagrams](https://neetcode.io/problems/anagram-groups) · [TakeUForward - Group Anagrams](https://takeuforward.org/data-structure/group-anagrams/)  
 > **Target Complexity**: Time `O(N \cdot K \log K)` | Space `O(N \cdot K)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Anagrams share the exact same sorted character representation (or character count frequency vector). Use this canonical key as the entry in a hash map `Map<String, List<String>>`. For each word, sort its characters (or build its count tuple), look up the bucket, and append the word. Returning `new ArrayList<>(map.values())` groups all anagrams.
+
+### 1.2 Description
 Given an array of strings `strs`, group the anagrams together. You can return the answer in any order.
 
 ### 1.2 Method Signature

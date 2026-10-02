@@ -4,13 +4,18 @@
 > **Difficulty**: `🟡 Medium`  
 > **Category**: `Stacks_Queues / String / Stack`  
 > **Source**: [LeetCode #2390 - Removing Stars From a String](https://leetcode.com/problems/removing-stars-from-a-string/)  
+> **Video Explanation**: [NeetCode - Removing Stars From a String](https://youtu.be/pRyFUtlh4pY)  
+> **Documentation / Read Link**: [LeetCode Editorial](https://leetcode.com/problems/removing-stars-from-a-string/editorial/)  
 > **Target Complexity**: Time `O(N)` | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Iterate through the string maintaining a character stack (or `StringBuilder` / pointer). Append each regular character. Whenever an asterisk `*` is encountered, pop the most recently added non-star character from the stack. Convert remaining stack characters into the result string.
+
+### 1.2 Description
 You are given a string `s`, which contains stars `*`. In one operation, you can choose a star and remove the closest non-star character to its left, as well as the star itself. Return the string after all stars have been removed.
 
 ### 1.2 Method Signature

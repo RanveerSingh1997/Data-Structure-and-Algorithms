@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `LinkedList / Floyd's Cycle Detection`  
 > **Source**: [LeetCode #141 - Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)  
+> **Video Explanation**: [NeetCode - Linked List Cycle](https://youtu.be/gBTe7lFR3vc)  
+> **Documentation / Read Link**: [NeetCode.io - Linked List Cycle Detection](https://neetcode.io/problems/linked-list-cycle-detection) · [TakeUForward - Detect a Cycle in Linked List](https://takeuforward.org/data-structure/detect-a-cycle-in-a-linked-list/)  
 > **Target Complexity**: Time `O(N)` | Space `O(1)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Floyd's Cycle Detection algorithm (Tortoise and Hare): advance a `slow` pointer by 1 node and a `fast` pointer by 2 nodes. If a cycle exists, the distance between the two pointers decreases by 1 step every loop iteration until they inevitably collide (`slow == fast`). If no cycle exists, `fast` or `fast.next` hits null.
+
+### 1.2 Description
 Given `head`, the head of a linked list, determine if the linked list has a cycle in it.
 Return `true` if there is some cycle in the linked list; otherwise return `false`.
 

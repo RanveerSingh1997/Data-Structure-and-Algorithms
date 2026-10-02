@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `Heap / Max-Heap`  
 > **Source**: [LeetCode #2558 - Take Gifts From the Richest Pile](https://leetcode.com/problems/take-gifts-from-the-richest-pile/)  
+> **Video Explanation**: [LeetCode Walkthrough - Take Gifts From Richest Pile](https://youtu.be/jJ7v5X6n890)  
+> **Documentation / Read Link**: [LeetCode Editorial](https://leetcode.com/problems/take-gifts-from-the-richest-pile/editorial/)  
 > **Target Complexity**: Time `O(N + K \log N)` | Space `O(N)`  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Heapify all gift pile sizes into a Max-Heap in $O(N)$ time. For $k$ operations: poll the maximum pile $p$, compute the square root $\lfloor\sqrt{p}\rfloor$, and insert the reduced pile back into the heap. Finally, iterate through all remaining piles in the heap and return their sum using a 64-bit integer (`long`).
+
+### 1.2 Description
 You are given an integer array `gifts` denoting the number of gifts in various piles. Every second, you:
 1. Choose the pile with the maximum number of gifts.
 2. If there is more than one pile with the maximum gifts, choose any.

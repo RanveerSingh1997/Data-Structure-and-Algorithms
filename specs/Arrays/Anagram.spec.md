@@ -4,13 +4,18 @@
 > **Difficulty**: `🟢 Easy`  
 > **Category**: `Arrays / Strings / Frequency Map`  
 > **Source**: [LeetCode #242 - Valid Anagram](https://leetcode.com/problems/valid-anagram/)  
+> **Video Explanation**: [NeetCode - Valid Anagram](https://youtu.be/9UtInBqnCgA)  
+> **Documentation / Read Link**: [NeetCode.io - Valid Anagram](https://neetcode.io/problems/is-anagram) · [TakeUForward - Check if two strings are anagrams](https://takeuforward.org/data-structure/check-if-two-strings-are-anagrams-of-each-other/)  
 > **Target Complexity**: Time `O(N)` | Space `O(1)` (Fixed alphabet size 26)  
 
 ---
 
 ## 1. Problem Formulation & API Contract
 
-### 1.1 Description
+### 1.1 Core Summary (Read Without Navigating)
+Two strings are anagrams if and only if they possess identical character frequencies. If lengths differ, immediately return false. Otherwise, track character deltas in a fixed 26-size integer array: increment for chars in `str1` and decrement for chars in `str2`. If all entries remain 0, return true.
+
+### 1.2 Description
 Given two strings `str1` and `str2`, return `true` if `str2` is an anagram of `str1`, and `false` otherwise.
 An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 

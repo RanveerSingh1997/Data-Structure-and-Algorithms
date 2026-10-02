@@ -235,7 +235,26 @@ class DSAStudioApp {
     this.renderPatternTabs();
     this.renderReferenceGrid();
     this.initWizard();
-    this.loadPattern(this.currentPatternId);
+
+    // Support URL search params (?pattern=... & ?tab=video) and localStorage deep-linking
+    let initialPattern = this.currentPatternId;
+    let initialTab = null;
+    try {
+      if (typeof window !== "undefined" && window.location) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const reqPattern = urlParams.get("pattern");
+        if (reqPattern && this.patterns.some(p => p.id === reqPattern)) {
+          initialPattern = reqPattern;
+        }
+        initialTab = urlParams.get("tab") || localStorage.getItem("dsa_initial_tab");
+        localStorage.removeItem("dsa_initial_tab");
+      }
+    } catch (_) {}
+
+    this.loadPattern(initialPattern);
+    if (initialTab && ["code", "dryrun", "playbook", "complexity", "video"].includes(initialTab)) {
+      this.switchTab(initialTab);
+    }
   }
 
   initDOM() {

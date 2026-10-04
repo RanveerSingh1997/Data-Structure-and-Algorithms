@@ -124,3 +124,12 @@ Practice each question by implementing the `// TODO` in the template file. Run e
 | **Queue** | Custom Container | [TakeUForward](https://youtu.be/M6GnoUVauG0) | [GFG Queue](https://www.geeksforgeeks.org/queue-data-structure/) | FIFO container with head and tail pointers supporting $O(1)$ enqueue and dequeue operations without array shifts. | [`Queue.java`](src/Utils/Queue.java) |
 | **TreeVisualizer** | Utility | - | [ASCII Tree Reference](https://en.wikipedia.org/wiki/Binary_tree) | LeetCode tree string parser `[1,2,3,null,4]` with automatic 2D ASCII level-by-level visualization for debugging. | [`TreeVisualizer.java`](src/Utils/Visualise/TreeVisualizer.java) |
 | **Benchmark** | Utility | - | [JVM Profiling Guide](https://www.oracle.com/technical-resources/articles/java/architect-benchmarking.html) | Precise nanosecond execution timer, operations/sec throughput calculator, and heap memory delta profiler. | [`Benchmark.java`](src/Utils/Benchmark.java) |
+
+---
+
+## 🏛️ System & Studio Architecture (Clean Architecture)
+
+| System Component | Focus / Pattern | 📺 Video Tutorial | 📖 Documentation | 💡 Quick Summary & Invariant | Spec & Source Code |
+|:---|:---|:---|:---|:---|:---|
+| **VisualizerStudio** | Clean Architecture / Inversion of Control | [RisingBrain](https://youtu.be/dgjKO46bu3A) | [Clean Architecture (Robert C. Martin)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) · [Visualizer Guide](visualizer/ARCHITECTURE.md) | Discrete frame simulation engine engineered under Clean Architecture. Decouples pure domain generators from playback use cases, audio/storage ports, and browser DOM rendering. Guarantees deterministic $O(1)$ time-travel scrubbing. | [Spec](specs/Visualizer/VisualizerStudio.spec.md) · [`VisualizerStudio.java`](src/Visualizer/VisualizerStudio.java) · [Studio Web UI](visualizer/index.html) |
+

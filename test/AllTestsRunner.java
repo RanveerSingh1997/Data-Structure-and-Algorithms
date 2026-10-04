@@ -19,6 +19,7 @@ import Sorting_Searching.MinEatingSpeed;
 import Heap.LastStoneWeight;
 import Templates.DSU;
 import Templates.Trie;
+import Visualizer.VisualizerStudio;
 
 import java.util.Arrays;
 
@@ -51,6 +52,7 @@ public class AllTestsRunner {
         testTrie();
         testDSU();
         testTrappingRainWater();
+        testVisualizerStudio();
 
         System.out.println("\n==========================================");
         System.out.printf("Results: %d PASSED, %d FAILED%n", testsPassed, testsFailed);
@@ -308,5 +310,49 @@ public class AllTestsRunner {
         assertEquals(0, TrappingRainWater.trapOpti(new int[]{1, 2}), "Two elements equals 0");
         assertEquals(0, TrappingRainWater.trapOpti(new int[]{1, 2, 3, 4, 5}), "Increasing array equals 0");
         assertEquals(3, TrappingRainWater.trapOpti(new int[]{3, 0, 3}), "Single valley equals 3");
+    }
+
+    private static void testVisualizerStudio() {
+        System.out.println("\nTesting VisualizerStudio (Clean Architecture SPEC-052):");
+        VisualizerStudio.AudioPort audio = new VisualizerStudio.SilentAudioAdapter();
+        VisualizerStudio.PlaybackController controller = new VisualizerStudio.PlaybackController(audio);
+
+        java.util.List<VisualizerStudio.SimulationStep> tape = new java.util.ArrayList<>();
+        tape.add(new VisualizerStudio.SimulationStep(0, "init", "Init", "Init step", 1, java.util.Map.of("k", 0), false));
+        tape.add(new VisualizerStudio.SimulationStep(1, "eval", "Eval", "Eval step", 3, java.util.Map.of("k", 10), false));
+        tape.add(new VisualizerStudio.SimulationStep(2, "done", "Done", "Done step", 5, java.util.Map.of("k", 20), true));
+
+        controller.loadSteps(tape);
+        assertEquals(3, controller.getTotalSteps(), "VisualizerStudio total steps is 3");
+        assertEquals(0, controller.getCurrentIndex(), "VisualizerStudio initial step is 0");
+
+        controller.stepForward();
+        assertEquals(1, controller.getCurrentIndex(), "VisualizerStudio step forward to index 1");
+
+        controller.seek(2);
+        assertEquals(2, controller.getCurrentIndex(), "VisualizerStudio seek to index 2");
+        assertEquals(20, controller.getCurrentStep().telemetry().get("k"), "VisualizerStudio step 2 telemetry verified");
+
+        controller.stepBackward();
+        assertEquals(1, controller.getCurrentIndex(), "VisualizerStudio step backward to index 1");
+
+        controller.seek(-10);
+        assertEquals(0, controller.getCurrentIndex(), "VisualizerStudio lower bound clamp to 0");
+
+        controller.seek(50);
+        assertEquals(2, controller.getCurrentIndex(), "VisualizerStudio upper bound clamp to 2");
+
+        VisualizerStudio.ChallengeEvaluator challengeEvaluator = new VisualizerStudio.ChallengeEvaluator(audio);
+        assertTrue(challengeEvaluator.submitAnswer(1, 0, 0), "Challenge evaluator correct answer");
+        assertFalse(challengeEvaluator.submitAnswer(1, 1, 0), "Challenge evaluator incorrect answer");
+        assertEquals(1, challengeEvaluator.getScore(), "Challenge evaluator score is 1");
+
+        VisualizerStudio.DiagnosticWizardEngine wizard = new VisualizerStudio.DiagnosticWizardEngine();
+        assertEquals("sliding-window", wizard.diagnose("array", "subarray-sum-k"), "Wizard diagnoses sliding-window for subarray-sum-k");
+        assertEquals("two-pointers", wizard.diagnose("unknown", "none"), "Wizard fallback to two-pointers");
+
+        VisualizerStudio.MarkdownTraceExporter exporter = new VisualizerStudio.MarkdownTraceExporter();
+        String md = exporter.exportMarkdownTable(tape);
+        assertTrue(md.contains("| Step | Title | Active Line |"), "Markdown trace table header present");
     }
 }

@@ -1,5 +1,7 @@
 package Strings;
 
+import java.util.HashSet;
+
 /**
  * ============================================================================
  * Problem: Longest Substring Without Repeating Characters
@@ -49,8 +51,8 @@ package Strings;
  * - Make sure `left` never moves backwards: `left = Math.max(left, lastSeenIndex + 1)`.
  */
 public class LongestSubstringWithoutRepeating {
+    public static void main(String[] args) {
 
-    static void main(String[] args) {
         LongestSubstringWithoutRepeating solver = new LongestSubstringWithoutRepeating();
 
         System.out.println("=== Testing: LeetCode 3 - Longest Substring Without Repeating Characters ===");
@@ -111,7 +113,21 @@ public class LongestSubstringWithoutRepeating {
      * @return length of longest non-repeating substring
      */
     public int lengthOfLongestSubstring(String s) {
+        int left = 0;
+        int n = s.length();
+        int maxLength = 0;
+        char[] characterList = s.toCharArray();
+        HashSet<Character> charactersSet = new HashSet<>();
+        for (int right = 0; right < n; right++) {
+            while (charactersSet.contains(characterList[right])) {
+                charactersSet.remove(characterList[left]);
+                left++;
+            }
+            charactersSet.add(characterList[right]);
+            int length = right - left + 1;
+            maxLength = Math.max(maxLength, length);
+        }
         // TODO: Implement your solution here
-        return 0;
+        return maxLength;
     }
 }

@@ -127,7 +127,6 @@ public class LongestSubstringWithoutRepeating {
             int length = right - left + 1;
             maxLength = Math.max(maxLength, length);
         }
-        // TODO: Implement your solution here
         return maxLength;
     }
 }
